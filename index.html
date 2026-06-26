@@ -63,7 +63,7 @@
             padding-bottom: 8px;
         }
 
-        /* Griglia delle materie */
+        /* Griglia delle materie adattiva */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -83,6 +83,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            min-height: 250px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
@@ -93,7 +94,7 @@
         }
 
         .card h3 {
-            margin: 0 0 10px 0;
+            margin: 0 0 12px 0;
             font-size: 1.3rem;
             color: var(--navy);
             display: flex;
@@ -105,28 +106,25 @@
             margin: 0 0 20px 0;
             font-size: 0.92rem;
             color: var(--ink-soft);
-            flex-grow: 1;
+            line-height: 1.45;
         }
 
-        .card .btn-enter {
-            display: inline-block;
-            align-self: flex-start;
-            color: var(--accent);
+        /* Bottone d'ingresso */
+        .btn-enter {
+            display: block;
+            text-align: center;
+            background-color: var(--navy);
+            color: #ffffff !important;
             font-weight: bold;
             font-size: 0.88rem;
+            padding: 10px 16px;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+            margin-top: auto;
         }
 
         .card:hover .btn-enter {
-            color: var(--accent-dark);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--ink-soft);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--card-border);
-            margin-top: 60px;
+            background-color: var(--accent);
         }
     </style>
 </head>
@@ -141,6 +139,7 @@
         <h2 class="section-title">Materie e Dispense disponibili</h2>
         
         <div class="grid">
+            <!-- Informatica -->
             <a href="dispensa.html" class="card">
                 <div>
                     <h3><span>▦</span> Informatica</h3>
@@ -149,6 +148,7 @@
                 <span class="btn-enter">Apri modulo &rarr;</span>
             </a>
 
+            <!-- Sociologia -->
             <a href="sociologia.html" class="card">
                 <div>
                     <h3><span>👥</span> Sociologia</h3>
@@ -157,6 +157,7 @@
                 <span class="btn-enter">Apri modulo &rarr;</span>
             </a>
 
+            <!-- Psicologia -->
             <a href="psicologia.html" class="card">
                 <div>
                     <h3><span>🧠</span> Psicologia</h3>
@@ -165,10 +166,20 @@
                 <span class="btn-enter">Apri modulo &rarr;</span>
             </a>
 
+            <!-- Riforma -->
             <a href="riforma.html" class="card">
                 <div>
                     <h3><span>📜</span> Riforma</h3>
                     <p>Analisi delle riforme della Pubblica Amministrazione, normative recenti e organizzazione dello Stato.</p>
+                </div>
+                <span class="btn-enter">Apri modulo &rarr;</span>
+            </a>
+
+            <!-- Legislazione (Nuova scheda) -->
+            <a href="legislazione.html" class="card">
+                <div>
+                    <h3><span>⚖</span> Legislazione</h3>
+                    <p>Quadro normativo, leggi speciali, disposizioni istituzionali e simulazioni di quesiti giuridici.</p>
                 </div>
                 <span class="btn-enter">Apri modulo &rarr;</span>
             </a>
