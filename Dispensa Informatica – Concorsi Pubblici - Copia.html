@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<!-- saved from url=(0124)file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html -->
+<html lang="it"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dispensa Informatica – Concorsi Pubblici</title>
+<style>
+  :root{
+    --navy:#172638;
+    --navy-light:#22364f;
+    --navy-border:#2c4262;
+    --ink:#1d2a3a;
+    --ink-soft:#445166;
+    --paper:#f4f5f7;
+    --card:#ffffff;
+    --card-border:#e2e5ea;
+    --accent:#3a6ea5;
+    --accent-dark:#2c557f;
+    --gold:#d8b34a;
+    --gold-ink:#3a2c08;
+    --mono:"Consolas","SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+  }
+  .layout{
+    display:flex;
+    min-height:100vh;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar{
+    width:280px;
+    flex-shrink:0;
+    background:var(--navy);
+    color:#cfd8e3;
+    display:flex;
+    flex-direction:column;
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow-y:auto;
+  }
+  .sidebar-header{
+    padding:28px 24px 20px;
+    border-bottom:1px solid var(--navy-border);
+  }
+  .sidebar-header h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:1.45rem;
+    line-height:1.2;
+    margin:0 0 12px 0;
+    color:#ffffff;
+    font-weight:700;
+    letter-spacing:.2px;
+  }
+  .version-pill{
+    display:inline-block;
+    background:linear-gradient(135deg,var(--gold),#f0d98a);
+    color:var(--gold-ink);
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    padding:3px 11px;
+    border-radius:999px;
+    text-transform:uppercase;
+  }
+  .sidebar-sub{
+    margin:10px 0 0 0;
+    font-size:.78rem;
+    color:#8da1ba;
+  }
+  nav.toc{
+    flex:1;
+    padding:14px 12px;
+    overflow-y:auto;
+  }
+  nav.toc .toc-group-label{
+    font-size:.68rem;
+    text-transform:uppercase;
+    letter-spacing:.09em;
+    color:#5f7390;
+    padding:10px 12px 6px;
+    display:block;
+  }
+
+  /* module (details/summary) */
+  details.toc-section{
+    margin-bottom:6px;
+  }
+  details.toc-section summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:10px 12px;
+    border-radius:8px;
+    color:#ffffff;
+    font-size:.92rem;
+    font-weight:600;
+    background:var(--navy-light);
+    box-shadow:inset 3px 0 0 var(--gold);
+  }
+  details.toc-section summary::-webkit-details-marker{display:none;}
+  details.toc-section summary .toc-chevron{
+    font-size:.6rem;
+    color:#7fa8d4;
+    transition:transform .15s ease;
+    width:10px;
+  }
+  details.toc-section[open] summary .toc-chevron{
+    transform:rotate(90deg);
+  }
+  details.toc-section summary .toc-icon{
+    font-size:.85rem;
+    width:16px;
+    text-align:center;
+    color:#7fa8d4;
+  }
+  details.toc-section summary .toc-title{
+    flex:1;
+  }
+  details.toc-section summary .toc-count{
+    font-size:.72rem;
+    color:#7fa8d4;
+    background:rgba(255,255,255,.08);
+    padding:1px 8px;
+    border-radius:999px;
+  }
+  summary:hover{
+    background:#283f5c;
+  }
+
+  /* per-question sublist */
+  ul.toc-sublist{
+    list-style:none;
+    margin:4px 0 10px 0;
+    padding:2px 0 2px 12px;
+    margin-left:21px;
+    border-left:1px solid var(--navy-border);
+  }
+  ul.toc-sublist li{margin:0;}
+  ul.toc-sublist a{
+    display:block;
+    padding:6px 10px;
+    border-radius:6px;
+    color:#9fb0c4;
+    text-decoration:none;
+    font-size:.81rem;
+    line-height:1.35;
+  }
+  ul.toc-sublist a:hover{
+    background:var(--navy-light);
+    color:#ffffff;
+  }
+  ul.toc-sublist .q-num{
+    color:#5d7da0;
+    font-family:var(--mono);
+    margin-right:5px;
+  }
+  .sidebar-footer{
+    padding:16px 24px 22px;
+    border-top:1px solid var(--navy-border);
+    font-size:.74rem;
+    color:#728498;
+  }
+
+  /* ---------- MAIN CONTENT ---------- */
+  .content{
+    flex:1;
+    padding:44px 56px 80px;
+    max-width:880px;
+  }
+  .module-header{
+    margin-bottom:36px;
+  }
+  .module-eyebrow{
+    display:block;
+    font-size:.74rem;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:var(--accent-dark);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .module-header h2{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:2.1rem;
+    margin:0 0 10px 0;
+    color:var(--ink);
+  }
+  .module-intro{
+    color:var(--ink-soft);
+    font-size:.97rem;
+    max-width:620px;
+    margin:0;
+  }
+
+  /* ---------- Q&A CARDS ---------- */
+  .qa{
+    display:flex;
+    gap:18px;
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:10px;
+    padding:22px 26px;
+    margin-bottom:16px;
+  }
+  .qa-num{
+    font-family:var(--mono);
+    font-size:.82rem;
+    color:#ffffff;
+    background:var(--accent);
+    width:34px;
+    height:34px;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    font-weight:700;
+  }
+  .qa-question{
+    font-size:1.05rem;
+    margin:2px 0 8px 0;
+    color:var(--ink);
+    font-weight:700;
+  }
+  .qa-answer{
+    margin:0 0 10px 0;
+    color:#2e3947;
+    font-size:.96rem;
+  }
+  .qa-answer ul{
+    margin:6px 0 0 0;
+    padding-left:1.15em;
+  }
+  .qa-answer li{
+    margin-bottom:4px;
+  }
+  .qa-source{
+    margin:0;
+    font-size:.78rem;
+    color:#7a8696;
+    font-style:italic;
+  }
+  .qa-source a{
+    color:#5d7da0;
+    text-decoration:none;
+    border-bottom:1px dotted #aebccd;
+  }
+  .qa-source a:hover{
+    border-bottom-style:solid;
+  }
+
+  @media (max-width:760px){
+    .layout{flex-direction:column;}
+    .sidebar{
+      width:100%;
+      height:auto;
+      position:relative;
+    }
+    .content{padding:28px 20px 60px;}
+    .qa{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1>Dispensa<br>Informatica</h1>
+      <span class="version-pill">v2</span>
+      <p class="sidebar-sub">Concorsi pubblici · prova di informatica</p>
+    </div>
+    <nav class="toc">
+      <span class="toc-group-label">Indice</span>
+      <details class="toc-section" open="">
+        <summary>
+          <span class="toc-chevron">▸</span>
+          <span class="toc-icon">▦</span>
+          <span class="toc-title">Excel</span>
+          <span class="toc-count">21</span>
+        </summary>
+        <ul class="toc-sublist">
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q1" title="Cos&#39;è un foglio Excel?"><span class="q-num">1.</span>Cos'è un foglio Excel?</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q2" title="Quali sono le funzioni di Excel, in generale?"><span class="q-num">2.</span>Quali sono le funzioni di Excel, in general…</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q3" title="Protezione foglio e cartella di Excel"><span class="q-num">3.</span>Protezione foglio e cartella di Excel</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q4" title="Tabelle pivot in Excel: come si creano"><span class="q-num">4.</span>Tabelle pivot in Excel: come si creano</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q5" title="Riferimento assoluto su Excel"><span class="q-num">5.</span>Riferimento assoluto su Excel</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q6" title="Tabelle pivot: cosa sono"><span class="q-num">6.</span>Tabelle pivot: cosa sono</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q7" title="Trova e sostituisci in Excel"><span class="q-num">7.</span>Trova e sostituisci in Excel</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q8" title="Applicazione delle tabelle pivot"><span class="q-num">8.</span>Applicazione delle tabelle pivot</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q9" title="Celle, righe, colonne in Excel"><span class="q-num">9.</span>Celle, righe, colonne in Excel</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q10" title="Come trasferire dati in formato testo su Excel"><span class="q-num">10.</span>Come trasferire dati in formato testo su Ex…</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q11" title="Come si possono eliminare le righe e le colonne di Excel"><span class="q-num">11.</span>Come si possono eliminare le righe e le col…</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q12" title="Formattazione condizionata in Excel"><span class="q-num">12.</span>Formattazione condizionata in Excel</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q13" title="Come si effettuano i confronti di due serie di dati su Excel (funzione CONFRONTA)"><span class="q-num">13.</span>Come si effettuano i confronti di due serie…</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q14" title="Un file Excel si può salvare anche in PDF e CSV?"><span class="q-num">14.</span>Un file Excel si può salvare anche in PDF e…</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q15" title="Cambio nomi di colonne e righe"><span class="q-num">15.</span>Cambio nomi di colonne e righe</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q16" title="Inserisci ed elimina su Excel"><span class="q-num">16.</span>Inserisci ed elimina su Excel</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q17" title="Come organizzare una grande quantità di dati (Excel)"><span class="q-num">17.</span>Come organizzare una grande quantità di dat…</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q18" title="Quale programma Office utilizzi per analizzare e organizzare un elenco di dati in formato CSV?"><span class="q-num">18.</span>Quale programma Office utilizzi per analizz…</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q19" title="Funzione FREQUENZA dei dati in Excel"><span class="q-num">19.</span>Funzione FREQUENZA dei dati in Excel</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q20" title="Funzione &quot;Importa&quot; in Excel"><span class="q-num">20.</span>Funzione "Importa" in Excel</a></li>
+          <li><a href="file:///C:/Users/bstai/OneDrive%20-%20MIUR/CONCORSO/INPS/781%20PSICOLOGI/INFORMATICA/Alessandra_dispensa_informatica_v2.html#excel-q21" title="Funzione =TESTO() su Excel"><span class="q-num">21.</span>Funzione =TESTO() su Excel</a></li>
+        </ul>
+      </details>
+    </nav>
+    <div class="sidebar-footer">
+      Risposte sintetiche in taglio concorso/esame. Fonti: documentazione ufficiale Microsoft Support.
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <section id="mod-excel" class="module">
+      <header class="module-header">
+        <span class="module-eyebrow">Modulo</span>
+        <h2>Excel</h2>
+        <p class="module-intro">Domande e risposte sul foglio di calcolo Microsoft Excel, in taglio concorso/esame. Risposte sintetiche e verificate sulla documentazione ufficiale Microsoft.</p>
+      </header>
+
+            <article class="qa" id="excel-q1">
+        <div class="qa-num">01</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Cos'è un foglio Excel?</h3>
+          <p class="qa-answer">Il foglio di lavoro è la singola pagina di calcolo contenuta in un file Excel, detto "cartella di lavoro" (che può contenere uno o più fogli). È organizzato in una griglia di celle disposte su righe e colonne: per impostazione predefinita le colonne sono identificate da lettere (da A a XFD) e le righe da numeri (da 1 a 1.048.576). L'incrocio tra una riga e una colonna individua una cella, in cui si inseriscono testo, numeri, date o formule.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/attivit%C3%A0-di-base-in-excel-dc775dd1-fa52-430f-9c3c-d998d1735fca" target="_blank" rel="noopener">support.microsoft.com – Attività di base in Excel</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q2">
+        <div class="qa-num">02</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Quali sono le funzioni di Excel, in generale?</h3>
+          <p class="qa-answer">In sintesi, Excel permette di:</p>
+          <ul class="qa-answer">
+            <li>inserire e organizzare dati in righe e colonne;</li>
+            <li>eseguire calcoli automatici con formule e funzioni (matematiche, statistiche, logiche, di testo, di ricerca, data/ora);</li>
+            <li>creare grafici per rappresentare i dati;</li>
+            <li>ordinare e filtrare le informazioni;</li>
+            <li>riepilogare ed esplorare grandi quantità di dati con le tabelle pivot;</li>
+            <li>evidenziare valori con la formattazione, anche condizionale;</li>
+            <li>proteggere foglio, cartella di lavoro o file con una password;</li>
+            <li>condividere il file e collaborare con altri utenti;</li>
+            <li>importare ed esportare dati in altri formati (PDF, CSV, testo).</li>
+          </ul>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/guida-e-formazione-su-excel-9bc05390-e94c-46af-a5b3-d7c22f6990bb" target="_blank" rel="noopener">support.microsoft.com – Guida e formazione su Excel</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q3">
+        <div class="qa-num">03</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Protezione foglio e cartella di Excel</h3>
+          <p class="qa-answer">Sono due livelli distinti. La protezione del <strong>foglio di lavoro</strong> (Revisione &gt; Proteggi foglio) blocca le celle in modo che non possano essere modificate, spostate o eliminate, ed è possibile impostare una password e scegliere quali azioni lasciare comunque consentite agli utenti. La protezione della <strong>cartella di lavoro</strong> (Revisione &gt; Proteggi cartella di lavoro) blocca invece la struttura della cartella, impedendo di aggiungere, eliminare, spostare, nascondere o rinominare i fogli. Per impedire l'apertura del file senza password si usa File &gt; Informazioni &gt; Proteggi cartella di lavoro &gt; Crittografa con password.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/proteggere-un-foglio-di-lavoro-3179efdb-1285-4d49-a9c3-f4ca36276de6" target="_blank" rel="noopener">support.microsoft.com – Proteggere un foglio di lavoro</a> · <a href="https://support.microsoft.com/it-it/office/proteggere-una-cartella-di-lavoro-7e365a4d-3e89-4616-84ca-1931257c1517" target="_blank" rel="noopener">Proteggere una cartella di lavoro</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q4">
+        <div class="qa-num">04</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Tabelle pivot in Excel: come si creano</h3>
+          <p class="qa-answer">Si seleziona una cella all'interno dell'intervallo di dati (o di una tabella), poi <strong>Inserisci &gt; Tabella pivot</strong>; Excel propone l'intervallo da usare e chiede dove posizionare il rapporto (nuovo foglio o foglio esistente). Confermando, Excel crea una tabella pivot vuota e apre il riquadro "Campi tabella pivot", in cui si trascinano i campi da analizzare nelle aree Filtri, Colonne, Righe e Valori per costruire il riepilogo desiderato.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/creare-una-tabella-pivot-per-analizzare-i-dati-di-un-foglio-di-lavoro-a9a84538-bfe9-40a9-a8e9-f99134456576" target="_blank" rel="noopener">support.microsoft.com – Creare una tabella pivot per analizzare i dati di un foglio di lavoro</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q5">
+        <div class="qa-num">05</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Riferimento assoluto su Excel</h3>
+          <p class="qa-answer">Un riferimento di cella è normalmente <strong>relativo</strong> (es. A1) e cambia automaticamente quando la formula viene copiata in un'altra cella. Per mantenere fisso il riferimento a una cella si usa il <strong>riferimento assoluto</strong>, indicato dal simbolo del dollaro davanti alla colonna e alla riga (es. <code>$A$1</code>): copiando la formula, il riferimento resta invariato. Si passa da relativo ad assoluto (o misto, es. <code>$A1</code> o <code>A$1</code>) selezionando il riferimento nella barra della formula e premendo il tasto <strong>F4</strong>.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/alternare-riferimenti-relativi-e-assoluti-981f5871-7864-42cc-b3f0-41ffa10cc6fc" target="_blank" rel="noopener">support.microsoft.com – Alternare riferimenti relativi e assoluti</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q6">
+        <div class="qa-num">06</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Tabelle pivot: cosa sono</h3>
+          <p class="qa-answer">La tabella pivot è uno strumento interattivo che permette di riepilogare, analizzare, esplorare e presentare grandi quantità di dati senza scrivere formule: riorganizzando i campi tra righe, colonne, filtri e valori si ottengono rapidamente somme, medie, conteggi e altri calcoli di riepilogo, ed è possibile esplorare i dati da angolazioni diverse.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/panoramica-delle-tabelle-pivot-e-dei-grafici-pivot-527c8fa3-02c0-445a-a2db-7794676bce96" target="_blank" rel="noopener">support.microsoft.com – Panoramica delle tabelle pivot e dei grafici pivot</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q7">
+        <div class="qa-num">07</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Trova e sostituisci in Excel</h3>
+          <p class="qa-answer">Le funzioni <strong>Trova</strong> (CTRL+F) e <strong>Sostituisci</strong> (CTRL+H), richiamabili anche da Home &gt; Modifica &gt; Trova e seleziona, permettono di cercare un testo o un numero nel foglio o nell'intera cartella di lavoro e, se necessario, sostituirlo (Sostituisci per un'occorrenza alla volta, Sostituisci tutto per tutte). Si può cercare per righe o per colonne, all'interno di formule, valori, note o commenti, con distinzione tra maiuscole/minuscole, corrispondenza dell'intero contenuto della cella e caratteri jolly (* e ?).</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/trovare-o-sostituire-testo-e-numeri-in-un-foglio-di-lavoro-0e304ca5-ecef-4808-b90f-fdb42f892e90" target="_blank" rel="noopener">support.microsoft.com – Trovare o sostituire testo e numeri in un foglio di lavoro</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q8">
+        <div class="qa-num">08</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Applicazione delle tabelle pivot</h3>
+          <p class="qa-answer">Le tabelle pivot si usano tipicamente per riepilogare in modo rapido grandi elenchi di dati: ad esempio totalizzare le vendite per area geografica o periodo, confrontare budget e spese effettive, analizzare le risposte di un questionario o produrre report che si aggiornano automaticamente (con il comando Aggiorna) quando cambiano i dati di origine.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/uso-di-tabelle-pivot-e-altri-strumenti-di-business-intelligence-per-l-analisi-dei-dati-da1b3e85-d3c0-4f15-8cd9-bef446762ec3" target="_blank" rel="noopener">support.microsoft.com – Uso di tabelle pivot e altri strumenti di business intelligence</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q9">
+        <div class="qa-num">09</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Celle, righe, colonne in Excel</h3>
+          <p class="qa-answer">Il foglio di lavoro è una griglia composta da <strong>righe</strong> (numerate da 1 a 1.048.576) e <strong>colonne</strong> (etichettate con lettere da A a XFD, per un totale di 16.384). L'intersezione tra una riga e una colonna è una <strong>cella</strong>, l'unità base in cui si inseriscono testo, numeri, date o formule; ogni cella ha un indirizzo univoco dato da lettera di colonna + numero di riga (es. C5).</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/panoramica-delle-formule-in-excel-ecfdc708-9162-49e8-b993-c311f47ca173" target="_blank" rel="noopener">support.microsoft.com – Panoramica delle formule in Excel</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q10">
+        <div class="qa-num">10</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Come trasferire dati in formato testo su Excel</h3>
+          <p class="qa-answer">Per importare dati provenienti da un file di testo (.txt, in genere delimitato da tabulazioni) o da un file CSV (valori separati da virgola) si usa <strong>Dati &gt; Da testo/CSV</strong>, indicando il delimitatore usato e confermando per caricare i dati nel foglio. In versioni meno recenti la stessa operazione avvia l'Importazione guidata Testo. Per dividere un testo già presente in un'unica colonna in più colonne si usa invece <strong>Dati &gt; Testo in colonne</strong>.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/importare-o-esportare-file-di-testo-txt-o-csv-5250ac4c-663c-47ce-937b-339e391393ba" target="_blank" rel="noopener">support.microsoft.com – Importare o esportare file di testo (txt o csv)</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q11">
+        <div class="qa-num">11</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Come si possono eliminare le righe e le colonne di Excel</h3>
+          <p class="qa-answer">Si seleziona l'intera riga o colonna cliccando sulla relativa intestazione e si scegliere <strong>Elimina</strong> con il tasto destro del mouse, oppure si seleziona una cella nella riga/colonna e si passa a <strong>Home &gt; Elimina &gt; Elimina righe foglio</strong> (o Elimina colonne foglio). Le righe o colonne successive si spostano automaticamente per chiudere lo spazio lasciato libero.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/inserire-o-eliminare-righe-e-colonne-in-excel-6f40e6e4-85af-45e0-b39d-65dd504a3246" target="_blank" rel="noopener">support.microsoft.com – Inserire o eliminare righe e colonne in Excel</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q12">
+        <div class="qa-num">12</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Formattazione condizionata in Excel</h3>
+          <p class="qa-answer">La <strong>formattazione condizionale</strong> (Home &gt; Formattazione condizionale) applica automaticamente un formato — colore, carattere, barre dei dati, scale di colori, set di icone — alle celle che soddisfano una condizione scelta dall'utente (es. valori sopra una soglia, duplicati, o il risultato di una formula), rendendo immediatamente visibili andamenti e valori rilevanti. Le regole applicate si gestiscono da "Gestisci regole".</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/usare-la-formattazione-condizionale-per-evidenziare-informazioni-in-excel-fed60dfa-1d3f-4e13-9ecb-f1951ff89d7f" target="_blank" rel="noopener">support.microsoft.com – Usare la formattazione condizionale per evidenziare informazioni in Excel</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q13">
+        <div class="qa-num">13</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Come si effettuano i confronti di due serie di dati su Excel (funzione CONFRONTA)</h3>
+          <p class="qa-answer">La funzione <strong>CONFRONTA(valore; matrice; [tipo_corrispondenza])</strong> non restituisce un valore, ma la <em>posizione relativa</em> di un elemento all'interno di un intervallo: ad esempio <code>=CONFRONTA(25;A1:A3;0)</code> restituisce 2 se 25 è il secondo valore dell'intervallo. È quindi utile per confrontare due serie individuando se e dove un valore di una lista compare nell'altra, e viene spesso abbinata alla funzione INDICE per recuperare il valore corrispondente.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/confronta-funzione-confronta-e8dffd45-c762-47d6-bf89-533f4a37673a" target="_blank" rel="noopener">support.microsoft.com – CONFRONTA (funzione CONFRONTA)</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q14">
+        <div class="qa-num">14</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Un file Excel si può salvare anche in PDF e CSV?</h3>
+          <p class="qa-answer">Sì. Da <strong>File &gt; Salva con nome</strong> (o Esporta) si può scegliere il formato <strong>PDF</strong>, che mantiene inalterata la formattazione visiva del foglio e non è modificabile — utile per stampa e condivisione — oppure il formato <strong>CSV</strong> (valori separati da virgola), che salva solo i valori del foglio attivo e non conserva formule, formattazione né i fogli multipli.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/salvare-o-convertire-in-pdf-o-xps-nelle-app-desktop-di-office-d85416c5-7d77-4fd6-a216-6f4bf7c7c110" target="_blank" rel="noopener">support.microsoft.com – Salvare o convertire in PDF o XPS</a> · <a href="https://support.microsoft.com/it-it/office/salvare-una-cartella-di-lavoro-in-un-formato-file-diverso-6a16c862-4a36-48f9-a300-c2ca0065286e" target="_blank" rel="noopener">Salvare una cartella di lavoro in un formato file diverso</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q15">
+        <div class="qa-num">15</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Cambio nomi di colonne e righe</h3>
+          <p class="qa-answer">Per impostazione predefinita Excel usa lo <strong>stile di riferimento A1</strong>, in cui le colonne sono indicate da lettere (A-XFD) e le righe da numeri (1-1.048.576); queste intestazioni non si possono rinominare liberamente. È però possibile cambiare l'intero stile di riferimento in <strong>R1C1</strong> — dove anche le colonne diventano numeri — da File &gt; Opzioni &gt; Formule &gt; spuntando "Stile di riferimento R1C1".</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/panoramica-delle-formule-in-excel-ecfdc708-9162-49e8-b993-c311f47ca173" target="_blank" rel="noopener">support.microsoft.com – Panoramica delle formule in Excel</a> · <a href="https://support.microsoft.com/it-it/office/stampare-le-intestazioni-di-riga-e-colonna-de41db7e-b716-4d8b-a5fd-5fb50645101f" target="_blank" rel="noopener">Stampare le intestazioni di riga e colonna</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q16">
+        <div class="qa-num">16</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Inserisci ed elimina su Excel</h3>
+          <p class="qa-answer">Da <strong>Home &gt; Inserisci</strong> si possono aggiungere celle, righe del foglio, colonne del foglio o un nuovo foglio; da <strong>Home &gt; Elimina</strong> si eliminano allo stesso modo celle, righe, colonne o fogli. Le stesse opzioni sono disponibili cliccando con il tasto destro su una cella, riga o colonna selezionata.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/inserire-o-eliminare-righe-e-colonne-in-excel-6f40e6e4-85af-45e0-b39d-65dd504a3246" target="_blank" rel="noopener">support.microsoft.com – Inserire o eliminare righe e colonne in Excel</a> · <a href="https://support.microsoft.com/it-it/office/inserire-o-eliminare-un-foglio-di-lavoro-19d3d21e-a3b3-4e13-a422-d1f43f1faaf2" target="_blank" rel="noopener">Inserire o eliminare un foglio di lavoro</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q17">
+        <div class="qa-num">17</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Come organizzare una grande quantità di dati (Excel)</h3>
+          <p class="qa-answer">È utile convertire i dati in una <strong>tabella Excel</strong> (CTRL+T), che ne facilita l'ordinamento e l'aggiornamento; usare <strong>Ordina e filtro</strong> per individuare rapidamente le informazioni cercate; riepilogare i dati con le <strong>tabelle pivot</strong>; evidenziare i valori rilevanti con la <strong>formattazione condizionale</strong>; ed eventualmente importare e trasformare dataset complessi con <strong>Power Query</strong> (Dati &gt; Recupera e trasforma dati).</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/guida-introduttiva-ordinare-dati-in-un-foglio-di-lavoro-di-excel-60153f94-d782-47e2-96a8-15cbb7712539" target="_blank" rel="noopener">support.microsoft.com – Guida introduttiva: ordinare dati in un foglio di lavoro</a> · <a href="https://support.microsoft.com/it-it/office/importare-dati-da-origini-dati-power-query-be4330b3-5356-486c-a168-b68e9e616f5a" target="_blank" rel="noopener">Importare dati da origini dati (Power Query)</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q18">
+        <div class="qa-num">18</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Quale programma Office utilizzi per analizzare e organizzare un elenco di dati in formato CSV?</h3>
+          <p class="qa-answer"><strong>Microsoft Excel.</strong> Un file CSV può essere aperto direttamente o importato con Dati &gt; Da testo/CSV; una volta caricati, i dati possono essere ordinati, filtrati, elaborati con formule e funzioni o riepilogati con una tabella pivot.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/importare-dati-da-un-file-csv-html-o-di-testo-b62efe49-4d5b-4429-b788-e1211b5e90f6" target="_blank" rel="noopener">support.microsoft.com – Importare dati da un file CSV, HTML o di testo</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q19">
+        <div class="qa-num">19</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Funzione FREQUENZA dei dati in Excel</h3>
+          <p class="qa-answer">La funzione <strong>FREQUENZA(matrice_dati; matrice_classi)</strong> calcola quante volte i valori di un intervallo rientrano negli scaglioni ("classi") definiti dall'utente, restituendo una matrice verticale di conteggi — utile, ad esempio, per distribuire i punteggi di un test nelle relative fasce. Il risultato ha un elemento in più rispetto al numero di classi (l'ultimo conta i valori superiori alla classe più alta) e va immessa come formula a matrice: nelle versioni con matrici dinamiche basta premere INVIO, in quelle precedenti si conferma con CTRL+MAIUSC+INVIO.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/frequenza-funzione-frequenza-44e3be2b-eca0-42cd-a3f7-fd9ea898fdb9" target="_blank" rel="noopener">support.microsoft.com – FREQUENZA (funzione FREQUENZA)</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q20">
+        <div class="qa-num">20</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Funzione "Importa" in Excel</h3>
+          <p class="qa-answer">In Excel non esiste una singola funzione di formula chiamata "Importa": il termine indica la funzionalità generale di importazione dati, accessibile da <strong>Dati &gt; Recupera e trasforma dati &gt; Ottieni dati</strong> (per i file di testo o CSV: Dati &gt; Da testo/CSV). Permette di caricare in un foglio dati provenienti da fonti esterne — file di testo o CSV, altre cartelle di lavoro, pagine web, database — mantenendo se necessario un collegamento che si aggiorna con il comando "Aggiorna" quando i dati di origine cambiano.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/importare-dati-da-un-file-csv-html-o-di-testo-b62efe49-4d5b-4429-b788-e1211b5e90f6" target="_blank" rel="noopener">support.microsoft.com – Importare dati da un file CSV, HTML o di testo</a> · <a href="https://support.microsoft.com/it-it/office/importare-dati-da-origini-dati-power-query-be4330b3-5356-486c-a168-b68e9e616f5a" target="_blank" rel="noopener">Importare dati da origini dati (Power Query)</a></p>
+        </div>
+      </article>
+
+      <article class="qa" id="excel-q21">
+        <div class="qa-num">21</div>
+        <div class="qa-body">
+          <h3 class="qa-question">Funzione =TESTO() su Excel</h3>
+          <p class="qa-answer">La funzione <strong>TESTO(valore; formato)</strong> converte un numero, una data o un'ora nel testo corrispondente, applicando il formato indicato tra virgolette: ad esempio <code>=TESTO(B2;"gg/mm/aa")</code> restituisce quella data come testo in quel formato. È utile soprattutto per unire numeri o date formattati a una stringa di testo (con l'operatore &amp;), perché altrimenti, concatenando, Excel perderebbe la formattazione numerica originale.</p>
+          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/testo-funzione-testo-20d5ac4d-7b94-49fd-bb38-93d29371225c" target="_blank" rel="noopener">support.microsoft.com – TESTO (funzione TESTO)</a> · <a href="https://support.microsoft.com/it-it/office/combinare-il-testo-con-una-data-o-un-ora-cef6a66c-8176-470c-ba85-4b030405dfbf" target="_blank" rel="noopener">Combinare il testo con una data o un'ora</a></p>
+        </div>
+      </article>
+
+
+    </section>
+
+  </main>
+</div>
+
+
+</body></html>
