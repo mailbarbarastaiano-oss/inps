@@ -619,5 +619,31 @@ document.addEventListener('DOMContentLoaded', () => {
 </main>
 
 </div>
+<button onclick="scrollToTop()" id="btnBackToTop" title="Torna su">↑ Torna Su</button>
+
+    <script>
+        // Prende il bottone dal DOM
+        const myButton = document.getElementById("btnBackToTop");
+
+        // Quando l'utente scende di 300px dall'inizio del documento, mostra il bottone
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                myButton.style.display = "block";
+            } else {
+                myButton.style.display = "none";
+            }
+        }
+
+        // Funzione per tornare all'inizio della pagina in modo fluido
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' /* Scroll fluido */
+            });
+        }
+    </script>
+
 </body>
 </html>
