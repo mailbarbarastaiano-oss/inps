@@ -2,6 +2,9 @@
 <html lang="it"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Protezione anti-Google: impedisce l'indicizzazione nei motori di ricerca -->
+<meta name="robots" content="noindex, nofollow">
+
 <title>Dispensa Informatica – Concorsi Pubblici</title>
 <style>
   :root{
@@ -258,6 +261,28 @@
     border-bottom-style:solid;
   }
 
+  /* Pulsante Home Fluttuante coordinato */
+  .floating-home-btn {
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 99999; 
+    background-color: var(--navy); 
+    color: #ffffff; 
+    padding: 11px 20px; 
+    text-decoration: none; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    font-size: 0.88rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+    border: 1px solid var(--navy-border);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+  .floating-home-btn:hover {
+    background-color: var(--navy-light);
+    transform: translateY(-1px);
+  }
+
   @media (max-width:760px){
     .layout{flex-direction:column;}
     .sidebar{
@@ -267,16 +292,19 @@
     }
     .content{padding:28px 20px 60px;}
     .qa{flex-direction:column;}
+    .floating-home-btn {
+      position: static;
+      display: inline-block;
+      margin: 15px 20px 5px;
+    }
   }
 </style>
 </head>
 <body>
-  <!-- Pulsante di Ritorno alla Home Fluttuante -->
-<div style="text-align: left; margin: 20px; font-family: 'Segoe UI', Arial, sans-serif;">
-<a href="index.html" style="position: fixed; top: 20px; right: 20px; z-index: 99999; background-color: #003366; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; font-family: 'Segoe UI', Arial, sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 14px;">
-    &larr; Torna alla Home
-</a>
-</div>
+
+<!-- Pulsante di Ritorno alla Home -->
+<a href="index.html" class="floating-home-btn">&larr; Torna alla Home</a>
+
 <div class="layout">
 
   <aside class="sidebar">
@@ -292,10 +320,10 @@
           <span class="toc-chevron">▸</span>
           <span class="toc-icon">▦</span>
           <span class="toc-title">Excel</span>
-          <span class="toc-count">21</span>
+          <span class="toc-count">20</span>
         </summary>
         <ul class="toc-sublist">
-          <li><a href="#excel-q1" title="Cos&#39;è un foglio Excel?"><span class="q-num">1.</span>Cos'è un foglio Excel?</a></li>
+          <li><a href="#excel-q1" title="Cos'è un foglio Excel?"><span class="q-num">1.</span>Cos'è un foglio Excel?</a></li>
           <li><a href="#excel-q2" title="Quali sono le funzioni di Excel, in generale?"><span class="q-num">2.</span>Quali sono le funzioni di Excel, in general…</a></li>
           <li><a href="#excel-q3" title="Protezione foglio e cartella di Excel"><span class="q-num">3.</span>Protezione foglio e cartella di Excel</a></li>
           <li><a href="#excel-q4" title="Tabelle pivot in Excel: come si creano"><span class="q-num">4.</span>Tabelle pivot in Excel: come si creano</a></li>
@@ -315,7 +343,6 @@
           <li><a href="#excel-q18" title="Quale programma Office utilizzi per analizzare e organizzare un elenco di dati in formato CSV?"><span class="q-num">18.</span>Quale programma Office utilizzi per analizz…</a></li>
           <li><a href="#excel-q19" title="Funzione FREQUENZA dei dati in Excel"><span class="q-num">19.</span>Funzione FREQUENZA dei dati in Excel</a></li>
           <li><a href="#excel-q20" title="Funzione &quot;Importa&quot; in Excel"><span class="q-num">20.</span>Funzione "Importa" in Excel</a></li>
-          <li><a href="#excel-q21" title="Funzione =TESTO() su Excel"><span class="q-num">21.</span>Funzione =TESTO() su Excel</a></li>
         </ul>
       </details>
     </nav>
@@ -384,7 +411,7 @@
         <div class="qa-num">05</div>
         <div class="qa-body">
           <h3 class="qa-question">Riferimento assoluto su Excel</h3>
-          <p class="qa-answer">Un riferimento di cella è normalmente <strong>relativo</strong> (es. A1) e cambia automaticamente quando la formula viene copiata in un'altra cella. Per mantenere fisso il riferimento a una cella si usa il <strong>riferimento assoluto</strong>, indicato dal simbolo del dollaro davanti alla colonna e alla riga (es. <code>$A$1</code>): copiando la formula, il riferimento resta invariato. Si passa da relativo ad assoluto (o misto, es. <code>$A1</code> o <code>A$1</code>) selezionando il riferimento nella barra della formula e premendo il tasto <strong>F4</strong>.</p>
+          <p class="qa-answer">Un riferimento di cella è normalmente <strong>relativo</strong> (es. A1) e cambia automaticamente quando la formula viene copiata in un'altra cella. Per mantenere fisso il riferimento a una cella si usa the <strong>riferimento assoluto</strong>, indicato dal simbolo del dollaro davanti alla colonna e alla riga (es. <code>$A$1</code>): copiando la formula, il riferimento resta invariato. Si passa da relativo ad assoluto (o misto, es. <code>$A1</code> o <code>A$1</code>) selezionando il riferimento nella barra della formula e premendo il tasto <strong>F4</strong>.</p>
           <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/alternare-riferimenti-relativi-e-assoluti-981f5871-7864-42cc-b3f0-41ffa10cc6fc" target="_blank" rel="noopener">support.microsoft.com – Alternare riferimenti relativi e assoluti</a></p>
         </div>
       </article>
@@ -492,7 +519,7 @@
         <div class="qa-num">17</div>
         <div class="qa-body">
           <h3 class="qa-question">Come organizzare una grande quantità di dati (Excel)</h3>
-          <p class="qa-answer">È utile convertire i dati in una <strong>tabella Excel</strong> (CTRL+T), che ne facilita l'ordinamento e l'aggiornamento; usare <strong>Ordina e filtro</strong> per individuare rapidamente le informazioni cercate; riepilogare i dati con le <strong>tabelle pivot</strong>; evidenziare i valori rilevanti con la <strong>formattazione condizionale</strong>; ed eventualmente importare e trasformare dataset complessi con <strong>Power Query</strong> (Dati &gt; Recupera e trasforma dati).</p>
+          <p class="qa-answer">È utile convertire i dati in una <strong>tabella Excel</strong> (CTRL+T), che ne facilita l'ordinamento e l'aggiornamento; usare <strong>Ordina e filtro</strong> per individuare rapidamente le informazioni cercate; riepilogare i dati con le <strong>tabelle pivot</strong>; evidenziare i valori rilevanti con la <strong>formattazione condizionale</strong>; ed eventualmente importare e trasmutare dataset complessi con <strong>Power Query</strong> (Dati &gt; Recupera e trasforma dati).</p>
           <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/guida-introduttiva-ordinare-dati-in-un-foglio-di-lavoro-di-excel-60153f94-d782-47e2-96a8-15cbb7712539" target="_blank" rel="noopener">support.microsoft.com – Guida introduttiva: ordinare dati in un foglio di lavoro</a> · <a href="https://support.microsoft.com/it-it/office/importare-dati-da-origini-dati-power-query-be4330b3-5356-486c-a168-b68e9e616f5a" target="_blank" rel="noopener">Importare dati da origini dati (Power Query)</a></p>
         </div>
       </article>
@@ -521,15 +548,6 @@
           <h3 class="qa-question">Funzione "Importa" in Excel</h3>
           <p class="qa-answer">In Excel, la funzionalità di importazione permette di connettersi a sorgenti di dati esterne e caricarle nel foglio di calcolo. Attraverso la scheda <strong>Dati &gt; Recupera dati</strong> (o Recupera e trasforma dati), è possibile importare informazioni da un'ampia varietà di origini: database, file di testo o CSV, pagine web, file XML/JSON o altre cartelle di lavoro, integrando flussi esterni senza dover copiare manualmente i contenuti.</p>
           <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/importare-dati-da-origini-dati-power-query-be4330b3-5356-486c-a168-b68e9e616f5a" target="_blank" rel="noopener">support.microsoft.com – Importare dati da origini dati (Power Query)</a></p>
-        </div>
-      </article>
-
-      <article class="qa" id="excel-q21">
-        <div class="qa-num">21</div>
-        <div class="qa-body">
-          <h3 class="qa-question">Funzione =TESTO() su Excel</h3>
-          <p class="qa-answer">La funzione <strong>TESTO(valore; formato)</strong> converte un valore numerico (o una data) in testo, applicando una formattazione specifica tramite codici di formato (es. <code>=TESTO(A1; "gg/mm/aaaa")</code> per forzare una data, o <code>"#,## €"</code> per la valuta). Questa funzione è molto utile quando si desidera combinare numeri o date con stringhe di testo mantenendo leggibile la formattazione visiva originaria del dato.</p>
-          <p class="qa-source">Fonte: <a href="https://support.microsoft.com/it-it/office/funzione-testo-201503e7-7b61-450b-953d-11910d36cb17" target="_blank" rel="noopener">support.microsoft.com – Funzione TESTO</a></p>
         </div>
       </article>
 
