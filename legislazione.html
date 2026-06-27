@@ -25,7 +25,30 @@
     --maxw:760px;
     --sidebar-w:300px;
   }
+/* Stile per i bottoni personalizzati */
+.custom-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 0;
+}
 
+.custom-buttons button {
+    background: var(--gold);
+    color: var(--green-deep);
+    border: none;
+    padding: 12px;
+    border-radius: var(--radius);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.custom-buttons button:hover {
+    background: #e0b05b;
+}
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   @media (prefers-reduced-motion: reduce){
