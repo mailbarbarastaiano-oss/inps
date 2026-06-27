@@ -622,16 +622,42 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- GRUPPO BOTTONI DI NAVIGAZIONE -->
 <div style="position: fixed; bottom: 20px; right: 20px; z-index: 99; display: flex; flex-direction: column; gap: 10px;">
     
-    <!-- Bottone Home (Sempre Visibile) - Modifica 'index.html' con il nome del tuo file principale -->
-    <a href="index.html" style="background-color: #28a745; color: white; text-decoration: none; padding: 15px; border-radius: 10px; font-size: 16px; text-align: center; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); font-family: sans-serif;">
+    <!-- Bottone Home (Sempre Visibile) -->
+    <a href="index.html" style="background-color: #28a745; color: white; text-decoration: none; padding: 15px; border-radius: 10px; font-size: 16px; text-align: center; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); font-family: sans-serif; display: block;">
         🏠 Home
     </a>
 
-    <!-- Bottone Torna Su (Appare solo dopo lo scroll) -->
-    <button onclick="scrollToTop()" id="btnBackToTop" title="Torna su" style="display: none; border: none; outline: none; background-color: #0056b3; color: white; cursor: pointer; padding: 15px; border-radius: 10px; font-size: 16px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); transition: opacity 0.3s;">
+    <!-- Bottone Torna Su (Gestito dallo Script sotto) -->
+    <button onclick="scrollToTop()" id="btnBackToTop" title="Torna su" style="display: none; border: none; outline: none; background-color: #0056b3; color: white; cursor: pointer; padding: 15px; border-radius: 10px; font-size: 16px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); transition: opacity 0.3s; font-family: sans-serif;">
         ↑ Torna Su
     </button>
 </div>
+
+<!-- SCRIPT DI CONTROLLO -->
+<script>
+    // Seleziona il bottone Torna Su
+    const myButton = document.getElementById("btnBackToTop");
+
+    // Ascolta lo scroll della pagina
+    window.onscroll = function() { scrollFunction() };
+
+    function scrollFunction() {
+        // Se si scende di oltre 300 pixel, mostra il bottone, altrimenti nascondilo
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            myButton.style.display = "block";
+        } else {
+            myButton.style.display = "none";
+        }
+    }
+
+    // Funzione per tornare in cima con effetto fluido
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
 
 </body>
 </html>
