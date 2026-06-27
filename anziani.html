@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dispensa – Politiche in favore degli anziani: valutazione e riforma</title>
+<style>
+  :root {
+    --verde:    #1a5c38;
+    --verde-ch: #2d7a50;
+    --verde-li: #e8f5ee;
+    --oro:      #c8922a;
+    --oro-li:   #fdf5e6;
+    --grigio:   #3d3d3d;
+    --grigio-2: #f5f5f3;
+    --grigio-3: #dddbd5;
+    --bianco:   #ffffff;
+    --font-testo: 'Georgia', 'Times New Roman', serif;
+    --font-sans:  'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: var(--font-testo);
+    color: var(--grigio);
+    background: var(--bianco);
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR ── */
+  #sidebar {
+    width: 280px;
+    min-width: 280px;
+    background: var(--verde);
+    color: var(--bianco);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 0 0 2rem 0;
+    font-family: var(--font-sans);
+    flex-shrink: 0;
+  }
+
+  #sidebar .logo {
+    background: var(--verde-ch);
+    padding: 1.25rem 1.2rem;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    color: rgba(255,255,255,.9);
+    border-bottom: 2px solid rgba(255,255,255,.15);
+  }
+
+  #sidebar .logo strong {
+    display: block;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: .2rem;
+  }
+
+  #sidebar nav ul { list-style: none; padding: 0; }
+
+  #sidebar nav > ul { padding-top: .5rem; }
+
+  #sidebar nav li a {
+    display: block;
+    padding: .42rem 1.2rem .42rem 1.4rem;
+    font-size: .8rem;
+    color: rgba(255,255,255,.82);
+    text-decoration: none;
+    line-height: 1.35;
+    border-left: 3px solid transparent;
+    transition: background .15s, border-color .15s, color .15s;
+  }
+
+  #sidebar nav li a:hover,
+  #sidebar nav li a:focus {
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    border-left-color: var(--oro);
+  }
+
+  #sidebar nav li.section-head > a {
+    font-weight: 700;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--oro);
+    margin-top: .9rem;
+    pointer-events: none;
+    cursor: default;
+    border-left-color: transparent !important;
+    background: none !important;
+  }
+
+  #sidebar nav li.sub a {
+    padding-left: 2rem;
+    font-size: .76rem;
+  }
+
+  #sidebar nav li.subsub a {
+    padding-left: 2.7rem;
+    font-size: .73rem;
+    color: rgba(255,255,255,.65);
+  }
+
+  /* ── MAIN ── */
+  #main {
+    flex: 1;
+    overflow-x: hidden;
+    padding: 2.5rem 3rem 4rem 3rem;
+    max-width: 860px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: linear-gradient(135deg, var(--verde) 0%, var(--verde-ch) 100%);
+    color: #fff;
+    border-radius: 8px;
+    padding: 2.8rem 2.5rem 2.4rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .cover .etichetta {
+    font-family: var(--font-sans);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--oro);
+    margin-bottom: .6rem;
+  }
+
+  .cover h1 {
+    font-size: 1.85rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: .8rem;
+  }
+
+  .cover .sottotitolo {
+    font-size: .95rem;
+    color: rgba(255,255,255,.82);
+    line-height: 1.55;
+  }
+
+  .cover .fonti {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+
+  .cover .fonte-tag {
+    font-family: var(--font-sans);
+    font-size: .72rem;
+    font-weight: 600;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 4px;
+    padding: .22rem .6rem;
+    color: #fff;
+  }
+
+  /* ── HEADINGS ── */
+  h2 {
+    font-size: 1.45rem;
+    color: var(--verde);
+    border-bottom: 2px solid var(--verde);
+    padding-bottom: .4rem;
+    margin: 2.8rem 0 1.2rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    scroll-margin-top: 1rem;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    color: var(--verde-ch);
+    margin: 2rem 0 .7rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    scroll-margin-top: 1rem;
+  }
+
+  h4 {
+    font-size: .92rem;
+    color: var(--grigio);
+    font-family: var(--font-sans);
+    font-weight: 700;
+    margin: 1.2rem 0 .4rem;
+  }
+
+  /* ── TEXT ── */
+  p { line-height: 1.7; margin-bottom: .85rem; font-size: .97rem; }
+
+  ul, ol { margin: .5rem 0 .85rem 1.5rem; }
+  li { line-height: 1.65; margin-bottom: .3rem; font-size: .96rem; }
+
+  strong { color: var(--verde); }
+
+  /* ── ARTICLE BLOCK ── */
+  .art-block {
+    background: var(--grigio-2);
+    border-left: 4px solid var(--verde);
+    border-radius: 0 6px 6px 0;
+    padding: 1.4rem 1.6rem 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .art-num {
+    font-family: var(--font-sans);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--oro);
+    margin-bottom: .25rem;
+  }
+
+  .art-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-family: var(--font-sans);
+    color: var(--verde);
+    margin-bottom: .8rem;
+    line-height: 1.3;
+  }
+
+  /* ── SEMPLICE BOX ── */
+  .semplice {
+    background: var(--oro-li);
+    border: 1.5px solid var(--oro);
+    border-radius: 6px;
+    padding: 1rem 1.3rem;
+    margin-top: 1rem;
+  }
+
+  .semplice .s-label {
+    font-family: var(--font-sans);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--oro);
+    margin-bottom: .4rem;
+  }
+
+  .semplice p {
+    font-size: .92rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+    color: #4a3800;
+  }
+
+  /* ── INPS BOX ── */
+  .inps-box {
+    background: #e8f0fb;
+    border-left: 4px solid #1a5299;
+    border-radius: 0 6px 6px 0;
+    padding: 1.1rem 1.4rem .9rem;
+    margin: 1.2rem 0;
+  }
+
+  .inps-box .inps-label {
+    font-family: var(--font-sans);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #1a5299;
+    margin-bottom: .4rem;
+  }
+
+  .inps-box p { font-size: .93rem; color: #1a2b4a; }
+
+  /* ── NOTE / WARNING ── */
+  .nota {
+    background: #fff9e6;
+    border: 1px solid #e6c840;
+    border-radius: 5px;
+    padding: .8rem 1.1rem;
+    font-family: var(--font-sans);
+    font-size: .87rem;
+    color: #6b4f00;
+    margin: 1rem 0;
+    line-height: 1.55;
+  }
+
+  .nota::before { content: "⚠ "; font-size: 1rem; }
+
+  /* ── TABLE ── */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0 1.5rem;
+    font-family: var(--font-sans);
+    font-size: .85rem;
+  }
+
+  th {
+    background: var(--verde);
+    color: #fff;
+    padding: .55rem .8rem;
+    text-align: left;
+  }
+
+  td {
+    padding: .5rem .8rem;
+    border-bottom: 1px solid var(--grigio-3);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  tr:nth-child(even) td { background: var(--grigio-2); }
+
+  /* ── TIMELINE ── */
+  .timeline { margin: 1.2rem 0; }
+  .tl-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: .8rem;
+    align-items: flex-start;
+  }
+  .tl-dot {
+    min-width: 36px;
+    height: 36px;
+    background: var(--verde);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-size: .72rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .tl-text { padding-top: .5rem; font-size: .93rem; line-height: 1.55; }
+  .tl-text strong { font-size: .88rem; display: block; margin-bottom: .1rem; }
+
+  /* ── PROVINCE TABLE ── */
+  .province-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: .4rem;
+    margin: .8rem 0 1rem;
+  }
+
+  .prov-tag {
+    background: var(--verde-li);
+    border: 1px solid #9fcdb2;
+    border-radius: 4px;
+    padding: .3rem .5rem;
+    font-family: var(--font-sans);
+    font-size: .77rem;
+    color: var(--verde);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* ── DIVIDER ── */
+  hr {
+    border: none;
+    border-top: 2px solid var(--grigio-3);
+    margin: 2.5rem 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    body { flex-direction: column; }
+    #sidebar { width: 100%; min-width: 0; height: auto; position: static; }
+    #main { padding: 1.5rem 1.2rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ SIDEBAR ══════════════ -->
+<aside id="sidebar">
+  <div class="logo">
+    <strong>Dispensa – Anziani</strong>
+    Valutazione e Riforma<br>
+    D.Lgs. 29/2024 · L. 33/2023 · INPS 2026
+  </div>
+  <nav>
+    <ul>
+      <li class="section-head"><a href="#">Introduzione</a></li>
+      <li class="sub"><a href="#intro">Quadro normativo generale</a></li>
+      <li class="sub"><a href="#definizioni-chiave">Definizioni chiave</a></li>
+
+      <li class="section-head"><a href="#">L. 23 marzo 2023, n. 33</a></li>
+      <li class="sub"><a href="#l33-art1">Art. 1 – Definizioni</a></li>
+      <li class="sub"><a href="#l33-art2">Art. 2 – Oggetto e CIPA</a></li>
+      <li class="sub"><a href="#l33-art3">Art. 3 – Invecchiamento attivo</a></li>
+      <li class="sub"><a href="#l33-art4">Art. 4 – Non autosufficienza</a></li>
+      <li class="sub"><a href="#l33-art5">Art. 5 – Sostenibilità</a></li>
+      <li class="sub"><a href="#l33-art6-9">Artt. 6–9 – Procedura e finanza</a></li>
+
+      <li class="section-head"><a href="#">D.Lgs. 15 marzo 2024, n. 29</a></li>
+      <li class="sub"><a href="#titolo-i">Titolo I – Principi generali</a></li>
+      <li class="subsub"><a href="#d29-art1">Art. 1 – Oggetto e finalità</a></li>
+      <li class="subsub"><a href="#d29-art2">Art. 2 – Definizioni</a></li>
+      <li class="subsub"><a href="#d29-art3">Art. 3 – CIPA</a></li>
+      <li class="subsub"><a href="#d29-art4">Art. 4 – Prevenzione fragilità</a></li>
+      <li class="subsub"><a href="#d29-art5">Art. 5 – Lavoro e salute</a></li>
+      <li class="subsub"><a href="#d29-art6">Art. 6 – Volontariato</a></li>
+      <li class="subsub"><a href="#d29-art7">Art. 7 – Mobilità</a></li>
+      <li class="subsub"><a href="#d29-art8">Art. 8 – Turismo</a></li>
+      <li class="subsub"><a href="#d29-art9">Art. 9 – Telemedicina</a></li>
+      <li class="subsub"><a href="#d29-art10">Art. 10 – VMU (accesso PUA)</a></li>
+      <li class="subsub"><a href="#d29-art11">Art. 11 – Scuola e università</a></li>
+      <li class="subsub"><a href="#d29-art12">Art. 12 – Attività sportiva</a></li>
+      <li class="subsub"><a href="#d29-art13">Art. 13 – Animali da affezione</a></li>
+      <li class="subsub"><a href="#d29-art14">Art. 14 – Servizio civile</a></li>
+      <li class="subsub"><a href="#d29-art15">Art. 15 – Senior cohousing</a></li>
+      <li class="subsub"><a href="#d29-art16">Art. 16 – Rigenerazione urbana</a></li>
+      <li class="subsub"><a href="#d29-art17">Art. 17 – Progetti pilota</a></li>
+      <li class="subsub"><a href="#d29-art18">Art. 18 – Monitoraggio cohousing</a></li>
+      <li class="subsub"><a href="#d29-art19">Art. 19 – Facilitazione digitale</a></li>
+      <li class="subsub"><a href="#d29-art20">Art. 20 – PCTO digitale</a></li>
+      <li class="sub"><a href="#titolo-ii">Titolo II – Non autosufficienza</a></li>
+      <li class="subsub"><a href="#d29-art21">Art. 21 – SNAA</a></li>
+      <li class="subsub"><a href="#d29-art22">Art. 22 – LEPS</a></li>
+      <li class="subsub"><a href="#d29-art23">Art. 23 – Monitoraggio LEPS</a></li>
+      <li class="subsub"><a href="#d29-art24">Art. 24 – ATS</a></li>
+      <li class="subsub"><a href="#d29-art25">Art. 25 – Servizi di comunità</a></li>
+      <li class="subsub"><a href="#d29-art26">Art. 26 – Integrazione servizi</a></li>
+      <li class="subsub"><a href="#d29-art27">Art. 27 – VMU (la riforma)</a></li>
+      <li class="subsub"><a href="#d29-art28">Art. 28 – PUA e piattaforma</a></li>
+      <li class="subsub"><a href="#d29-art29">Art. 29 – Cure domiciliari</a></li>
+      <li class="subsub"><a href="#d29-art30">Art. 30 – Servizi residenziali socio</a></li>
+      <li class="subsub"><a href="#d29-art31">Art. 31 – Servizi residenziali sociosan.</a></li>
+      <li class="subsub"><a href="#d29-art32">Art. 32 – Cure palliative</a></li>
+      <li class="subsub"><a href="#d29-art33">Art. 33 – Disabilità pregressa</a></li>
+      <li class="subsub"><a href="#d29-art34">Art. 34 – Prestazione universale</a></li>
+      <li class="subsub"><a href="#d29-art35">Art. 35 – Beneficiari e opzione</a></li>
+      <li class="subsub"><a href="#d29-art36">Art. 36 – Oggetto del beneficio</a></li>
+      <li class="subsub"><a href="#d29-art37">Art. 37 – Agevolaz. fiscali/contrib.</a></li>
+      <li class="subsub"><a href="#d29-art38">Art. 38 – Formazione operatori</a></li>
+      <li class="subsub"><a href="#d29-art39">Art. 39 – Caregiver familiari</a></li>
+      <li class="subsub"><a href="#d29-art40">Art. 40 – Ambito applicazione</a></li>
+      <li class="subsub"><a href="#d29-art41">Art. 41 – Clausola di salvaguardia</a></li>
+      <li class="subsub"><a href="#d29-art42">Art. 42 – Disposizioni finanziarie</a></li>
+      <li class="subsub"><a href="#d29-art43">Art. 43 – Entrata in vigore</a></li>
+
+      <li class="section-head"><a href="#">Messaggi INPS 2026</a></li>
+      <li class="sub"><a href="#inps-msg1377">Messaggio n. 1377/2026</a></li>
+      <li class="sub"><a href="#inps-msg1750">Messaggio n. 1750/2026</a></li>
+      <li class="sub"><a href="#inps-flusso">Flusso operativo dal 1° giugno 2026</a></li>
+
+      <li class="section-head"><a href="#">Riepilogo</a></li>
+      <li class="sub"><a href="#tavola-riepilog">Tavola sinottica</a></li>
+      <li class="sub"><a href="#timeline-riforma">Timeline della riforma</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<!-- ══════════════ MAIN ══════════════ -->
+<main id="main">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="etichetta">Dispensa universitaria · Diritto della previdenza e dell'assistenza sociale</div>
+    <h1>Politiche in favore degli anziani:<br>valutazione e riforma</h1>
+    <p class="sottotitolo">Analisi integrata della legge delega n. 33/2023, del decreto legislativo n. 29/2024 e delle istruzioni operative INPS 2026. Ogni articolo del D.Lgs. 29/2024 è commentato in versione tecnica e in versione semplificata.</p>
+    <div class="fonti">
+      <span class="fonte-tag">L. 23 marzo 2023, n. 33</span>
+      <span class="fonte-tag">D.Lgs. 15 marzo 2024, n. 29</span>
+      <span class="fonte-tag">Msg. INPS n. 1377/2026</span>
+      <span class="fonte-tag">Msg. INPS n. 1750/2026</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       SEZIONE 0 – INTRODUZIONE
+  ══════════════════════════════════ -->
+  <h2 id="intro">Quadro normativo generale</h2>
+
+  <p>La riforma delle politiche per gli anziani si muove su due livelli strettamente collegati: la <strong>legge delega n. 33 del 23 marzo 2023</strong> (che fissa obiettivi e principi) e il <strong>decreto legislativo n. 29 del 15 marzo 2024</strong> (che attua la delega con norme immediatamente operative o progressivamente applicabili).</p>
+
+  <p>Il contesto europeo e internazionale è richiamato esplicitamente: la Carta dei diritti fondamentali UE (art. 25), il Piano OMS per l'invecchiamento attivo 2021-2030, le linee guida OMS "Integrated Care for Older People" (ICOPE), la Strategia europea per l'assistenza (2022) e la Raccomandazione del Consiglio UE del 2022 sull'assistenza a lungo termine.</p>
+
+  <p>Sul piano interno, la riforma si inserisce nell'attuazione delle Missioni 5 e 6 del PNRR e si coordina con la riforma della disabilità (D.Lgs. n. 62/2024), creando un sistema a doppio binario che i messaggi INPS del 2026 disciplinano operativamente.</p>
+
+  <h3 id="definizioni-chiave">Definizioni chiave (D.Lgs. 29/2024, art. 2)</h3>
+
+  <table>
+    <thead>
+      <tr><th>Termine</th><th>Definizione normativa</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Persona anziana</strong></td><td>Chi ha compiuto 65 anni</td></tr>
+      <tr><td><strong>Persona grande anziana</strong></td><td>Chi ha compiuto 80 anni</td></tr>
+      <tr><td><strong>Persona anziana non autosufficiente</strong></td><td>Anziana con gravi limitazioni o perdita di autonomia nelle attività fondamentali quotidiane e nel funzionamento bio-psico-sociale, valutate con metodologie standardizzate (ICF-OMS), tenendo conto di fragilità, multimorbilità, vulnerabilità sociale e condizioni ambientali/familiari</td></tr>
+      <tr><td><strong>Specifico bisogno assistenziale</strong></td><td>Bisogno valutato e graduato all'esito della valutazione multidimensionale unificata (VMU) di cui all'art. 27</td></tr>
+      <tr><td><strong>PUA</strong></td><td>Punto Unico di Accesso, collocato presso le Case della comunità del SSN</td></tr>
+      <tr><td><strong>PAI</strong></td><td>Progetto di Assistenza Individuale integrato</td></tr>
+      <tr><td><strong>UVM</strong></td><td>Unità di Valutazione Multidimensionale (equipe interprofessionale)</td></tr>
+      <tr><td><strong>ATS</strong></td><td>Ambito Territoriale Sociale</td></tr>
+      <tr><td><strong>SNAA</strong></td><td>Sistema Nazionale per la popolazione Anziana non Autosufficiente</td></tr>
+      <tr><td><strong>CIPA</strong></td><td>Comitato Interministeriale per le Politiche in favore della popolazione Anziana</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <!-- ══════════════════════════════════
+       LEGGE 33/2023
+  ══════════════════════════════════ -->
+  <h2>Legge 23 marzo 2023, n. 33 – Deleghe al Governo in materia di politiche in favore delle persone anziane</h2>
+
+  <p>La L. 33/2023 è la <strong>legge delega</strong> che ha abilitato il Governo ad adottare uno o più decreti legislativi entro il 31 gennaio 2024, fissando principi, criteri direttivi e la cornice finanziaria. Si articola in tre capi: principi generali e sistema di coordinamento (Capo I), deleghe specifiche (Capo II), disposizioni finali e finanziarie (Capo III).</p>
+
+  <!-- Art. 1 -->
+  <div class="art-block" id="l33-art1">
+    <div class="art-num">Art. 1 – L. 33/2023</div>
+    <div class="art-title">Definizioni</div>
+    <p>La norma definisce i concetti fondamentali che ricorrono nel testo della legge: <strong>LEPS</strong> (livelli essenziali delle prestazioni sociali), <strong>ATS</strong> (ambiti territoriali sociali), <strong>PUA</strong> (punti unici di accesso), <strong>PAI</strong> (progetti individualizzati di assistenza integrata), <strong>LEA</strong> (livelli essenziali di assistenza sanitaria e sociosanitaria) e <strong>caregiver familiari</strong> (così come definiti dall'art. 1, co. 255, L. 205/2017). Le definizioni servono a garantire uniformità interpretativa per l'intera legge e per i decreti attuativi.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>L'articolo 1 è il "dizionario" della legge: chiarisce cosa si intende con le sigle e i termini usati nei successivi articoli. Senza queste definizioni non sarebbe possibile applicare le norme in modo uniforme su tutto il territorio nazionale.</p>
+    </div>
+  </div>
+
+  <!-- Art. 2 -->
+  <div class="art-block" id="l33-art2">
+    <div class="art-num">Art. 2 – L. 33/2023</div>
+    <div class="art-title">Oggetto, principi e criteri direttivi generali di delega e istituzione del Comitato interministeriale per le politiche in favore della popolazione anziana</div>
+    <p>L'articolo definisce l'oggetto della delega (ricognizione, riordino, semplificazione, integrazione e coordinamento delle disposizioni sull'assistenza agli anziani) e fissa tredici <strong>principi e criteri direttivi generali</strong> a cui il Governo deve attenersi nell'esercizio della delega: dalla promozione del valore umano delle persone anziane al contrasto della solitudine, dal riconoscimento dell'autodeterminazione al rafforzamento dell'interoperabilità informatica, dalla riqualificazione dei servizi semiresidenziali alla promozione del cohousing.</p>
+    <p>Istituisce inoltre presso la Presidenza del Consiglio il <strong>CIPA</strong> (Comitato Interministeriale per le Politiche in favore della Popolazione Anziana), che ha il compito di: (a) adottare con cadenza triennale e aggiornamento annuale il Piano nazionale per l'invecchiamento attivo e il Piano nazionale per la non autosufficienza; (b) promuovere l'armonizzazione dei LEPS con i LEA; (c) integrare i sistemi informativi; (d) monitorare l'attuazione dei Piani e trasmettere annualmente una relazione alle Camere. Il CIPA è presieduto dal Presidente del Consiglio (o dal Ministro del lavoro su delega) e comprende i ministri competenti per materia.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Questo articolo spiega <em>perché</em> nasce la legge (riformare tutto il sistema di cura degli anziani) e <em>come</em> deve farlo il Governo (rispettando 13 principi: dignità, autonomia, contrasto all'isolamento, cure domiciliari, ecc.). Crea anche il CIPA, cioè un "super-comitato" ministeriale che deve coordinare tutte le politiche per gli anziani a livello nazionale e fare programmi triennali.</p>
+    </div>
+  </div>
+
+  <!-- Art. 3 -->
+  <div class="art-block" id="l33-art3">
+    <div class="art-num">Art. 3 – L. 33/2023</div>
+    <div class="art-title">Delega al Governo in materia di invecchiamento attivo, promozione dell'inclusione sociale e prevenzione della fragilità</div>
+    <p>Delega il Governo ad adottare decreti per <strong>definire la persona anziana e promuoverne dignità, autonomia, inclusione sociale, invecchiamento attivo e prevenzione della fragilità</strong>. Elenca ulteriori principi specifici su: campagne di salute preventiva; programmi contro l'isolamento; sanità preventiva domiciliare; impegno civico e volontariato; mobilità urbana; coabitazione solidale (senior cohousing e cohousing intergenerazionale); alfabetizzazione digitale; attività fisico-sportiva e relazione con animali da affezione; turismo del benessere. Con riguardo alla solidarietà intergenerazionale: scambi culturali, servizio civile, valorizzazione del volontariato degli studenti anche ai fini di crediti scolastici e universitari. Con riguardo alla prevenzione: valutazione multidimensionale bio-psico-sociale per anziani affetti da patologie croniche e screening dei bisogni presso i PUA.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Qui si dà al Governo il "mandato" per tutte le misure che riguardano gli anziani <em>ancora autosufficienti o a rischio fragilità</em>: prevenzione, mobilità, digitale, turismo, sport, animali da compagnia, scambi con i giovani. Si prevede anche uno screening (una valutazione iniziale) per chi ha già una malattia cronica, per capire prima di chi si ha bisogno.</p>
+    </div>
+  </div>
+
+  <!-- Art. 4 -->
+  <div class="art-block" id="l33-art4">
+    <div class="art-num">Art. 4 – L. 33/2023</div>
+    <div class="art-title">Delega al Governo in materia di assistenza sociale, sanitaria e sociosanitaria per le persone anziane non autosufficienti</div>
+    <p>Delega per il riordino dell'assistenza agli <strong>anziani non autosufficienti</strong>. I criteri direttivi specifici comprendono: definizione normativa di non autosufficienza (ICF, età, fragilità, disabilità pregressa); istituzione dello SNAA come sistema organizzativo unitario; programmazione integrata LEPS-LEA; monitoraggio con sistema sanzionatorio per mancato raggiungimento degli obiettivi; coordinamento ATS-distretto sanitario; uniformazione degli ATS su tutto il territorio; semplificazione dell'accesso tramite PUA presso le Case della comunità; <strong>valutazione multidimensionale unificata</strong> (VMU) come procedura unica che sostituisce le procedure per l'invalidità civile, la L. 104/1992 e la L. 18/1980; PAI con budget di cura e assistenza; integrazione ADI e SAD; cure palliative; servizi semiresidenziali e residenziali adeguati; aggiornamento criteri di accreditamento; continuità assistenziale per le persone con disabilità pregressa che entrano nell'età anziana.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Questa è la delega "core" per chi non ce la fa più da solo. Prevede un sistema unico (SNAA) che metta insieme servizi sociali, sanitari e assistenziali. La novità più grande: un'unica valutazione (la VMU) che sostituisce tutte le visite e le commissioni separate oggi esistenti (invalidità civile, L. 104, indennità di accompagnamento). Si prevede anche un "piano personalizzato" (PAI) con un budget dedicato per ogni persona.</p>
+    </div>
+  </div>
+
+  <!-- Art. 5 -->
+  <div class="art-block" id="l33-art5">
+    <div class="art-num">Art. 5 – L. 33/2023</div>
+    <div class="art-title">Delega al Governo in materia di politiche per la sostenibilità economica e la flessibilità dei servizi di cura e assistenza a lungo termine per le persone anziane e per le persone anziane non autosufficienti</div>
+    <p>Terza delega, sulla <strong>sostenibilità economica</strong>. Prevede: (a) introduzione, anche in via sperimentale, di una <strong>prestazione universale</strong> graduata per bisogno, erogabile come trasferimento monetario o servizi, che assorbe l'indennità di accompagnamento; (b) ricognizione e riordino delle agevolazioni fiscali e contributive per il lavoro di cura; (c) definizione dei percorsi formativi per il personale assistenziale, degli standard degli assistenti familiari e delle linee guida nazionali; (d) sostegno ai caregiver familiari: ricognizione normativa, certificazione delle competenze acquisite, partecipazione alle programmazioni sociali.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Questa delega si occupa dei soldi e della qualità del lavoro di cura. Introduce una "prestazione universale" per i più bisognosi (un assegno che ingloba l'accompagnamento). Prevede corsi di formazione per badanti e operatori, e riconosce ufficialmente il ruolo dei familiari che accudiscono un anziano (i "caregiver").</p>
+    </div>
+  </div>
+
+  <!-- Artt. 6-9 -->
+  <div class="art-block" id="l33-art6-9">
+    <div class="art-num">Artt. 6–9 – L. 33/2023</div>
+    <div class="art-title">Procedimento, clausola di salvaguardia, finanziamento, entrata in vigore</div>
+    <p><strong>Art. 6</strong> disciplina il procedimento: gli schemi di decreto devono essere trasmessi alle Camere per il parere delle Commissioni parlamentari (30 giorni) e approvati previa intesa in Conferenza unificata. Entro 12 mesi dall'entrata in vigore di ciascun decreto il Governo può adottare disposizioni integrative e correttive.</p>
+    <p><strong>Art. 7</strong> (Clausola di salvaguardia): le disposizioni si applicano nelle Regioni a statuto speciale e nelle Province autonome compatibilmente con i rispettivi statuti.</p>
+    <p><strong>Art. 8</strong> (Finanziamento): le risorse derivano dal riordino del Fondo per le non autosufficienze, del Fondo nazionale per le politiche sociali, del Fondo lotta alla povertà e del Fondo caregiver. Concorrono le risorse PNRR (Missioni 5 e 6) e il Programma nazionale "Inclusione e lotta alla povertà" 2021-2027. Il principio è di invarianza finanziaria: non devono derivare nuovi o maggiori oneri, salvo quanto previsto dall'art. 36 del D.Lgs. 29/2024.</p>
+    <p><strong>Art. 9</strong>: entrata in vigore il giorno successivo alla pubblicazione in G.U. (24 marzo 2023).</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Gli ultimi articoli della legge delega spiegano <em>come</em> si fa la riforma (iter parlamentare, accordi con le Regioni), dove si trovano i soldi (fondi già esistenti più PNRR) e che la riforma non deve costare di più allo Stato rispetto a oggi, tranne per la prestazione universale che ha una copertura specifica.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════
+       D.LGS. 29/2024
+  ══════════════════════════════════ -->
+  <h2 id="titolo-i">D.Lgs. 15 marzo 2024, n. 29 – Titolo I: Principi generali e misure a sostegno della popolazione anziana</h2>
+
+  <p>Il Titolo I si divide in cinque Capi: (I) Principi generali; (II) Prevenzione della fragilità e salute; (III) Contrasto all'isolamento; (IV) Coabitazione solidale; (V) Alfabetizzazione digitale.</p>
+
+  <!-- Art. 1 -->
+  <div class="art-block" id="d29-art1">
+    <div class="art-num">Art. 1 – D.Lgs. 29/2024</div>
+    <div class="art-title">Oggetto e finalità</div>
+    <p>Il decreto reca disposizioni volte a promuovere: (a) la <strong>dignità e l'autonomia</strong> della persona anziana; (b) l'<strong>inclusione sociale</strong>; (c) l'<strong>invecchiamento attivo</strong> e la <strong>prevenzione della fragilità</strong>, anche attraverso la VMU, strumenti di sanità preventiva e telemedicina, contrasto all'isolamento, senior cohousing, cohousing intergenerazionale, turismo del benessere e turismo lento; (d) il <strong>riordino dell'assistenza</strong> a lungo termine per gli anziani non autosufficienti, con coordinamento delle risorse e sostenibilità dei servizi.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>L'art. 1 è la "presentazione" del decreto: dice che la legge serve sia a far vivere meglio gli anziani autonomi (prevenzione, sport, digitale, turismo, coabitazione) sia ad aiutare chi non è più in grado di badare a sé stesso (non autosufficienza). Entrambe le dimensioni sono centrali.</p>
+    </div>
+  </div>
+
+  <!-- Art. 2 -->
+  <div class="art-block" id="d29-art2">
+    <div class="art-num">Art. 2 – D.Lgs. 29/2024</div>
+    <div class="art-title">Definizioni e disposizioni di coordinamento</div>
+    <p>Richiama le definizioni della L. 33/2023 e aggiunge: <strong>persona anziana</strong> (≥65 anni); <strong>persona grande anziana</strong> (≥80 anni); <strong>persona anziana non autosufficiente</strong> (gravi limitazioni nelle attività quotidiane valutate con metodi standardizzati ICF, con stratificazione del rischio per fragilità, multimorbilità e vulnerabilità sociale); <strong>specifico bisogno assistenziale dell'anziano non autosufficiente</strong> (graduato all'esito della VMU di cui all'art. 27). Il comma 2 fa salva la disciplina già vigente sulle prestazioni sociosanitarie per i non autosufficienti.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>La legge spiega chi è "anziano" (65 anni), chi è "grande anziano" (80 anni) e chi è "non autosufficiente" (chi fatica nelle attività di base della vita, valutato con strumenti scientifici standardizzati). Queste definizioni sono fondamentali perché determinano chi ha diritto ai vari benefici.</p>
+    </div>
+  </div>
+
+  <!-- Art. 3 -->
+  <div class="art-block" id="d29-art3">
+    <div class="art-num">Art. 3 – D.Lgs. 29/2024</div>
+    <div class="art-title">Ruolo del Comitato interministeriale per le politiche in favore della popolazione anziana</div>
+    <p>Il CIPA, tenuto conto di LEA e LEPS vigenti e previa intesa in Conferenza unificata, indica nel Piano nazionale per l'invecchiamento attivo i criteri generali per i progetti di promozione della salute, prevenzione della fragilità e servizi socio-sanitari a livello regionale e locale. Individua criteri per l'uniforme applicazione degli interventi nel rispetto di efficienza, efficacia ed economicità. Garantisce il coordinamento e la programmazione integrata delle politiche, rilevando continuativamente le attività svolte attraverso lo SNAA.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Il CIPA è il "cervello" che programma le politiche per gli anziani a livello nazionale: stabilisce le regole generali, coordina tutto e monitora se le cose vengono realmente fatte. Non agisce da solo: deve prima accordarsi con le Regioni.</p>
+    </div>
+  </div>
+
+  <!-- Art. 4 -->
+  <div class="art-block" id="d29-art4">
+    <div class="art-num">Art. 4 – D.Lgs. 29/2024</div>
+    <div class="art-title">Misure per la prevenzione della fragilità e la promozione della salute delle persone anziane</div>
+    <p>Il Ministero della salute realizza periodiche <strong>campagne istituzionali di comunicazione</strong> sull'invecchiamento attivo, in coerenza con il PNP 2020-2025 e il PNPV 2023-2025. Le campagne promuovono stili di vita sani, adesione a screening oncologici e vaccinazioni, e sicurezza domestica. Con decreto ministeriale (entro 90 giorni) sono adottate <strong>Linee di indirizzo nazionali</strong> per l'accessibilità degli anziani ai servizi del territorio. A livello regionale e locale si adottano piani d'azione per l'accessibilità universale. Clausola di invarianza finanziaria.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Campagne informative del Ministero della salute per dire agli anziani come vivere sano (vaccinazioni, screening, sicurezza in casa). Le Regioni devono poi fare piani locali per rendere davvero accessibili tutti i servizi. Tutto questo senza nuovi soldi: si usano le risorse esistenti.</p>
+    </div>
+  </div>
+
+  <!-- Art. 5 -->
+  <div class="art-block" id="d29-art5">
+    <div class="art-num">Art. 5 – D.Lgs. 29/2024</div>
+    <div class="art-title">Misure per la promozione della salute e dell'invecchiamento attivo delle persone anziane da attuare nei luoghi di lavoro</div>
+    <p>Il <strong>datore di lavoro</strong> deve garantire la salute e l'invecchiamento attivo dei lavoratori anziani tramite la valutazione dei rischi e la sorveglianza sanitaria previste dal D.Lgs. 81/2008, adottando il modello OMS Workplace Health Promotion (WHP). Deve inoltre adottare ogni iniziativa per consentire ai lavoratori anziani di svolgere, anche parzialmente, la prestazione lavorativa in <strong>modalità agile</strong>, nel rispetto dei contratti collettivi.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Sul posto di lavoro, il datore di lavoro deve considerare i bisogni dei lavoratori anziani: adattare i rischi valutati, favorire lo smart working. L'obiettivo è permettere alle persone anziane di continuare a lavorare in modo sostenibile.</p>
+    </div>
+  </div>
+
+  <!-- Art. 6 -->
+  <div class="art-block" id="d29-art6">
+    <div class="art-num">Art. 6 – D.Lgs. 29/2024</div>
+    <div class="art-title">Misure per favorire l'invecchiamento attivo mediante la promozione dell'impegno delle persone anziane in attività di utilità sociale e di volontariato</div>
+    <p>Prevede iniziative di quattro soggetti istituzionali: (a) la <strong>Presidenza del Consiglio – Dip. Famiglia</strong>: campagne su invecchiamento attivo e scambio intergenerazionale; (b) la <strong>Presidenza del Consiglio – Dip. Pari opportunità</strong>: azioni contro l'ageismo e la violenza sugli anziani (anche in coordinamento con il Piano nazionale contro la violenza di genere); (c) la <strong>Presidenza del Consiglio – Dip. Politiche giovanili</strong>: azioni intergenerazionali con il Fondo per le politiche giovanili, valorizzando gli anziani come depositari del patrimonio culturale, dialettale, degli antichi mestieri; (d) le <strong>istituzioni scolastiche</strong>: possono inserire nel PTOF iniziative di solidarietà intergenerazionale. Le Regioni e gli enti locali possono, nei limiti delle risorse, promuovere agricoltura sociale, orti urbani, centri di incontro, educazione finanziaria, collaborazione con i medici di medicina generale. Entro il 30 aprile di ogni anno, trasmissione di relazione al Dip. Famiglia; entro il 31 dicembre, relazione annuale al CIPA.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Vari ministeri e istituzioni devono promuovere la partecipazione sociale degli anziani: campagne, scambi con i giovani, orti urbani, educazione finanziaria, attività nelle scuole. L'idea è che l'anziano non sia solo un "beneficiario" ma una risorsa per la comunità. Ogni anno si fa un bilancio di quello che è stato fatto.</p>
+    </div>
+  </div>
+
+  <!-- Art. 7 -->
+  <div class="art-block" id="d29-art7">
+    <div class="art-num">Art. 7 – D.Lgs. 29/2024</div>
+    <div class="art-title">Promozione della mobilità delle persone anziane</div>
+    <p>Entro 90 giorni dall'entrata in vigore, con decreto del Ministro delle infrastrutture e dei trasporti (concerto con il MEF, previa intesa in Conferenza unificata), sono individuati <strong>livelli di servizio del trasporto pubblico locale</strong> adeguati alle esigenze di mobilità degli anziani in contesti urbani ed extraurbani. I livelli tengono conto di rilevazione della domanda e fabbisogni di mobilità. Sono previsti criteri di ponderazione per la determinazione della quota di riparto del fondo trasporti.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Entro 90 giorni dall'entrata in vigore, il Governo deve stabilire degli "standard minimi" per il trasporto pubblico dedicato agli anziani (bus, navette, ecc.), sia in città che in campagna. I fondi per il trasporto locale tengono conto di questo requisito.</p>
+    </div>
+  </div>
+
+  <!-- Art. 8 -->
+  <div class="art-block" id="d29-art8">
+    <div class="art-num">Art. 8 – D.Lgs. 29/2024</div>
+    <div class="art-title">Misure volte a favorire il turismo del benessere e il turismo lento</div>
+    <p>Il <strong>Ministero del turismo</strong>, nell'ambito delle risorse disponibili: (a) promuove convenzioni tra strutture socioresidenziali e strutture ricettive, termali, balneari, agrituristiche e parchi; (b) promuove soggiorni lunghi a prezzi vantaggiosi; (c) promuove il "turismo intergenerazionale" con organizzazioni di volontariato; (d) favorisce la socializzazione tra anziani autosufficienti e non; (e) sostiene l'abbattimento delle barriere architettoniche; (f) congiuntamente al Ministero della cultura, adotta misure per l'accessibilità agli istituti culturali. Con decreti ministeriali (entro 90 giorni) sono definite le modalità attuative.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Il Ministero del turismo deve fare accordi con hotel, terme e agriturismi per offrire agli anziani soggiorni a prezzi ridotti, anche in bassa stagione. Si promuove il turismo insieme ai giovani volontari e l'abbattimento delle barriere architettoniche nei luoghi di cultura.</p>
+    </div>
+  </div>
+
+  <!-- Art. 9 -->
+  <div class="art-block" id="d29-art9">
+    <div class="art-num">Art. 9 – D.Lgs. 29/2024</div>
+    <div class="art-title">Misure per la promozione di strumenti di sanità preventiva e di telemedicina presso il domicilio delle persone anziane</div>
+    <p>Promuove l'impiego di strumenti di <strong>sanità preventiva e telemedicina</strong> a domicilio, con priorità per la persona grande anziana (≥80 anni) affetta da almeno una patologia cronica. Le prestazioni di telemedicina sono individuate con decreto ministeriale (entro 90 giorni) in coerenza con il PNRR (M6-C1, Inv. 1.2.3 – telemedicina). Con il decreto è prevista la suddivisione del territorio in tre aree geografiche e l'attivazione sperimentale (max 18 mesi) di almeno un servizio per area. L'erogazione può avvenire tramite enti accreditati, infermieri di famiglia, farmacie. L'Agenas monitora e riferisce al CIPA.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Gli anziani con malattie croniche, specialmente gli over 80, possono ricevere visite e controlli a casa propria attraverso la telemedicina (videochiamate mediche, sensori remoti, ecc.). Parte prima in tre grandi aree geografiche in via sperimentale, poi si estende. Le farmacie possono partecipare.</p>
+    </div>
+  </div>
+
+  <!-- Art. 10 -->
+  <div class="art-block" id="d29-art10">
+    <div class="art-num">Art. 10 – D.Lgs. 29/2024</div>
+    <div class="art-title">Valutazione multidimensionale unificata in favore delle persone anziane</div>
+    <p>Nell'ambito dei PUA (collocati nelle Case della comunità) sono assicurati agli anziani: <strong>orientamento e sostegno informativo</strong> per l'accesso a interventi e servizi sociali e sociosanitari; possibilità di ottenere, ove occorra, la <strong>VMU</strong> secondo i criteri dell'art. 27, ai fini dell'individuazione dei fabbisogni assistenziali.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>I PUA (sportelli unici nelle Case della comunità) sono il punto di ingresso per gli anziani: danno informazioni su tutti i servizi disponibili e, se necessario, avviano la valutazione approfondita (VMU) per capire di cosa ha davvero bisogno la persona.</p>
+    </div>
+  </div>
+
+  <!-- Art. 11 -->
+  <div class="art-block" id="d29-art11">
+    <div class="art-num">Art. 11 – D.Lgs. 29/2024</div>
+    <div class="art-title">Valorizzazione delle attività volte a promuovere l'incontro e il dialogo intergenerazionale nelle istituzioni scolastiche e nelle università, anche mediante il riconoscimento di crediti universitari e la promozione della conoscenza del patrimonio culturale immateriale</div>
+    <p>Le scuole del secondo ciclo possono valorizzare nel PTOF le <strong>esperienze di volontariato</strong> degli studenti presso strutture per anziani, riportandole nel curriculum e valorizzandole nell'esame di Stato. Le università possono riconoscere <strong>crediti formativi universitari</strong> (elettivi o aggiuntivi) per le attività svolte in convenzione con enti del SSN, cooperative sociali e ATS a sostegno degli anziani, con riferimento ai corsi delle classi L-19, L-39, LM-50, LM-87 e delle classi sanitarie (L/SNT, LM/SNT). I Ministeri dell'istruzione e della cultura possono promuovere accordi per la trasmissione del patrimonio culturale immateriale (UNESCO 2003) alle nuove generazioni.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Le scuole superiori e le università valorizzano i ragazzi che fanno volontariato con gli anziani: può valere per l'esame di maturità o dare crediti universitari. Si vuole creare un ponte vero tra generazioni, anche trasmettendo saperi tradizionali (dialetti, mestieri antichi, ecc.).</p>
+    </div>
+  </div>
+
+  <!-- Art. 12 -->
+  <div class="art-block" id="d29-art12">
+    <div class="art-num">Art. 12 – D.Lgs. 29/2024</div>
+    <div class="art-title">Misure per la promozione dell'attività fisica e sportiva nella popolazione anziana</div>
+    <p>Il Ministro per lo sport e i giovani, avvalendosi della società Sport e salute S.p.A. e degli enti del Terzo settore, promuove nel triennio 2024-2026 iniziative e progetti per diffondere la cultura del movimento nella terza età: gruppi di cammino, programmi di attività sportiva come strumento di benessere psico-fisico e integrazione intergenerazionale. Le attività sono finanziate con risorse del Fondo per la promozione dell'attività sportiva di base (max 500.000 euro complessivi per il triennio). Con decreto ministeriale (concerto Salute e Famiglia, previa intesa in Conferenza permanente) sono definiti criteri e modalità.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Il Ministero dello sport finanzia (con max 500.000 euro per tre anni) progetti che portano gli anziani a muoversi: gruppi di cammino, sport di squadra, attività insieme ai giovani. Prevenire la sedentarietà significa ridurre malattie e ospedalizzazioni.</p>
+    </div>
+  </div>
+
+  <!-- Art. 13 -->
+  <div class="art-block" id="d29-art13">
+    <div class="art-num">Art. 13 – D.Lgs. 29/2024</div>
+    <div class="art-title">Misure per incentivare la relazione con animali da affezione</div>
+    <p>Le Regioni promuovono l'accesso degli <strong>animali da affezione nelle strutture residenziali</strong> e nelle residenze protette, con finalità ludico-ricreative e di socializzazione, secondo le linee guida nazionali sugli Interventi Assistiti con Animali (IAA) del 2015. Per il triennio 2024-2026, le Regioni promuovono agevolazioni per spese veterinarie per incentivare l'adozione di cani e gatti da parte di anziani soli con ISEE inferiore a 16.215 euro. Con decreto del Ministro della salute (entro 6 mesi) si definiscono requisiti reddituali, modalità di donazione di medicinali veterinari agli enti del Terzo settore e tracciabilità dei farmaci.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Cani e gatti possono entrare nelle case di riposo. Gli anziani soli con reddito basso (ISEE ≤ 16.215 €) possono ricevere aiuti per le spese veterinarie se adottano un animale da un canile. Il legame con gli animali combatte la solitudine e migliora il benessere psicologico.</p>
+    </div>
+  </div>
+
+  <!-- Art. 14 -->
+  <div class="art-block" id="d29-art14">
+    <div class="art-num">Art. 14 – D.Lgs. 29/2024</div>
+    <div class="art-title">Progetti di servizio civile universale a favore delle persone anziane</div>
+    <p>Gli enti iscritti all'Albo del servizio civile universale possono presentare <strong>progetti nelle Aree "Animazione culturale con gli anziani" e "Adulti e terza età in condizioni di disagio"</strong>, finalizzati a: sviluppare il rapporto intergenerazionale; diffondere la conoscenza dei servizi sul territorio; sostenere anziani in condizioni critiche e i loro caregiver. Clausola di invarianza finanziaria.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>I giovani in servizio civile possono svolgere attività dedicate agli anziani (animazione culturale, supporto alle famiglie). Questo crea un legame tra generazioni e al tempo stesso fornisce sostegno concreto agli anziani più fragili.</p>
+    </div>
+  </div>
+
+  <!-- Art. 15 -->
+  <div class="art-block" id="d29-art15">
+    <div class="art-num">Art. 15 – D.Lgs. 29/2024</div>
+    <div class="art-title">Linee guida in materia di senior cohousing e di cohousing intergenerazionale</div>
+    <p>Il CIPA, entro 180 giorni dall'entrata in vigore e previa intesa in Conferenza permanente, predispone linee guida per definire caratteristiche ed elementi essenziali del <strong>senior cohousing</strong> (coabitazione solidale tra anziani) e del <strong>cohousing intergenerazionale</strong> (coabitazione tra anziani e giovani in condizione svantaggiata). I modelli si realizzano in case, case-famiglia, gruppi appartamento, condomini solidali, aperti a familiari, volontari e prestatori di servizi. Alle riunioni preparatorie dei lavori partecipano esperti e rappresentanti di istituzioni e associazioni, senza emolumenti.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Si vogliono promuovere nuove forme di convivenza: anziani che abitano insieme condividendo spazi e risorse (senior cohousing) oppure anziani che abitano con giovani in difficoltà (cohousing intergenerazionale). Il CIPA deve preparare le regole entro 6 mesi.</p>
+    </div>
+  </div>
+
+  <!-- Art. 16 -->
+  <div class="art-block" id="d29-art16">
+    <div class="art-num">Art. 16 – D.Lgs. 29/2024</div>
+    <div class="art-title">Criteri e prescrizioni per la realizzazione di progetti di coabitazione mediante rigenerazione urbana e riuso del patrimonio costruito</div>
+    <p>La coabitazione solidale si realizza <strong>prioritariamente</strong> attraverso la rigenerazione urbana e il riuso del patrimonio costruito, secondo criteri di: mobilità e accessibilità sostenibili; ristrutturazione ed efficienza energetica; protezione della dimensione culturale e ambientale; soddisfacimento autonomo dei bisogni primari; coerenza con interventi già finanziati. Con decreto del MIT (entro 120 giorni dall'approvazione delle linee guida) sono definite le prescrizioni edilizie che Regioni e Comuni devono rispettare, con obiettivi di: ampliamento dell'offerta abitativa; accessibilità ai servizi (scuole, supermercati, TPL); accessibilità ai servizi sanitari; servizi comuni per socialità e assistenza medica; mobilità e spazi verdi.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Le abitazioni per il cohousing non si costruiscono da zero: si usano immobili già esistenti da ristrutturare. I Comuni e le Regioni devono rispettare regole precise sulle caratteristiche degli edifici (accessibili, vicini ai servizi, efficienti energeticamente).</p>
+    </div>
+  </div>
+
+  <!-- Art. 17 -->
+  <div class="art-block" id="d29-art17">
+    <div class="art-num">Art. 17 – D.Lgs. 29/2024</div>
+    <div class="art-title">Progetti pilota sperimentali</div>
+    <p>Regioni e Comuni possono avviare azioni di selezione di iniziative progettuali di coabitazione, con priorità per la rigenerazione urbana, tenendo conto di quanto già finanziato dagli ATS sulla Missione 5 del PNRR. Gli interventi infrastrutturali possono rientrare negli Accordi per la coesione. Il MIT può promuovere <strong>progetti pilota a livello nazionale</strong> anche tramite partenariato pubblico-privato. Per i progetti pilota si ha preferenza per gli immobili pubblici, in coerenza con il programma di valorizzazione del patrimonio immobiliare pubblico.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Comuni e Regioni, ma anche il Governo nazionale, possono avviare progetti sperimentali di coabitazione. Si parte dai vecchi edifici pubblici non utilizzati, che vengono ristrutturati. I progetti nazionali possono coinvolgere anche i privati.</p>
+    </div>
+  </div>
+
+  <!-- Art. 18 -->
+  <div class="art-block" id="d29-art18">
+    <div class="art-num">Art. 18 – D.Lgs. 29/2024</div>
+    <div class="art-title">Monitoraggio</div>
+    <p>Il MIT trasmette annualmente alle Camere una <strong>relazione descrittiva</strong> degli interventi di cohousing realizzati e dello stato di avanzamento. Al termine della sperimentazione, se l'esito è positivo, con decreto ministeriale (entro 90 giorni) sono determinate le modalità per la messa a regime dei progetti pilota. Clausola di invarianza finanziaria.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Il Parlamento viene informato ogni anno su come procedono i progetti pilota di coabitazione. Se funzionano, si trasformano da sperimentali a definitivi. Trasparenza e verifica sono obbligatorie.</p>
+    </div>
+  </div>
+
+  <!-- Art. 19 -->
+  <div class="art-block" id="d29-art19">
+    <div class="art-num">Art. 19 – D.Lgs. 29/2024</div>
+    <div class="art-title">Rete dei servizi di facilitazione digitale</div>
+    <p>Nell'ambito del PNRR (M1-C1, Subinv. 1.7.2 – Rete di servizi di facilitazione), fino al 31 dicembre 2026 la struttura della Presidenza del Consiglio competente per l'innovazione digitale promuove, d'intesa con le Regioni, <strong>attività di formazione delle competenze digitali</strong> per gli anziani presso i punti di facilitazione digitale. Adotta linee guida che definiscono obiettivi di alfabetizzazione e programmi di supporto. Finanziato con le risorse PNRR già assegnate.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Sportelli fisici (i "punti di facilitazione digitale") insegnano agli anziani ad usare smartphone, computer e servizi online della pubblica amministrazione (come lo SPID o il fascicolo sanitario). Finanziate con i fondi PNRR, le attività vanno avanti fino a fine 2026.</p>
+    </div>
+  </div>
+
+  <!-- Art. 20 -->
+  <div class="art-block" id="d29-art20">
+    <div class="art-num">Art. 20 – D.Lgs. 29/2024</div>
+    <div class="art-title">Percorso per le competenze trasversali e per l'orientamento per ridurre il divario digitale</div>
+    <p>Le scuole del secondo ciclo possono realizzare percorsi PCTO in cui gli studenti insegnano agli anziani ad utilizzare strumenti digitali, in un contesto laboratoriale. Le scuole provvedono con risorse disponibili a legislazione vigente.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Gli studenti delle scuole superiori, durante i percorsi scuola-lavoro (ex alternanza scuola-lavoro), possono fare da "tutor digitali" agli anziani. I giovani imparano competenze trasversali, gli anziani imparano a usare Internet.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2 id="titolo-ii">D.Lgs. 29/2024 – Titolo II: Assistenza sociale, sanitaria, sociosanitaria e prestazione universale per le persone anziane non autosufficienti</h2>
+
+  <p>Il Titolo II contiene il cuore della riforma: lo SNAA, i LEPS, la VMU, il PAI, le strutture residenziali, le cure palliative, la prestazione universale, i caregiver familiari. Si divide in due Capi: (I) Riordino e VMU; (II) Prestazione universale, agevolazioni e caregiver.</p>
+
+  <!-- Art. 21 -->
+  <div class="art-block" id="d29-art21">
+    <div class="art-num">Art. 21 – D.Lgs. 29/2024</div>
+    <div class="art-title">Definizione e articolazione multilivello del Sistema nazionale per la popolazione anziana non autosufficiente</div>
+    <p>Lo <strong>SNAA</strong> è l'insieme integrato di servizi e prestazioni necessari a garantire un adeguato sostegno agli anziani non autosufficienti. I soggetti responsabili dello SNAA sono: amministrazioni centrali, INPS, Regioni e Province autonome, ASL del SSN, Comuni singoli o associati in ATS. La coerenza della programmazione si realizza su tre livelli: <strong>centrale</strong> (CIPA: piani nazionali triennali con aggiornamento annuale); <strong>regionale</strong> (assessorati competenti e Comuni con le ASL locali); <strong>locale</strong> (ATS e distretto sanitario). Lo SNAA persegue programmazione integrata nel rispetto di appropriatezza, tempestività ed efficacia. Il CIPA si avvale delle risultanze del monitoraggio per promuovere l'armonizzazione LEPS-LEA e l'allocazione delle risorse. Il Piano nazionale per la non autosufficienza costituisce parte integrante del Piano nazionale degli interventi e servizi sociali (L. 328/2000). Le Regioni elaborano piani regionali corrispondenti e li trasmettono al Ministero del lavoro per la verifica dei LEPS. Partecipa all'SNAA l'attuazione del PNRR (Missioni 5 e 6).</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Lo SNAA è il "sistema" che mette insieme tutti: Stato, Regioni, Comuni, ASL e INPS, ciascuno con il suo ruolo. Funziona su tre livelli (nazionale, regionale, locale) e deve essere programmato in modo integrato. Il Governo fa il piano nazionale, le Regioni lo adattano localmente, i Comuni e le ASL lo realizzano ogni giorno.</p>
+    </div>
+  </div>
+
+  <!-- Art. 22 -->
+  <div class="art-block" id="d29-art22">
+    <div class="art-num">Art. 22 – D.Lgs. 29/2024</div>
+    <div class="art-title">Individuazione ed erogazione dei livelli essenziali delle prestazioni sociali</div>
+    <p>I LEPS rilevanti sono quelli individuati dall'art. 1, co. 162 e 163, L. 234/2021. Sono attuati in via graduale e progressiva, nei limiti delle risorse disponibili, dagli ATS nelle seguenti aree: (a) <strong>assistenza domiciliare sociale</strong> e assistenza sociale integrata con i servizi sanitari; (b) <strong>servizi di sollievo</strong> per gli anziani non autosufficienti e le loro famiglie; (c) <strong>servizi di supporto</strong> per gli anziani non autosufficienti e le loro famiglie.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>I LEPS sono i servizi sociali minimi garantiti a tutti in Italia. Per gli anziani non autosufficienti comprendono: assistenza a casa, servizi di "respiro" (sollievo temporaneo) per le famiglie, e servizi di supporto generico. Si applicano progressivamente man mano che ci sono risorse.</p>
+    </div>
+  </div>
+
+  <!-- Art. 23 -->
+  <div class="art-block" id="d29-art23">
+    <div class="art-num">Art. 23 – D.Lgs. 29/2024</div>
+    <div class="art-title">Sistema di monitoraggio dei livelli essenziali delle prestazioni sociali</div>
+    <p>Con decreto ministeriale (entro 120 giorni, previa intesa in Conferenza permanente), in raccordo con la Cabina di regia prevista dalla L. 197/2022, sono definiti il sistema di monitoraggio dei LEPS, gli indicatori specifici sullo stato di attuazione, gli interventi sostitutivi in caso di mancato raggiungimento degli obiettivi. Il Ministero del lavoro effettua verifiche triennali del grado di adeguatezza dei LEPS. Si promuove l'<strong>interoperabilità</strong> dei sistemi informatici tra Ministero del lavoro, Ministero della salute, INPS, Regioni e ATS, secondo le linee guida AGID e dell'Agenzia nazionale per la sanità digitale. Le informazioni aggiuntive sui servizi locali confluiscono nel SIUSS (Sistema informativo unitario dei servizi sociali).</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Il Governo misura se i servizi promessi vengono davvero erogati, con indicatori e verifiche ogni tre anni. Se una Regione non raggiunge gli obiettivi, scattano misure correttive. I sistemi informatici di Comuni, ASL e INPS devono parlare tra loro per condividere i dati sugli anziani.</p>
+    </div>
+  </div>
+
+  <!-- Art. 24 -->
+  <div class="art-block" id="d29-art24">
+    <div class="art-num">Art. 24 – D.Lgs. 29/2024</div>
+    <div class="art-title">Funzioni degli ambiti territoriali sociali</div>
+    <p>Gli <strong>ATS</strong> provvedono a garantire, sulla base degli indirizzi dello SNAA e della programmazione regionale, lo svolgimento omogeneo di tutte le funzioni tecniche di programmazione, gestione, erogazione e monitoraggio degli interventi nell'ambito dei servizi sociali alle persone e alle famiglie residenti o regolarmente soggiornanti. Si avvalgono delle infrastrutture sociali degli Ipab e di altri soggetti pubblici o privati operanti sul territorio. Le funzioni attribuite agli ATS sono: (a) coordinamento e governance del sistema integrato; (b) pianificazione e programmazione; (c) erogazione degli interventi e dei servizi; (d) gestione del personale. Gli ATS e i distretti sanitari individuano modalità semplificate di accesso attraverso i PUA (Case della comunità). Il Ministro del lavoro adotta, entro 120 giorni, linee guida per il miglioramento delle capacità gestionali degli ATS e per l'attuazione graduale dei LEPS.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Gli ATS sono il braccio operativo dei servizi sociali sul territorio: programmano, gestiscono e erogano i servizi per le persone della loro area. Lavorano insieme ai distretti sanitari attraverso i PUA (sportelli unici). Il Ministero gli fornisce linee guida specifiche.</p>
+    </div>
+  </div>
+
+  <!-- Art. 25 -->
+  <div class="art-block" id="d29-art25">
+    <div class="art-num">Art. 25 – D.Lgs. 29/2024</div>
+    <div class="art-title">Servizi di comunità, modelli di rete e sussidiarietà orizzontale</div>
+    <p>In linea con le raccomandazioni OMS e ONU, si promuove l'implementazione di <strong>servizi di comunità e prossimità</strong> che operano in logica di rete e sussidiarietà orizzontale, per contrastare l'isolamento degli anziani non autosufficienti e favorire la continuità delle relazioni personali e la domiciliarità delle cure. Concorrono attivamente tutti i soggetti dei servizi pubblici essenziali, la rete dei servizi sociali e sanitari (incluse le farmacie), gli enti del Terzo settore, i familiari, il volontariato, le reti informali di prossimità e il servizio civile. Il sistema è orientato alla persona, basato sull'integrazione delle risposte e sulla loro modulazione nel tempo secondo il PAI, in un continuum di soluzioni complementari. Clausola di invarianza finanziaria.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Non solo i servizi pubblici: anche le farmacie, le associazioni di volontariato, i vicini, il Terzo settore, i giovani del servizio civile partecipano alla rete di cura dell'anziano. L'obiettivo è che l'anziano possa restare a casa propria, circondato da una "rete" di supporto che si adatta alle sue esigenze nel tempo.</p>
+    </div>
+  </div>
+
+  <!-- Art. 26 -->
+  <div class="art-block" id="d29-art26">
+    <div class="art-num">Art. 26 – D.Lgs. 29/2024</div>
+    <div class="art-title">Integrazione tra servizi sanitari, sociosanitari e sociali</div>
+    <p>Al fine di garantire l'integrazione operativa dei LEPS e dei LEA, gli ATS, le aziende sanitarie e i distretti sanitari, ciascuno per le proprie competenze, sulla base della programmazione regionale e in coerenza con il Piano nazionale per la non autosufficienza, stipulano <strong>accordi di collaborazione organizzativi</strong> per regolamentare l'erogazione integrata delle prestazioni, degli interventi e dei servizi per gli anziani non autosufficienti, secondo le previsioni dell'art. 1, co. 163, L. 234/2021 e in coerenza con la L. 833/1978, il D.Lgs. 502/1992 e la L. 328/2000.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>ASL, Comuni e ATS devono stipulare accordi formali per lavorare insieme. Non si può che il distretto sanitario faccia la sua parte e il servizio sociale faccia un'altra: devono integrarsi in modo concreto, secondo piani condivisi.</p>
+    </div>
+  </div>
+
+  <!-- Art. 27 ── CARDINE DELLA RIFORMA -->
+  <div class="art-block" id="d29-art27" style="border-left-color: var(--oro);">
+    <div class="art-num" style="color: var(--verde);">Art. 27 – D.Lgs. 29/2024 · <span style="color:var(--oro);">NORMA CARDINE</span></div>
+    <div class="art-title">Valutazione multidimensionale unificata</div>
+
+    <h4>Ambito soggettivo (commi 1-3)</h4>
+    <p>Il SSN, gli ATS e l'INPS assicurano alle persone anziane l'accesso alle misure statali del decreto, alle L. 104/1992, L. 118/1971 e L. 18/1980, e ai servizi sociali/sociosanitari tramite i PUA operanti presso le Case della comunità. L'accesso ai PUA è condizionato al possesso <em>congiunto</em> di due requisiti: (a) almeno una patologia cronica; (b) condizioni cliniche con progressiva riduzione delle funzioni fisiologiche, suscettibili di aggravarsi con l'invecchiamento, con rischio di perdita dell'autonomia, tenuto conto delle condizioni sociali, ambientali e familiari. I criteri di priorità (grande anziano, più di una patologia cronica) sono definiti dal decreto ministeriale di cui al comma 7.</p>
+
+    <h4>Accesso e ruolo del medico (commi 4-6)</h4>
+    <p>La valutazione preliminare dei requisiti è effettuata, su richiesta dell'interessato o su segnalazione della rete (ospedale, farmacia, Comune, ATS), dal <strong>medico di medicina generale o di struttura SSN</strong>, che indirizza l'interessato al PUA. Se i requisiti non sussistono, il medico informa della possibilità di accedere alla valutazione della disabilità ex L. 227/2021 e trasmette il certificato medico introduttivo all'apposita piattaforma INPS. I PUA si avvalgono delle <strong>Unità di Valutazione Multidimensionale (UVM)</strong> composte da professionisti del SSN e degli ATS, con formazione adeguata.</p>
+
+    <h4>Il decreto ministeriale di attuazione (comma 7)</h4>
+    <p>Entro 30 mesi dall'entrata in vigore, il Ministro della salute (concerto con Ministro del lavoro e Ministro per le disabilità, previa intesa in Conferenza unificata), avvalendosi di ISS, Agenas e Rete della protezione e dell'inclusione sociale, definisce con regolamento: criteri di priorità di accesso ai PUA; composizione e funzionamento delle UVM; strumento di VMU omogeneo, informatizzato e scientificamente validato; eventuali modalità di armonizzazione con la riforma della disabilità ex L. 227/2021.</p>
+
+    <h4>Sperimentazione e applicazione (commi 8-bis e 8-ter)</h4>
+    <p>Con decreto ministeriale (entro il 30 novembre 2026) sono definite modalità e territori per una <strong>sperimentazione di 12 mesi a decorrere dal 1° gennaio 2027</strong>, con una provincia per regione. Le disposizioni del decreto ministeriale si applicano nelle province in sperimentazione dal 1° gennaio 2027 e <strong>su tutto il territorio nazionale dal 1° gennaio 2028</strong>.</p>
+
+    <h4>Esiti della VMU (commi 9-12)</h4>
+    <p>All'esito della VMU, tre scenari: (A) nessuna non autosufficienza, nessun accesso a invalidità civile → il PUA orienta verso servizi e reti di inclusione; (B) nessuna non autosufficienza, ma sussistono condizioni per le prestazioni di cui alla L. 227/2021 → l'UVM redige verbale e lo trasmette all'INPS per gli accertamenti sulle prestazioni di invalidità e per eventuali accertamenti medico-sanitari integrativi; (C) sussistenza della non autosufficienza → l'UVM redige verbale con indicatori sintetici standardizzati (graduazione del fabbisogno assistenziale; criteri di eleggibilità ai servizi) e trasmette all'INPS. Quando emergono fabbisogni di cura, si procede alla redazione del <strong>PAI</strong>.</p>
+
+    <h4>Il PAI (commi 12-19)</h4>
+    <p>L'UVM redige il PAI con la partecipazione della persona anziana, dei caregiver, del tutore o amministratore di sostegno, degli enti del Terzo settore che operano nel sistema territoriale. Per le persone con demenza, si valuta la capacità di esprimere il consenso. Il PAI contiene obiettivi di cura, interventi modulati per durata e intensità, e comprende, ove necessario, il Piano di riabilitazione individuale (PRI). Il PAI è soggetto a monitoraggio periodico e può essere aggiornato in via d'urgenza. L'UVM, nell'ambito del PAI, individua il <strong>budget di cura e assistenza</strong>, che raccoglie tutte le risorse umane, professionali, strumentali e finanziarie (SSN, FNA, Fondo unico disabilità, altri fondi sociali).</p>
+
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici – L'art. 27 in sintesi</div>
+      <p>Questo è il cuore della riforma. Oggi per ottenere la pensione di invalidità, il riconoscimento della L. 104 o l'indennità di accompagnamento bisogna fare tre procedure separate con tre commissioni diverse. Con la VMU, per gli anziani over 70 con patologie croniche ci sarà <strong>una sola valutazione, fatta da un'equipe multiprofessionale (UVM) al PUA</strong>. Questa valutazione deciderà di tutto: se si ha diritto alle prestazioni economiche (INPS le eroga automaticamente), quale piano di assistenza personalizzato (PAI) attivare e quante risorse (budget) dedicare alla persona. La sperimentazione parte nel 2027 su una provincia per regione; nel 2028 si applica a tutti.</p>
+    </div>
+  </div>
+
+  <!-- Art. 28 -->
+  <div class="art-block" id="d29-art28">
+    <div class="art-num">Art. 28 – D.Lgs. 29/2024</div>
+    <div class="art-title">Attività dei punti unici di accesso e piattaforma digitale</div>
+    <p>I PUA svolgono la loro attività in collaborazione con la Centrale 116117 (cure mediche non urgenti), con i servizi di emergenza-urgenza e le Centrali operative territoriali. Garantiscono il coordinamento con le funzioni di segretariato sociale (L. 328/2000). La VMU semplifica e integra le procedure di accertamento, eliminando duplicazioni; i risultati attivano automaticamente, previo accordo con le Regioni, i benefici e le comunicazioni alle amministrazioni competenti e al cittadino (senza ulteriori adempimenti da parte di quest'ultimo). È istituita la <strong>piattaforma digitale interoperabile</strong> della VMU, che rende disponibili: documentazione sanitaria di accesso al PUA; fascicolo sanitario elettronico (FSE); posizione del cittadino nella piattaforma INPS; cartelle sociali degli enti locali. Con decreto interministeriale (previa intesa in Conferenza unificata e parere del Garante privacy) sono definite le modalità di condivisione delle banche dati e le modalità di raccolta dei dati per la relazione annuale al CIPA. <strong>Norma transitoria fondamentale</strong>: nelle more dell'entrata in vigore della riforma e comunque non oltre il 31 dicembre 2027 (anche nei territori in sperimentazione del D.Lgs. 62/2024), continuano ad applicarsi le norme e le procedure vigenti per l'accesso alle misure statali e alle L. 104/1992, L. 118/1971 e L. 18/1980.</p>
+
+    <div class="nota">
+      La norma transitoria (art. 28, co. 7) è quella su cui intervengono i Messaggi INPS 2026, come illustrato nella sezione dedicata.
+    </div>
+
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>I PUA comunicano con tutti i servizi (pronto soccorso, cure domiciliari, segretariato sociale). I dati dell'anziano (FSE, INPS, Comune) saranno condivisi su un'unica piattaforma digitale, così l'anziano non deve più portare documenti da un ufficio all'altro. Fino al 31 dicembre 2027 (in attesa che la riforma sia pienamente operativa) si continua con le vecchie procedure di invalidità civile e L. 104.</p>
+    </div>
+  </div>
+
+  <!-- Art. 29 -->
+  <div class="art-block" id="d29-art29">
+    <div class="art-num">Art. 29 – D.Lgs. 29/2024</div>
+    <div class="art-title">Misure per garantire un'offerta integrata di assistenza e cure domiciliari</div>
+    <p>Gli ATS, le aziende sanitarie e i distretti sanitari garantiscono l'attivazione degli interventi del PAI per le <strong>cure domiciliari</strong> (di base e integrate, DPCM 2017), integrate con il SAD, per gli anziani non autosufficienti e fragili. Le cure domiciliari sono monitorate tramite il SIAD (Sistema informativo per il monitoraggio dell'assistenza domiciliare) in integrazione con il SIUSS. Con il decreto di cui all'art. 27, co. 7 sono definite le linee di indirizzo per l'integrazione operativa degli interventi domiciliari e per l'adozione di strumenti digitali, di telemedicina e di supporto tecnologico (telesoccorso, teleassistenza, domotica). Con leggi regionali si definiscono le procedure di accreditamento dei servizi di assistenza domiciliare socioassistenziale. Concorrono agli obiettivi anche le misure PNRR di rigenerazione urbana, mobilità e coabitazione.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Il principio guida è "la casa prima di tutto": l'anziano resta a casa propria il più a lungo possibile, ricevendo cure sanitarie (infermieri, fisioterapisti) e sociali (assistenti domiciliari) coordinate tra loro. Il monitoraggio avviene attraverso una banca dati nazionale. La tecnologia (telemedicina, telesoccorso) integra l'assistenza in presenza.</p>
+    </div>
+  </div>
+
+  <!-- Art. 30 -->
+  <div class="art-block" id="d29-art30">
+    <div class="art-num">Art. 30 – D.Lgs. 29/2024</div>
+    <div class="art-title">Servizi residenziali, semiresidenziali e diurni socioassistenziali</div>
+    <p>Gli ATS offrono, secondo la programmazione integrata regionale e locale, <strong>servizi socioassistenziali residenziali, semiresidenziali e diurni</strong> per anziani (anche non autosufficienti), al fine di contrastare l'isolamento e i processi di degenerazione. I servizi residenziali (strutture non sanitarie) devono garantire adeguati livelli di intensità assistenziale, qualità degli ambienti di vita, continuità delle cure, delle relazioni sociali e del diritto alla riservatezza, in ambienti di tipo familiare. I servizi semiresidenziali e diurni sono offerti presso centri accreditati anche per non residenti, per socializzazione e contrasto all'isolamento. Le strutture di cui a questo articolo non rientrano nelle strutture residenziali sociosanitarie del DPCM 2017. Finanziati con il Fondo politiche sociali.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Quando la casa non è più sufficiente o sicura, ci sono strutture sociali (non sanitarie): case di riposo, centri diurni, residenze protette. Devono essere "familiari" (non ospedaliere), rispettare la privacy e garantire le relazioni sociali. Non sono le RSA (che hanno anche una componente sanitaria).</p>
+    </div>
+  </div>
+
+  <!-- Art. 31 -->
+  <div class="art-block" id="d29-art31">
+    <div class="art-num">Art. 31 – D.Lgs. 29/2024</div>
+    <div class="art-title">Servizi residenziali e semiresidenziali sociosanitari</div>
+    <p>Nell'ambito dell'assistenza residenziale sociosanitaria, previa VMU, è definito il PAI. Il SSN garantisce alle persone anziane non autosufficienti trattamenti di tutela sanitaria, lungoassistenza, recupero e mantenimento funzionale, nonché per le persone con disabilità psichiche e sensoriali anche trattamenti riabilitativi con PRI. PAI e PRI sono redatti con il coinvolgimento di tutte le componenti dell'offerta assistenziale. Le strutture pubbliche e private accreditate devono assicurare processi di integrazione istituzionale e organizzativa con i servizi sociali. Con decreto del Ministro della salute (entro 120 giorni, previa intesa in Conferenza permanente) sono individuati criteri condivisi per i requisiti minimi di sicurezza e qualità per l'autorizzazione e l'accreditamento, con attenzione a: continuità di vita e relazioni; congruità del personale; moduli diversificati per intensità (Centri residenziali multiservizi – CRM); videosorveglianza; tecnologie assistenziali (telemedicina, televisita, teleconsulto, telemonitoraggio).</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Le RSA e strutture simili devono rispettare standard minimi nazionali su sicurezza e qualità. Ogni ospite ha un piano di cura (PAI) personalizzato. Le strutture possono avere "reparti" con diversi livelli di assistenza nello stesso edificio (CRM). Si promuove la videosorveglianza per la sicurezza e la telemedicina per ridurre i ricoveri inutili.</p>
+    </div>
+  </div>
+
+  <!-- Art. 32 -->
+  <div class="art-block" id="d29-art32">
+    <div class="art-num">Art. 32 – D.Lgs. 29/2024</div>
+    <div class="art-title">Misure per garantire l'accesso alle cure palliative</div>
+    <p>In conformità alla L. 38/2010 e al DPCM 2017, l'accesso alle <strong>cure palliative</strong> è garantito per tutti gli anziani non autosufficienti affetti da patologia evolutiva cronico-evolutiva per la quale non esistono terapie o sono inadeguate. L'accesso avviene tramite la rete nazionale e le reti regionali/locali delle cure palliative (Accordo Stato-Regioni 2020). Le reti locali assicurano: consulenza e identificazione precoce del bisogno; erogazione nelle strutture di degenza ospedaliera (inclusi hospice); attività ambulatoriali per cure palliative precoci; assistenza domiciliare tramite Unità di cure palliative domiciliari (UCPDOM); strutture residenziali sociosanitarie e hospice. È prevista la pianificazione condivisa delle cure (L. 219/2017) con l'equipe sanitaria, vincolante in caso di successiva incapacità del paziente.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Ogni anziano non autosufficiente con una malattia grave e inarrestabile ha diritto alle cure palliative (alleviare la sofferenza, non guarire). Queste cure possono essere a casa, in ambulatorio, in ospedale o in hospice. La persona può anche decidere in anticipo, con il medico, quali trattamenti vuole o non vuole ricevere (pianificazione condivisa).</p>
+    </div>
+  </div>
+
+  <!-- Art. 33 -->
+  <div class="art-block" id="d29-art33">
+    <div class="art-num">Art. 33 – D.Lgs. 29/2024</div>
+    <div class="art-title">Interventi per le persone con disabilità divenute anziane. Principio di continuità</div>
+    <p>Le persone anziane non dichiarate non autosufficienti possono chiedere l'accertamento della disabilità ex D.Lgs. di attuazione della L. 227/2021. Le persone con disabilità già accertata, al compimento dei <strong>65 anni</strong>, hanno diritto: (a) a non essere dimesse o escluse dai servizi in corso di fruizione; (b) alla continuità assistenziale nella stessa misura (salvo conversione dell'invalidità civile in assegno sociale); (c) ad accedere anche ai servizi e alle attività previsti per la condizione di disabilità secondo il progetto di vita individuale. Le stesse persone, su richiesta, <strong>senza un nuovo percorso di accertamento</strong>, possono accedere anche a interventi e prestazioni per anziani e anziani non autosufficienti. In tale caso viene direttamente redatto il PAI che integra il progetto di vita individuale, con budget di cura coordinato al budget del progetto di vita.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Chi ha già una disabilità riconosciuta e compie 65 anni non perde i servizi che già riceve: c'è continuità. Può anche scegliere, senza dover ricominciare tutto da capo, di accedere ai servizi previsti per gli anziani. I due piani (disabilità e anzianità) si integrano in un unico progetto personalizzato.</p>
+    </div>
+  </div>
+
+  <!-- Art. 34 -->
+  <div class="art-block" id="d29-art34">
+    <div class="art-num">Art. 34 – D.Lgs. 29/2024</div>
+    <div class="art-title">Prestazione universale</div>
+    <p>È istituita, <strong>in via sperimentale dal 1° gennaio 2025 al 31 dicembre 2026</strong>, una <strong>prestazione universale</strong> per gli anziani non autosufficienti, subordinata allo specifico bisogno assistenziale gravissimo, finalizzata a promuovere il progressivo potenziamento delle prestazioni per la domiciliarità e l'autonomia. L'INPS individua lo stato di bisogno gravissimo sulla base delle informazioni sanitarie in archivio e delle indicazioni della commissione tecnico-scientifica istituita con decreto ministeriale (entro 60 giorni), che definisce gli indicatori per la classificazione del bisogno gravissimo (anche in base al D.M. 26 settembre 2016). Le modalità attuative sono definite con uno o più decreti del Ministro del lavoro (concerto MEF, sentito l'INPS, previa intesa in Conferenza unificata) entro 90 giorni, includendo i controlli, le revoche e le attività preparatorie entro il 31 dicembre 2024.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Dal 1° gennaio 2025 parte in via sperimentale una nuova prestazione economica per i non autosufficienti più gravi. Dura due anni (2025-2026) ed è destinata a chi ha bisogno di assistenza continuativa gravissima. L'INPS determina chi rientra nella categoria e come si accede.</p>
+    </div>
+  </div>
+
+  <!-- Art. 35 -->
+  <div class="art-block" id="d29-art35">
+    <div class="art-num">Art. 35 – D.Lgs. 29/2024</div>
+    <div class="art-title">Beneficiari e opzione</div>
+    <p>La prestazione universale è erogata dall'INPS, previa espressa richiesta, alla persona anziana non autosufficiente che abbia <strong>congiuntamente</strong>: (a) almeno <strong>80 anni</strong>; (b) un livello di bisogno assistenziale <strong>gravissimo</strong> (ex art. 34); (c) un <strong>ISEE sociosanitario in corso di validità non superiore a 6.000 euro</strong> (ex DPCM 159/2013, art. 6); (d) titolarità dell'indennità di accompagnamento (L. 18/1980) o possesso dei requisiti per il suo riconoscimento. La richiesta può essere presentata in via telematica o tramite patronato. L'opzione è revocabile in qualsiasi momento, con conseguente ripristino dell'indennità di accompagnamento e delle altre prestazioni già percepite.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Per ottenere la prestazione universale bisogna avere: età minima 80 anni, condizione di non autosufficienza gravissima, ISEE sociosanitario sotto i 6.000 euro e indennità di accompagnamento (o requisiti per ottenerla). Si sceglie liberamente e si può tornare indietro in qualsiasi momento.</p>
+    </div>
+  </div>
+
+  <!-- Art. 36 -->
+  <div class="art-block" id="d29-art36">
+    <div class="art-num">Art. 36 – D.Lgs. 29/2024</div>
+    <div class="art-title">Oggetto del beneficio</div>
+    <p>La prestazione universale è <strong>esente da imposizione fiscale</strong> e <strong>non soggetta a pignoramento</strong>. Si eroga mensilmente ed è composta da: (a) una <strong>quota fissa monetaria</strong> corrispondente all'indennità di accompagnamento (L. 18/1980); (b) una <strong>quota integrativa</strong> denominata "<strong>assegno di assistenza</strong>", pari a <strong>850 euro mensili</strong>, destinata a remunerare il lavoro di cura svolto da lavoratori domestici con mansioni di assistenza titolari di contratto conforme ai CCNL (art. 51 D.Lgs. 81/2015) o l'acquisto di servizi da imprese qualificate nel settore dell'assistenza sociale non residenziale, nel rispetto della programmazione integrata regionale e locale. La quota integrativa assorbe anche le ulteriori prestazioni di cui all'art. 1, co. 164, L. 234/2021. Se l'assegno di assistenza non viene utilizzato per i fini previsti, l'INPS revoca la quota integrativa e il beneficiario deve restituire le somme non utilizzate, fermo restando il diritto all'indennità di accompagnamento. Il limite massimo di spesa per l'assegno di assistenza è di <strong>250 milioni di euro per il 2025 e 250 milioni per il 2026</strong>; in caso di scostamento, con decreto MEF-Lavoro si ridetermina l'importo mensile.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>La prestazione universale è formata da due parti: l'indennità di accompagnamento (quella già esistente) più 850 euro al mese extra (l'assegno di assistenza). I 850 euro devono essere usati obbligatoriamente per pagare una badante con regolare contratto o per comprare servizi di assistenza qualificati. Se li si usa per altro, l'INPS li chiede indietro. Il tutto è tax-free e non pignorable.</p>
+    </div>
+  </div>
+
+  <!-- Art. 37 -->
+  <div class="art-block" id="d29-art37">
+    <div class="art-num">Art. 37 – D.Lgs. 29/2024</div>
+    <div class="art-title">Ricognizione delle agevolazioni contributive e fiscali</div>
+    <p>Rientrano nelle disposizioni per favorire il livello qualitativo e quantitativo delle prestazioni di cura le seguenti agevolazioni (ricognizione ex art. 5, co. 2, lett. a), n. 2, L. 33/2023): (a) <strong>deducibilità fino a 1.549,37 euro</strong> dei contributi previdenziali per addetti ai servizi domestici e all'assistenza (art. 10, co. 2, TUIR); (b) <strong>detrazione del 19% fino a 2.100 euro</strong> delle spese per addetti all'assistenza personale in caso di non autosufficienza, per contribuenti con reddito complessivo ≤40.000 euro (art. 15, co. 1, lett. i-septies, TUIR); (c) non concorrenza al reddito del lavoratore dipendente delle <strong>somme erogate dal datore per servizi di assistenza ai familiari anziani o non autosufficienti</strong> a carico (art. 51, co. 2, lett. f-ter, TUIR); (d) non concorrenza al reddito dei <strong>contributi e premi versati dal datore per la non autosufficienza</strong> del dipendente (art. 51, co. 2, lett. f-quater, TUIR).</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>L'articolo fa l'elenco delle agevolazioni fiscali già esistenti per chi paga una badante o assiste un familiare non autosufficiente: deduzione dei contributi INPS della badante, detrazione del 19% per le spese di assistenza, esenzioni per i benefit aziendali legati alla cura. Nessuna nuova agevolazione, solo ricognizione di quelle esistenti.</p>
+    </div>
+  </div>
+
+  <!-- Art. 38 -->
+  <div class="art-block" id="d29-art38">
+    <div class="art-num">Art. 38 – D.Lgs. 29/2024</div>
+    <div class="art-title">Definizione degli standard formativi e formazione del personale addetto all'assistenza e al supporto delle persone anziane non autosufficienti</div>
+    <p>Il Ministero del lavoro, del MIUR e del MUR, previa intesa in Conferenza permanente, adottano entro 90 giorni <strong>linee guida per percorsi formativi uniformi</strong> per operatori dell'assistenza agli anziani non autosufficienti, in tutti i setting (territorio, domicilio, semiresidenziale, residenziale), finalizzate anche all'acquisizione della <strong>qualificazione professionale di assistente familiare</strong>, senza requisiti di accesso. Nelle linee guida si definiscono competenze e criteri per la validazione delle competenze pregresse (in coerenza con la contrattazione collettiva). Con intese sindacali si possono prevedere percorsi formativi tramite enti bilaterali accreditati. Le Regioni istituiscono <strong>registri regionali degli assistenti familiari</strong> qualificati e stipulano accordi tra Centri per l'impiego e ATS per favorire l'incontro domanda-offerta. Le Regioni promuovono corsi anche per i beneficiari dell'Assegno di inclusione e del Supporto per la formazione e il lavoro.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Si vogliono formare meglio le badanti e gli operatori socioassistenziali: percorsi standardizzati, riconoscimento delle competenze già acquisite, albo regionale. Chi già fa la badante può far valere l'esperienza pregressa. I Centri per l'impiego aiutano a trovare lavoro in questo settore.</p>
+    </div>
+  </div>
+
+  <!-- Art. 39 -->
+  <div class="art-block" id="d29-art39">
+    <div class="art-num">Art. 39 – D.Lgs. 29/2024</div>
+    <div class="art-title">Caregiver familiari</div>
+    <p>Si riconosce il <strong>valore sociale ed economico</strong> dell'attività di cura non professionale e non retribuita prestata in famiglia a favore di anziani e anziani non autosufficienti. Il caregiver assiste la persona nell'ambiente domestico, nella vita di relazione, nella mobilità, nelle attività di base e strumentali, rapportandosi con i servizi. Il suo ruolo, le attività e i sostegni necessari sono definiti in apposita sezione del PAI, con valutazione dello stress e dei bisogni specifici del caregiver (inclusi gli altri familiari, specie i minori). Il caregiver può partecipare alla VMU, all'elaborazione del PAI e all'individuazione del budget di cura. Il PAI individua l'apporto del caregiver e i relativi supporti (art. 14, L. 328/2000). Le Regioni programmano le UVM per il sostegno e il sollievo ai caregiver. I servizi possono fornire informazioni al caregiver (con consenso dell'assistito) su bisogni, diritti e risorse del territorio. Le Regioni valorizzano l'esperienza del caregiver ai fini del reinserimento lavorativo e dell'accesso a corsi OSS. Le istituzioni scolastiche del secondo ciclo possono valorizzare nel PTOF l'esperienza dello studente caregiver (anche tramite PCTO). I CPIA valorizzano l'esperienza degli adulti caregiver ai fini del riconoscimento dei crediti. Le associazioni dei caregiver partecipano alla programmazione nazionale e regionale.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Per la prima volta, il familiare che si prende cura di un anziano (il "caregiver") è riconosciuto come figura fondamentale con diritti propri: partecipa alle decisioni, riceve informazioni, viene sostenuto dallo stress, e può valorizzare la sua esperienza per lavori futuri (come diventare OSS). Anche gli studenti che si prendono cura di un familiare malato possono far valere questa esperienza a scuola.</p>
+    </div>
+  </div>
+
+  <!-- Art. 40 -->
+  <div class="art-block" id="d29-art40">
+    <div class="art-num">Art. 40 – D.Lgs. 29/2024</div>
+    <div class="art-title">Ambito di applicazione del titolo II</div>
+    <p>Le disposizioni del Titolo II – salvo gli artt. 33, co. 1 e 2 (principio di continuità per le persone con disabilità), 34, 35 e 36 (prestazione universale, riservata agli over 80) – si applicano alle persone che abbiano compiuto <strong>70 anni</strong>.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Il sistema di non autosufficienza del Titolo II (SNAA, VMU, PAI, ecc.) si attiva per chi ha compiuto <strong>70 anni</strong> (non 65). Fanno eccezione la prestazione universale (riservata agli over 80) e le disposizioni sulla continuità per le persone con disabilità pregressa (che si applicano da 65 anni).</p>
+    </div>
+  </div>
+
+  <!-- Art. 41 -->
+  <div class="art-block" id="d29-art41">
+    <div class="art-num">Art. 41 – D.Lgs. 29/2024</div>
+    <div class="art-title">Clausola di salvaguardia</div>
+    <p>Le disposizioni del decreto si applicano nelle Regioni a statuto speciale e nelle Province autonome di Trento e di Bolzano compatibilmente con i rispettivi statuti e le relative norme di attuazione, anche con riferimento alla L. Cost. 3/2001.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Le Regioni e Province autonome con statuto speciale (come la Sardegna, la Valle d'Aosta, il Trentino-Alto Adige, ecc.) applicano il decreto nei limiti della loro autonomia garantita dalla Costituzione.</p>
+    </div>
+  </div>
+
+  <!-- Art. 42 -->
+  <div class="art-block" id="d29-art42">
+    <div class="art-num">Art. 42 – D.Lgs. 29/2024</div>
+    <div class="art-title">Disposizioni finanziarie</div>
+    <p>La copertura degli oneri per l'assegno di assistenza (250 milioni per il 2025 e 250 milioni per il 2026) è così strutturata: (a) <strong>75 milioni/anno</strong> dal Fondo per le non autosufficienze (art. 1, co. 1264, L. 296/2006); (b) <strong>125 milioni/anno</strong> dal Programma nazionale "Inclusione e lotta alla povertà" 2021-2027 (PNRR); (c) <strong>50 milioni/anno</strong> dalla Missione 5 del PNRR.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>I 250 milioni all'anno per la prestazione universale vengono da tre fonti: un po' dal Fondo per le non autosufficienze già esistente, di più dai fondi europei del PNRR destinati all'inclusione, e il resto dalla Missione Salute del PNRR. Nessun aumento di tasse o tagli ad altri servizi.</p>
+    </div>
+  </div>
+
+  <!-- Art. 43 -->
+  <div class="art-block" id="d29-art43">
+    <div class="art-num">Art. 43 – D.Lgs. 29/2024</div>
+    <div class="art-title">Entrata in vigore</div>
+    <p>Il decreto entra in vigore il giorno successivo alla sua pubblicazione nella Gazzetta Ufficiale. Pubblicato il 28 marzo 2024, in vigore dal <strong>29 marzo 2024</strong>.</p>
+    <div class="semplice">
+      <div class="s-label">📖 In parole semplici</div>
+      <p>Il decreto è in vigore dal 29 marzo 2024. Tuttavia, molte norme operative (come la VMU) hanno tempi di applicazione differiti (2027-2028) e richiedono decreti ministeriali attuativi.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════
+       MESSAGGI INPS
+  ══════════════════════════════════ -->
+  <h2>Messaggi INPS 2026 – Istruzioni operative</h2>
+
+  <p>I due messaggi INPS del 2026 (nn. 1377 e 1750) forniscono le indicazioni operative conseguenti alle modifiche normative intervenute nel 2025-2026, in particolare le proroghe della sperimentazione della riforma degli anziani (D.Lgs. 29/2024) e il coordinamento con la riforma della disabilità (D.Lgs. 62/2024).</p>
+
+  <!-- Messaggio 1377 -->
+  <div class="inps-box" id="inps-msg1377">
+    <div class="inps-label">Messaggio INPS n. 1377 del 23 aprile 2026</div>
+    <p><strong>Oggetto:</strong> Coordinamento tra la riforma della disabilità e la disciplina delle politiche in favore delle persone anziane. Articolo 28, comma 7, del D.Lgs. n. 29/2024, come modificato dall'art. 4, co. 4-quater, del D.L. n. 19/2026, conv. con L. n. 50/2026.</p>
+  </div>
+
+  <h3>Quadro normativo aggiornato (art. 28, co. 7, D.Lgs. 29/2024 modificato)</h3>
+  <p>A seguito delle modifiche introdotte dal D.L. 31 dicembre 2025, n. 200, convertito dalla L. 27 febbraio 2026, n. 26 (cd. Milleproroghe 2026), le disposizioni sulla VMU entrano in vigore:</p>
+  <ul>
+    <li><strong>dal 1° gennaio 2027</strong>: in via sperimentale, nei territori individuati con decreto del Ministro della salute (concerto con Ministro del lavoro e Ministro per le disabilità, previa intesa in Conferenza unificata) – art. 27, co. 8-bis, D.Lgs. 29/2024;</li>
+    <li><strong>dal 1° gennaio 2028</strong>: su tutto il territorio nazionale – art. 27, co. 8-ter, D.Lgs. 29/2024.</li>
+  </ul>
+  <p>L'art. 28, co. 7, come modificato dall'art. 4, co. 4-quater, del D.L. n. 19/2026 (conv. L. n. 50/2026), prevede che <em>"non oltre la data del 31 dicembre 2027, anche nei territori interessati dalla fase sperimentale della riforma di cui al D.Lgs. n. 62/2024, continuano ad applicarsi le norme e le procedure vigenti per l'accesso alle misure e ai provvedimenti di competenza statale di cui al presente decreto e alle leggi n. 104/1992, n. 118/1971 e n. 18/1980"</em>.</p>
+
+  <h3>Soggetti interessati</h3>
+  <p>La norma si applica agli anziani ultrasettantenni (≥70 anni) che presentano <strong>congiuntamente</strong>: (a) almeno una patologia cronica; (b) condizioni cliniche con progressiva riduzione delle funzioni fisiologiche con rischio di perdita dell'autonomia (art. 27, co. 2, D.Lgs. 29/2024).</p>
+
+  <h3 id="inps-province">Province interessate dalla sperimentazione del D.Lgs. 62/2024</h3>
+  <p>Il messaggio ricorda che le province in sperimentazione della riforma della disabilità sono le seguenti, per fasi:</p>
+  <p><strong>Dal 1° gennaio 2025:</strong></p>
+  <div class="province-grid">
+    <div class="prov-tag">Brescia</div><div class="prov-tag">Catanzaro</div><div class="prov-tag">Firenze</div>
+    <div class="prov-tag">Forlì-Cesena</div><div class="prov-tag">Frosinone</div><div class="prov-tag">Perugia</div>
+    <div class="prov-tag">Salerno</div><div class="prov-tag">Sassari</div><div class="prov-tag">Trieste</div>
+  </div>
+  <p><strong>Dal 30 settembre 2025:</strong></p>
+  <div class="province-grid">
+    <div class="prov-tag">Alessandria</div><div class="prov-tag">Genova</div><div class="prov-tag">Isernia</div>
+    <div class="prov-tag">Lecce</div><div class="prov-tag">Macerata</div><div class="prov-tag">Matera</div>
+    <div class="prov-tag">Palermo</div><div class="prov-tag">Teramo</div><div class="prov-tag">Vicenza</div>
+  </div>
+  <p><strong>Dal 1° marzo 2026:</strong></p>
+  <div class="province-grid">
+    <div class="prov-tag">Chieti</div><div class="prov-tag">Potenza</div><div class="prov-tag">Cosenza</div>
+    <div class="prov-tag">Crotone</div><div class="prov-tag">Reggio Calabria</div><div class="prov-tag">Vibo Valentia</div>
+    <div class="prov-tag">Caserta</div><div class="prov-tag">Bologna</div><div class="prov-tag">Rimini</div>
+    <div class="prov-tag">Piacenza</div><div class="prov-tag">Ravenna</div><div class="prov-tag">Pordenone</div>
+    <div class="prov-tag">Udine</div><div class="prov-tag">Roma</div><div class="prov-tag">La Spezia</div>
+    <div class="prov-tag">Savona</div><div class="prov-tag">Bergamo</div><div class="prov-tag">Como</div>
+    <div class="prov-tag">Milano</div><div class="prov-tag">Mantova</div><div class="prov-tag">Pavia</div>
+    <div class="prov-tag">Sondrio</div><div class="prov-tag">Ancona</div><div class="prov-tag">Ascoli Piceno</div>
+    <div class="prov-tag">Campobasso</div><div class="prov-tag">Asti</div><div class="prov-tag">Cuneo</div>
+    <div class="prov-tag">Torino</div><div class="prov-tag">Brindisi</div><div class="prov-tag">Cagliari</div>
+    <div class="prov-tag">Caltanissetta</div><div class="prov-tag">Catania</div><div class="prov-tag">Messina</div>
+    <div class="prov-tag">Arezzo</div><div class="prov-tag">Massa Carrara</div><div class="prov-tag">Terni</div>
+    <div class="prov-tag">Treviso</div><div class="prov-tag">Venezia</div><div class="prov-tag">Verona</div>
+  </div>
+
+  <h3>Procedura applicabile dal 1° giugno 2026</h3>
+  <p>A partire dal 1° giugno 2026, per gli anziani ≥70 anni con le condizioni dell'art. 27, co. 2, D.Lgs. 29/2024, si applicano le procedure <strong>previgenti</strong> alla riforma della disabilità (circolare INPS n. 42 del 17 febbraio 2025), articolate come segue:</p>
+  <ol>
+    <li>Presentazione del <strong>certificato medico introduttivo</strong> (CMI);</li>
+    <li>Abbinamento del CMI alla <strong>domanda amministrativa</strong> per l'accertamento sanitario (invalidità civile, cecità, sordità, sordocecità, L. 104/1992, L. 68/1999) entro <strong>90 giorni</strong> dal rilascio;</li>
+    <li><strong>Accertamento sanitario</strong> da parte delle Commissioni Mediche delle ASL integrate da un medico INPS (CMI), o presso i CML INPS in caso di convenzione;</li>
+    <li><strong>Validazione dell'esito</strong> da parte dell'INPS entro 60 giorni;</li>
+    <li>Trasmissione del verbale e riconoscimento dell'eventuale prestazione economica.</li>
+  </ol>
+  <p>Nelle province non in sperimentazione continuano ad applicarsi le disposizioni previgenti per tutti, indipendentemente dall'età.</p>
+
+  <!-- Messaggio 1750 -->
+  <div class="inps-box" id="inps-msg1750">
+    <div class="inps-label">Messaggio INPS n. 1750 del 27 maggio 2026 (con Allegato n. 1 – Tutorial)</div>
+    <p><strong>Oggetto:</strong> Istruzioni operative per l'avvio del procedimento di riconoscimento della condizione di disabilità ai sensi della L. n. 104/1992 e per l'accesso alle prestazioni di invalidità civile da parte di soggetti di età pari o superiore a 70 anni.</p>
+  </div>
+
+  <h3>Novità informatiche dal 1° giugno 2026</h3>
+  <p>Il messaggio fornisce istruzioni operative al <strong>medico certificatore</strong>: dopo l'inserimento del codice fiscale dell'assistito, il sistema INPS determina automaticamente se l'assistito ha età ≥70 anni. Se l'assistito è ≥70 anni e risiede o è domiciliato in una delle province in sperimentazione, il sistema richiede la compilazione di <strong>due nuovi campi obbligatori</strong>, nei quali il medico attesta la presenza o meno delle condizioni di cui all'art. 27, co. 2, D.Lgs. 29/2024:</p>
+  <ul>
+    <li><strong>condizione a)</strong>: presenza di almeno una patologia cronica;</li>
+    <li><strong>condizione b)</strong>: condizioni cliniche con progressiva riduzione delle funzioni fisiologiche, con rischio di perdita dell'autonomia (art. 27, co. 2, lett. b).</li>
+  </ul>
+
+  <h3 id="inps-flusso">Flusso operativo dal 1° giugno 2026 (schematico)</h3>
+
+  <table>
+    <thead>
+      <tr><th>Situazione</th><th>Iter applicabile</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Persona ≥ 70 anni, in provincia in sperimentazione, condizioni a) E b) entrambe presenti</strong></td>
+        <td>
+          Iter <em>ante-riforma</em> (vecchio): CMI "vecchio" + domanda amministrativa entro 90 giorni + visita ASL/CML INPS + validazione INPS. Il medico deve avvisare il paziente di presentare anche la domanda amministrativa.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Persona ≥ 70 anni, in provincia in sperimentazione, UNA SOLA o NESSUNA condizione presente</strong></td>
+        <td>
+          Iter <em>post-riforma</em>: CMI "nuovo" ex D.Lgs. 62/2024 (valutazione di base). Non è necessaria la domanda amministrativa separata.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Persona &lt; 70 anni, in provincia in sperimentazione</strong></td>
+        <td>
+          Iter post-riforma (nuovo CMI ex D.Lgs. 62/2024), indipendentemente dalla presenza delle condizioni.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Persona di qualsiasi età, in provincia NON in sperimentazione</strong></td>
+        <td>
+          Iter ante-riforma (vecchio CMI + domanda amministrativa) per tutti.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="nota">
+    L'Allegato n. 1 al Messaggio n. 1750 (Tutorial) illustra graficamente il flusso con schermate del portale INPS e conferma che il sistema è attivo dal 1° giugno 2026.
+  </div>
+
+  <hr>
+
+  <!-- ══════════════════════════════════
+       RIEPILOGO
+  ══════════════════════════════════ -->
+  <h2 id="tavola-riepilog">Tavola sinottica – Struttura della riforma</h2>
+
+  <table>
+    <thead>
+      <tr><th>Profilo</th><th>Strumento normativo</th><th>Età minima</th><th>Requisiti aggiuntivi</th><th>Soggetto erogatore</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Invecchiamento attivo e prevenzione</td><td>D.Lgs. 29/2024, Tit. I</td><td>65 anni</td><td>Nessuno</td><td>Ministeri, Regioni, Comuni, scuole</td></tr>
+      <tr><td>Accesso ai PUA/VMU</td><td>D.Lgs. 29/2024, artt. 10 e 27</td><td>70 anni</td><td>Patologia cronica + rischio perdita autonomia</td><td>SSN (Casa della comunità), UVM</td></tr>
+      <tr><td>SNAA / LEPS / PAI / cure domiciliari</td><td>D.Lgs. 29/2024, artt. 21-29</td><td>70 anni</td><td>Condizione di non autosufficienza</td><td>ATS, SSN, INPS (per validazione)</td></tr>
+      <tr><td>Prestazione universale (sperimentale)</td><td>D.Lgs. 29/2024, artt. 34-36</td><td>80 anni</td><td>Non autosufficienza gravissima + ISEE sociosonitario ≤6.000 € + indennità di accompagnamento</td><td>INPS</td></tr>
+      <tr><td>Continuità disabilità pregressa</td><td>D.Lgs. 29/2024, art. 33</td><td>65 anni</td><td>Disabilità già riconosciuta</td><td>Servizi esistenti + PAI integrato</td></tr>
+      <tr><td>Iter accertamento invalidità (transitorio)</td><td>Msg. INPS 1377 e 1750/2026</td><td>70 anni (per doppio binario)</td><td>Patologia cronica + rischio autonomia (art. 27, co. 2)</td><td>ASL + INPS (iter ante-riforma fino al 31.12.2027)</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="timeline-riforma">Timeline della riforma</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">2023</div>
+      <div class="tl-text"><strong>23 marzo 2023 – Entrata in vigore L. 33/2023</strong><br>Legge delega. Istituzione del CIPA. Mandato al Governo per tre decreti legislativi entro il 31.01.2024.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">2024</div>
+      <div class="tl-text"><strong>29 marzo 2024 – Entrata in vigore D.Lgs. 29/2024</strong><br>Decreto attuativo della L. 33/2023. Definizioni, SNAA, VMU, prestazione universale sperimentale, caregiver.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">2025</div>
+      <div class="tl-text"><strong>1° gennaio 2025 – Avvio prestazione universale sperimentale</strong><br>Per over 80 con bisogno gravissimo e ISEE ≤ 6.000 euro (artt. 34-36 D.Lgs. 29/2024). Avvio sperimentazione D.Lgs. 62/2024 (riforma disabilità) nelle prime 9 province.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">2026</div>
+      <div class="tl-text"><strong>1° giugno 2026 – Novità operative INPS (Msg. 1377 e 1750)</strong><br>Doppio binario nelle province in sperimentazione D.Lgs. 62/2024: gli ultra-70enni con patologia cronica e rischio perdita autonomia tornano all'iter classico (vecchio CMI + domanda amministrativa). Strumento informatico aggiornato.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">2026</div>
+      <div class="tl-text"><strong>31 dicembre 2026 – Termine prestazione universale sperimentale e attività PNRR</strong><br>Fine del periodo sperimentale della prestazione universale. Fine delle attività di facilitazione digitale PNRR (art. 19).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">2027</div>
+      <div class="tl-text"><strong>1° gennaio 2027 – Sperimentazione VMU (una provincia per regione)</strong><br>Avvio sperimentale della VMU (art. 27, co. 8-bis), con decreto ministeriale da adottare entro il 30 novembre 2026. Nelle province in sperimentazione, dal 1.1.2027 si applica il decreto ministeriale di cui all'art. 27, co. 7.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">2027</div>
+      <div class="tl-text"><strong>31 dicembre 2027 – Termine regime transitorio</strong><br>Fine dell'applicazione delle procedure di accertamento previgenti alla VMU (art. 28, co. 7, D.Lgs. 29/2024). Anche nei territori in sperimentazione D.Lgs. 62/2024.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">2028</div>
+      <div class="tl-text"><strong>1° gennaio 2028 – VMU a regime su tutto il territorio nazionale</strong><br>La valutazione multidimensionale unificata sostituisce definitivamente le procedure di accertamento dell'invalidità civile, della L. 104/1992 e della L. 18/1980 per gli anziani over 70 con le condizioni dell'art. 27, co. 2.</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <p style="font-family: var(--font-sans); font-size: .8rem; color: #888; text-align: center; margin-top: 2rem;">
+    Dispensa elaborata esclusivamente sulle fonti caricate: L. 33/2023, D.Lgs. 29/2024, Messaggio INPS n. 1377/2026, Messaggio INPS n. 1750/2026 e Allegato n. 1. Vigenza: D.Lgs. 29/2024 al 27-6-2026.
+  </p>
+
+</main>
+</body>
+</html>
