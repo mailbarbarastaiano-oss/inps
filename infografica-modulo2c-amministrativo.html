@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infografica — Diritto Amministrativo III</title>
+<style>
+  :root{
+    --navy:#16305c;
+    --blue:#2f6fb0; --blue-l:#e9f1fb;
+    --green:#2f8f4e; --green-l:#e9f9ee;
+    --orange:#e07a1f; --orange-l:#fdf0e0;
+    --purple:#7a4fc0; --purple-l:#f2ecfb;
+    --pink:#c0447f; --pink-l:#fbe9f1;
+    --red:#d1495b; --red-l:#fbe9ec;
+    --teal:#1c9a9a; --teal-l:#e6f7f7;
+    --ink:#1d2a3a; --border:#e3e7ee;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:"Segoe UI", Arial, sans-serif; background:#f2f4f7; color:var(--ink);}
+  .wrap{max-width:980px; margin:0 auto; padding:26px 18px 60px;}
+  a.torna{color:var(--navy); text-decoration:none; font-size:13px; font-weight:700;}
+  .banner{ background:linear-gradient(120deg, var(--navy), var(--red) 75%, var(--orange)); color:#fff; border-radius:16px; padding:28px 32px; display:flex; align-items:center; gap:22px; margin:14px 0 22px; box-shadow:0 6px 18px rgba(22,48,92,.25); }
+  .banner .badge-icon{ width:64px; height:64px; border-radius:50%; background:rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .banner .badge-icon svg{width:34px; height:34px; stroke:#fff; fill:none; stroke-width:1.8;}
+  .banner h1{margin:0 0 4px; font-size:1.55rem;}
+  .banner p{margin:0; color:#fbe3e0; font-size:.92rem;}
+  a.link-collegata{ display:inline-block; margin-bottom:22px; background:#fff; border:1px solid var(--border); border-radius:10px; padding:10px 16px; color:var(--navy); font-weight:700; text-decoration:none; font-size:.88rem; }
+  h2.sez{ display:flex; align-items:center; gap:10px; font-size:1.15rem; margin:38px 0 16px; color:var(--navy); }
+  h2.sez .ic-wrap{ width:40px; height:40px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  h2.sez .ic-wrap svg{width:22px; height:22px; fill:none; stroke:#fff; stroke-width:2;}
+
+  .tablecard{ background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 4px 14px rgba(20,30,50,.08); margin-bottom:16px; }
+  .tablecard-header{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px 20px; color:#fff; }
+  .tablecard-header .tg{ display:flex; align-items:center; gap:12px; }
+  .tablecard-header .tg-icon{ width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.22); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .tablecard-header .tg-icon svg{width:20px; height:20px; stroke:#fff; fill:none; stroke-width:2;}
+  .tablecard-header h3{margin:0; font-size:1rem;}
+  .tablecard-header .badge{ background:rgba(255,255,255,.22); border-radius:20px; padding:4px 12px; font-size:.72rem; font-weight:700; white-space:nowrap; }
+  .trow{ display:flex; align-items:center; gap:14px; padding:13px 20px; border-bottom:1px solid var(--border); }
+  .trow:last-child{border-bottom:none;}
+  .trow:nth-child(even){background:#f8f9fc;}
+  .trow .num{ font-weight:800; font-size:1rem; width:22px; flex-shrink:0; }
+  .trow .desc{flex:1; font-size:.85rem; line-height:1.4;}
+  .trow .desc b{color:var(--navy);}
+  .trow .icon-circle{ width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .trow .icon-circle svg{width:18px; height:18px; fill:none; stroke-width:2;}
+
+  .quote-box{ background:var(--blue-l); border-left:5px solid var(--blue); border-radius:0 12px 12px 0; padding:14px 18px; margin:14px 0; font-size:.88rem; }
+  .quote-box .src{display:block; font-size:.72rem; font-weight:800; color:var(--blue); text-transform:uppercase; margin-bottom:5px; letter-spacing:.03em;}
+
+  .icon-grid{display:flex; flex-wrap:wrap; gap:14px;}
+  .icard{ flex:1 1 220px; background:#fff; border-radius:14px; padding:16px 14px; text-align:center; box-shadow:0 2px 8px rgba(20,30,50,.06); border-top:4px solid var(--accent, var(--blue)); }
+  .icard .circle{ width:46px; height:46px; border-radius:50%; margin:0 auto 10px; display:flex; align-items:center; justify-content:center; background:var(--accent-l, var(--blue-l)); }
+  .icard .circle svg{width:24px; height:24px; fill:none; stroke:var(--accent, var(--blue)); stroke-width:2;}
+  .icard h4{margin:0 0 4px; font-size:.88rem; color:var(--navy);}
+  .icard p{margin:0; font-size:.78rem; line-height:1.4; color:#4a5568;}
+
+  .sintesi{ margin-top:40px; background:linear-gradient(135deg, var(--orange-l), #fff); border:2px solid var(--orange); border-radius:16px; padding:24px 28px; }
+  .sintesi h3{margin:0 0 14px; color:var(--orange); font-size:1.05rem; display:flex; align-items:center; gap:8px;}
+  .sintesi-grid{display:flex; flex-wrap:wrap; gap:14px;}
+  .sintesi-item{ flex:1 1 200px; display:flex; gap:10px; align-items:flex-start; background:#fff; border-radius:10px; padding:12px 14px; font-size:.84rem; }
+  .sintesi-item .circ{ width:30px; height:30px; border-radius:50%; background:var(--orange); flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  .sintesi-item .circ svg{width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2;}
+
+  .prossimo-link{ display:block; margin-top:30px; text-align:center; background:var(--navy); color:#fff !important; text-decoration:none; padding:15px 20px; border-radius:12px; font-weight:800; font-size:.95rem; }
+  footer.fonte-doc{margin-top:26px; text-align:center; font-size:.72rem; color:#8a93a3;}
+  @media print{ a.torna, a.link-collegata{display:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="torna" href="index.html">← Torna alla Home</a>
+
+  <div class="banner">
+    <div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v2h18V7L12 2Z"/><path d="M5 10v9M19 10v9"/><path d="M3 21h18"/></svg></div>
+    <div>
+      <h1>DIRITTO AMMINISTRATIVO III</h1>
+      <p>Infografica di riepilogo — Modulo 2c · Responsabilità della PA e giustizia amministrativa</p>
+    </div>
+  </div>
+
+  <a class="link-collegata" href="modulo2c-diritto-amministrativo.html">📖 Vai alla Dispensa completa del Modulo 2c</a>
+
+  <!-- Tipi di responsabilità -->
+  <h2 class="sez"><span class="ic-wrap" style="background:var(--red)"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></span>I 4 tipi di responsabilità del dipendente pubblico</h2>
+  <div class="tablecard">
+    <div class="tablecard-header" style="background:linear-gradient(120deg, var(--red), #e8748a);">
+      <div class="tg"><div class="tg-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div><h3>Responsabilità cumulabili per lo stesso fatto</h3></div>
+      <span class="badge">Art. 28 Cost. + varie</span>
+    </div>
+    <div class="trow"><div class="num" style="color:var(--red)">1</div><div class="desc"><b>Civile</b> — art. 28 Cost. + art. 2043 c.c. Danno ingiusto, risarcimento solidale con lo Stato/ente</div><div class="icon-circle" style="background:var(--red-l)"><svg viewBox="0 0 24 24" style="stroke:var(--red)"><path d="M12 2 3 7v2h18V7L12 2Z"/><path d="M5 10v9M19 10v9"/></svg></div></div>
+    <div class="trow"><div class="num" style="color:var(--orange)">2</div><div class="desc"><b>Contabile/erariale</b> — danno alle casse pubbliche, dolo o colpa grave, giudica la Corte dei Conti, prescrizione 5 anni</div><div class="icon-circle" style="background:var(--orange-l)"><svg viewBox="0 0 24 24" style="stroke:var(--orange)"><circle cx="12" cy="12" r="9"/><path d="M8 12h4l2-4"/></svg></div></div>
+    <div class="trow"><div class="num" style="color:var(--purple)">3</div><div class="desc"><b>Dirigenziale</b> — mancato raggiungimento obiettivi (art. 21 D.Lgs. 165/2001): mancato rinnovo incarico, recesso nei casi più gravi</div><div class="icon-circle" style="background:var(--purple-l)"><svg viewBox="0 0 24 24" style="stroke:var(--purple)"><path d="m5 13 4 4L19 7"/></svg></div></div>
+    <div class="trow"><div class="num" style="color:var(--teal)">4</div><div class="desc"><b>Disciplinare</b> — violazione doveri d'ufficio, dal rimprovero verbale al licenziamento (art. 55 e ss. D.Lgs. 165/2001)</div><div class="icon-circle" style="background:var(--teal-l)"><svg viewBox="0 0 24 24" style="stroke:var(--teal)"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h4"/></svg></div></div>
+  </div>
+
+  <!-- Riparto giurisdizione -->
+  <h2 class="sez"><span class="ic-wrap" style="background:var(--blue)"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></span>Il riparto di giurisdizione</h2>
+  <div class="icon-grid">
+    <div class="icard" style="--accent:var(--blue); --accent-l:var(--blue-l)">
+      <div class="circle"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v2h18V7L12 2Z"/><path d="M5 10v9M19 10v9"/></svg></div>
+      <h4>Giudice ordinario</h4>
+      <p>Tutela i <b>diritti soggettivi</b> — posizioni piene già definite dalla legge (es. retribuzione maturata)</p>
+    </div>
+    <div class="icard" style="--accent:var(--purple); --accent-l:var(--purple-l)">
+      <div class="circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      <h4>Giudice amministrativo</h4>
+      <p>Tutela gli <b>interessi legittimi</b> — aspettativa a un corretto esercizio del potere (es. partecipazione a un concorso)</p>
+    </div>
+    <div class="icard" style="--accent:var(--orange); --accent-l:var(--orange-l)">
+      <div class="circle"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v2h18V7L12 2Z"/><path d="M3 21h18"/><path d="M5 10v9M19 10v9"/></svg></div>
+      <h4>Giurisdizione esclusiva</h4>
+      <p>In materie specifiche (appalti, edilizia) il giudice amministrativo decide anche sui <b>diritti soggettivi</b></p>
+    </div>
+  </div>
+
+  <!-- Ricorsi -->
+  <h2 class="sez"><span class="ic-wrap" style="background:var(--teal)"><svg viewBox="0 0 24 24"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 4v5h5"/></svg></span>I rimedi contro gli atti della PA</h2>
+  <div class="tablecard">
+    <div class="tablecard-header" style="background:linear-gradient(120deg, var(--teal), #3fc4c4);">
+      <div class="tg"><div class="tg-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Ricorsi amministrativi e giurisdizionali</h3></div>
+      <span class="badge">Termini a confronto</span>
+    </div>
+    <div class="trow"><div class="num" style="color:var(--teal)">1</div><div class="desc"><b>Ricorso gerarchico</b> — all'organo sovraordinato · <b>30 giorni</b></div><div class="icon-circle" style="background:var(--teal-l)"><svg viewBox="0 0 24 24" style="stroke:var(--teal)"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div></div>
+    <div class="trow"><div class="num" style="color:var(--teal)">2</div><div class="desc"><b>Ricorso straordinario al Presidente della Repubblica</b> — alternativo al giurisdizionale · <b>120 giorni</b></div><div class="icon-circle" style="background:var(--teal-l)"><svg viewBox="0 0 24 24" style="stroke:var(--teal)"><path d="M12 2 3 7v2h18V7L12 2Z"/><path d="M5 10v9M19 10v9"/></svg></div></div>
+    <div class="trow"><div class="num" style="color:var(--red)">3</div><div class="desc"><b>Ricorso al TAR</b> — primo grado davanti al giudice amministrativo · <b>60 giorni</b></div><div class="icon-circle" style="background:var(--red-l)"><svg viewBox="0 0 24 24" style="stroke:var(--red)"><circle cx="12" cy="12" r="9"/><path d="m8 12 4 4 4-8"/></svg></div></div>
+    <div class="trow"><div class="num" style="color:var(--red)">4</div><div class="desc"><b>Appello al Consiglio di Stato</b> — contro la sentenza del TAR · <b>60 giorni</b></div><div class="icon-circle" style="background:var(--red-l)"><svg viewBox="0 0 24 24" style="stroke:var(--red)"><path d="M12 2 3 7v2h18V7L12 2Z"/><path d="M5 10v9M9 10v9M15 10v9M19 10v9"/></svg></div></div>
+  </div>
+  <div class="quote-box">
+    <b>Principio di alternatività:</b> ricorso straordinario al PdR e ricorso giurisdizionale sono alternativi — scelto uno, non si può più usare l'altro per lo stesso atto.
+  </div>
+
+  <div class="sintesi">
+    <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e07a1f" stroke-width="2"><path d="M12 2C8 2 6 5 6 8c0 2 1 3.5 2 4.5.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5 1-1 2-2.5 2-4.5 0-3-2-6-6-6Z"/><path d="M9 18h6M10 21h4"/></svg> In sintesi — cosa ricordare per il concorso</h3>
+    <div class="sintesi-grid">
+      <div class="sintesi-item"><div class="circ"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div><div>4 responsabilità cumulabili: civile, contabile, dirigenziale, disciplinare</div></div>
+      <div class="sintesi-item"><div class="circ"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h4l2-4"/></svg></div><div>Danno erariale = dolo o colpa grave, non colpa lieve</div></div>
+      <div class="sintesi-item"><div class="circ"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div>Diritti soggettivi → giudice ordinario; interessi legittimi → giudice amministrativo</div></div>
+      <div class="sintesi-item"><div class="circ"><svg viewBox="0 0 24 24"><path d="m8 12 4 4 4-8"/><circle cx="12" cy="12" r="9"/></svg></div><div>TAR e straordinario al PdR: 60 vs 120 giorni, sono alternativi tra loro</div></div>
+    </div>
+  </div>
+
+  <a class="prossimo-link" href="modulo2c-diritto-amministrativo.html">📖 Torna alla Dispensa completa per il ripasso approfondito</a>
+
+  <footer class="fonte-doc">Costituzione art. 28; D.Lgs. 165/2001; L. 20/1994; D.Lgs. 104/2010 — Materiale didattico di sintesi, preparazione concorsi SNA/INPS Dirigenti, settembre 2026.</footer>
+
+</div>
+</body>
+</html>
