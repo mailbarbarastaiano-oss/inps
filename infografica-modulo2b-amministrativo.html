@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infografica — Diritto Amministrativo II</title>
+<style>
+  :root{
+    --navy:#16305c;
+    --blue:#2f6fb0; --blue-l:#e9f1fb;
+    --green:#2f8f4e; --green-l:#e9f9ee;
+    --orange:#e07a1f; --orange-l:#fdf0e0;
+    --purple:#7a4fc0; --purple-l:#f2ecfb;
+    --pink:#c0447f; --pink-l:#fbe9f1;
+    --red:#d1495b; --red-l:#fbe9ec;
+    --teal:#1c9a9a; --teal-l:#e6f7f7;
+    --ink:#1d2a3a; --border:#e3e7ee;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:"Segoe UI", Arial, sans-serif; background:#f2f4f7; color:var(--ink);}
+  .wrap{max-width:980px; margin:0 auto; padding:26px 18px 60px;}
+  a.torna{color:var(--navy); text-decoration:none; font-size:13px; font-weight:700;}
+
+  .banner{
+    background:linear-gradient(120deg, var(--navy), var(--purple) 75%, var(--pink));
+    color:#fff; border-radius:16px; padding:28px 32px;
+    display:flex; align-items:center; gap:22px; margin:14px 0 22px;
+    box-shadow:0 6px 18px rgba(22,48,92,.25);
+  }
+  .banner .badge-icon{ width:64px; height:64px; border-radius:50%; background:rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .banner .badge-icon svg{width:34px; height:34px; stroke:#fff; fill:none; stroke-width:1.8;}
+  .banner h1{margin:0 0 4px; font-size:1.6rem;}
+  .banner p{margin:0; color:#f0e3f5; font-size:.92rem;}
+
+  a.link-collegata{ display:inline-block; margin-bottom:22px; background:#fff; border:1px solid var(--border); border-radius:10px; padding:10px 16px; color:var(--navy); font-weight:700; text-decoration:none; font-size:.88rem; }
+
+  h2.sez{ display:flex; align-items:center; gap:10px; font-size:1.15rem; margin:38px 0 16px; color:var(--navy); }
+  h2.sez .ic-wrap{ width:40px; height:40px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  h2.sez .ic-wrap svg{width:22px; height:22px; fill:none; stroke:#fff; stroke-width:2;}
+
+  .icon-grid{display:flex; flex-wrap:wrap; gap:14px;}
+  .icard{ flex:1 1 150px; background:#fff; border-radius:14px; padding:16px 14px; text-align:center; box-shadow:0 2px 8px rgba(20,30,50,.06); border-top:4px solid var(--accent, var(--blue)); }
+  .icard .circle{ width:44px; height:44px; border-radius:50%; margin:0 auto 10px; display:flex; align-items:center; justify-content:center; background:var(--accent-l, var(--blue-l)); }
+  .icard .circle svg{width:22px; height:22px; fill:none; stroke:var(--accent, var(--blue)); stroke-width:2;}
+  .icard h4{margin:0 0 4px; font-size:.85rem; color:var(--navy);}
+  .icard p{margin:0; font-size:.74rem; line-height:1.35; color:#4a5568;}
+
+  /* NUOVO: tabella numerata con icona - ispirata al riferimento fornito */
+  .tablecard{ background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 4px 14px rgba(20,30,50,.08); margin-bottom:8px; }
+  .tablecard-header{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px 20px; color:#fff; }
+  .tablecard-header .tg{ display:flex; align-items:center; gap:12px; }
+  .tablecard-header .tg-icon{ width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.22); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .tablecard-header .tg-icon svg{width:20px; height:20px; stroke:#fff; fill:none; stroke-width:2;}
+  .tablecard-header h3{margin:0; font-size:1rem;}
+  .tablecard-header .badge{ background:rgba(255,255,255,.22); border-radius:20px; padding:4px 12px; font-size:.72rem; font-weight:700; white-space:nowrap; }
+  .trow{ display:flex; align-items:center; gap:14px; padding:13px 20px; border-bottom:1px solid var(--border); }
+  .trow:last-child{border-bottom:none;}
+  .trow:nth-child(even){background:#f8f9fc;}
+  .trow .num{ font-weight:800; font-size:1rem; width:22px; flex-shrink:0; color:var(--accent, var(--purple)); }
+  .trow .desc{flex:1; font-size:.85rem; line-height:1.4;}
+  .trow .desc b{color:var(--navy);}
+  .trow .icon-circle{ width:36px; height:36px; border-radius:50%; background:var(--accent-l, var(--purple-l)); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .trow .icon-circle svg{width:18px; height:18px; stroke:var(--accent, var(--purple)); fill:none; stroke-width:2;}
+
+  .quote-box{ background:var(--blue-l); border-left:5px solid var(--blue); border-radius:0 12px 12px 0; padding:14px 18px; margin:14px 0; font-size:.88rem; }
+  .quote-box .src{display:block; font-size:.72rem; font-weight:800; color:var(--blue); text-transform:uppercase; margin-bottom:5px; letter-spacing:.03em;}
+
+  .sintesi{ margin-top:40px; background:linear-gradient(135deg, var(--pink-l), #fff); border:2px solid var(--pink); border-radius:16px; padding:24px 28px; }
+  .sintesi h3{margin:0 0 14px; color:var(--pink); font-size:1.05rem; display:flex; align-items:center; gap:8px;}
+  .sintesi-grid{display:flex; flex-wrap:wrap; gap:14px;}
+  .sintesi-item{ flex:1 1 200px; display:flex; gap:10px; align-items:flex-start; background:#fff; border-radius:10px; padding:12px 14px; font-size:.84rem; }
+  .sintesi-item .circ{ width:30px; height:30px; border-radius:50%; background:var(--pink); flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  .sintesi-item .circ svg{width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2;}
+
+  .prossimo-link{ display:block; margin-top:30px; text-align:center; background:var(--navy); color:#fff !important; text-decoration:none; padding:15px 20px; border-radius:12px; font-weight:800; font-size:.95rem; }
+  footer.fonte-doc{margin-top:26px; text-align:center; font-size:.72rem; color:#8a93a3;}
+  @media print{ a.torna, a.link-collegata{display:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="torna" href="index.html">← Torna alla Home</a>
+
+  <div class="banner">
+    <div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 4v5h5"/></svg></div>
+    <div>
+      <h1>DIRITTO AMMINISTRATIVO II</h1>
+      <p>Infografica di riepilogo — Modulo 2b · L'atto amministrativo: elementi, vizi, invalidità</p>
+    </div>
+  </div>
+
+  <a class="link-collegata" href="modulo2b-diritto-amministrativo.html">📖 Vai alla Dispensa completa del Modulo 2b</a>
+
+  <!-- Elementi essenziali -->
+  <h2 class="sez"><span class="ic-wrap" style="background:var(--blue)"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h4"/></svg></span>I 6 elementi essenziali dell'atto</h2>
+  <div class="icon-grid">
+    <div class="icard" style="--accent:var(--blue); --accent-l:var(--blue-l)"><div class="circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div><h4>Soggetto</h4><p>Organo competente</p></div>
+    <div class="icard" style="--accent:var(--green); --accent-l:var(--green-l)"><div class="circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><h4>Oggetto</h4><p>Situazione giuridica incisa</p></div>
+    <div class="icard" style="--accent:var(--orange); --accent-l:var(--orange-l)"><div class="circle"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z"/></svg></div><h4>Contenuto</h4><p>Cosa dispone l'atto</p></div>
+    <div class="icard" style="--accent:var(--purple); --accent-l:var(--purple-l)"><div class="circle"><svg viewBox="0 0 24 24"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg></div><h4>Motivazione</h4><p>Ragioni fatto/diritto</p></div>
+    <div class="icard" style="--accent:var(--teal); --accent-l:var(--teal-l)"><div class="circle"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v2h18V7L12 2Z"/><path d="M5 10v9M19 10v9"/></svg></div><h4>Forma</h4><p>Scritta, firmata, datata</p></div>
+    <div class="icard" style="--accent:var(--pink); --accent-l:var(--pink-l)"><div class="circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div><h4>Finalità</h4><p>Scopo di interesse pubblico</p></div>
+  </div>
+
+  <!-- Vizi di legittimità - NUOVA TABELLA -->
+  <h2 class="sez"><span class="ic-wrap" style="background:var(--red)"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 2.5 17a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>I 3 vizi di legittimità — Art. 21-octies</h2>
+  <div class="tablecard">
+    <div class="tablecard-header" style="background:linear-gradient(120deg, var(--red), #e8748a);">
+      <div class="tg"><div class="tg-icon"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Vizi che rendono annullabile l'atto</h3></div>
+      <span class="badge">Art. 21-octies</span>
+    </div>
+    <div class="trow">
+      <div class="num" style="color:var(--red)">1</div>
+      <div class="desc"><b>Incompetenza</b> — l'atto è emanato da un organo diverso da quello competente per legge (se assoluta, l'atto è nullo, non solo annullabile)</div>
+      <div class="icon-circle" style="background:var(--red-l)"><svg viewBox="0 0 24 24" style="stroke:var(--red)"><circle cx="12" cy="8" r="3"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>
+    </div>
+    <div class="trow">
+      <div class="num" style="color:var(--red)">2</div>
+      <div class="desc"><b>Eccesso di potere</b> — sviamento dal fine pubblico previsto, illogicità, contraddizioni, travisamento dei fatti nella decisione discrezionale</div>
+      <div class="icon-circle" style="background:var(--red-l)"><svg viewBox="0 0 24 24" style="stroke:var(--red)"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div>
+    </div>
+    <div class="trow">
+      <div class="num" style="color:var(--red)">3</div>
+      <div class="desc"><b>Violazione di legge</b> — categoria residuale: ogni difformità dell'atto da norme di legge o regolamento non riconducibile agli altri due vizi</div>
+      <div class="icon-circle" style="background:var(--red-l)"><svg viewBox="0 0 24 24" style="stroke:var(--red)"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg></div>
+    </div>
+  </div>
+
+  <div class="quote-box">
+    <span class="src">Art. 21-octies, comma 2</span>
+    Se il vizio è solo <b>formale/procedurale</b> e il contenuto della decisione, essendo vincolata, non avrebbe comunque potuto essere diverso → il provvedimento <b>non è annullabile</b>.
+  </div>
+
+  <!-- Nullità vs annullabilità - TABELLA -->
+  <h2 class="sez"><span class="ic-wrap" style="background:var(--purple)"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v2h18V7L12 2Z"/><path d="M5 10v9M9 10v9M15 10v9M19 10v9"/></svg></span>Nullità vs Annullabilità</h2>
+  <div class="tablecard">
+    <div class="tablecard-header" style="background:linear-gradient(120deg, var(--purple), #9a72d9);">
+      <div class="tg"><div class="tg-icon"><svg viewBox="0 0 24 24"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Due regimi di invalidità a confronto</h3></div>
+      <span class="badge">Artt. 21-septies / 21-octies</span>
+    </div>
+    <div class="trow"><div class="num" style="color:var(--purple)">1</div><div class="desc"><b>Nullità</b> — mancanza di elementi essenziali, difetto assoluto di attribuzione, violazione/elusione del giudicato. L'atto non produce effetti fin dall'origine</div><div class="icon-circle" style="background:var(--purple-l)"><svg viewBox="0 0 24 24" style="stroke:var(--purple)"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg></div></div>
+    <div class="trow"><div class="num" style="color:var(--purple)">2</div><div class="desc"><b>Annullabilità</b> — incompetenza, eccesso di potere, violazione di legge. L'atto produce effetti finché non viene annullato</div><div class="icon-circle" style="background:var(--purple-l)"><svg viewBox="0 0 24 24" style="stroke:var(--purple)"><path d="m5 13 4 4L19 7"/></svg></div></div>
+    <div class="trow"><div class="num" style="color:var(--purple)">3</div><div class="desc"><b>Termini d'impugnazione</b> — nullità: 180 giorni davanti al giudice; annullabilità: 60 giorni dalla notifica/conoscenza</div><div class="icon-circle" style="background:var(--purple-l)"><svg viewBox="0 0 24 24" style="stroke:var(--purple)"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div></div>
+  </div>
+
+  <!-- Autotutela -->
+  <h2 class="sez"><span class="ic-wrap" style="background:var(--teal)"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7l-9-5Z"/></svg></span>L'autotutela: annullamento vs revoca</h2>
+  <div class="icon-grid">
+    <div class="icard" style="--accent:var(--red); --accent-l:var(--red-l); flex:1 1 260px;">
+      <div class="circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg></div>
+      <h4>Annullamento d'ufficio</h4>
+      <p>Atto <b>illegittimo</b> → la PA lo annulla per ragioni di interesse pubblico, entro termine ragionevole (art. 21-nonies)</p>
+    </div>
+    <div class="icard" style="--accent:var(--teal); --accent-l:var(--teal-l); flex:1 1 260px;">
+      <div class="circle"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div>
+      <h4>Revoca</h4>
+      <p>Atto <b>legittimo</b> ma non più opportuno → ritirato per nuove esigenze di interesse pubblico (art. 21-quinquies), con indennizzo se incide su rapporti negoziali</p>
+    </div>
+  </div>
+
+  <div class="sintesi">
+    <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c0447f" stroke-width="2"><path d="M12 2C8 2 6 5 6 8c0 2 1 3.5 2 4.5.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5 1-1 2-2.5 2-4.5 0-3-2-6-6-6Z"/><path d="M9 18h6M10 21h4"/></svg> In sintesi — cosa ricordare per il concorso</h3>
+    <div class="sintesi-grid">
+      <div class="sintesi-item"><div class="circ"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></div><div>3 vizi: incompetenza, eccesso di potere, violazione di legge</div></div>
+      <div class="sintesi-item"><div class="circ"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></div><div>Vizio solo formale + atto vincolato = NON annullabile (21-octies c.2)</div></div>
+      <div class="sintesi-item"><div class="circ"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg></div><div>Nullità = niente effetti da subito; Annullabilità = effetti fino ad annullamento</div></div>
+      <div class="sintesi-item"><div class="circ"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div><div>Illegittimo → annullamento; Legittimo ma superato → revoca</div></div>
+    </div>
+  </div>
+
+  <a class="prossimo-link" href="modulo2b-diritto-amministrativo.html">📖 Torna alla Dispensa completa per il ripasso approfondito</a>
+
+  <footer class="fonte-doc">L. 241/1990, artt. 3, 21-quinquies, 21-septies, 21-octies, 21-nonies — Materiale didattico di sintesi, preparazione concorsi SNA/INPS Dirigenti, settembre 2026.</footer>
+
+</div>
+</body>
+</html>
