@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infografica — Diritto Costituzionale</title>
+<style>
+  :root{
+    --blue-dark:#1b3a6b;
+    --blue:#2f6fb0;
+    --blue-light:#eaf1fa;
+    --green:#2f7a3d;
+    --green-light:#eaf7ec;
+    --purple:#6a4c93;
+    --purple-light:#f1ecf8;
+    --orange:#c9701f;
+    --orange-light:#fdf0e2;
+    --ink:#1d2a3a;
+    --border:#dfe4ec;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f4f5f7;
+    color:var(--ink);
+  }
+  .wrap{max-width:960px; margin:0 auto; padding:26px 18px 60px;}
+  a.torna{color:var(--blue-dark); text-decoration:none; font-size:13px; font-weight:600;}
+  .banner{
+    background:linear-gradient(135deg, var(--blue-dark), var(--blue));
+    color:#fff;
+    border-radius:14px;
+    padding:26px 30px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin:14px 0 24px;
+  }
+  .banner .icon{font-size:44px;}
+  .banner h1{margin:0 0 4px; font-size:1.7rem;}
+  .banner p{margin:0; color:#dbe6f5; font-size:0.95rem;}
+
+  h2.sez{
+    font-size:1.05rem;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--blue-dark);
+    margin:36px 0 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  h2.sez::before{content:""; width:6px; height:22px; background:var(--blue); border-radius:3px; display:inline-block;}
+
+  .grid-art{
+    display:flex; flex-wrap:wrap;
+    gap:14px;
+  }
+  .art-card{
+    flex:1 1 260px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:16px 18px;
+    box-shadow:0 1px 3px rgba(0,0,0,.04);
+  }
+  .art-badge{
+    display:inline-block;
+    background:var(--blue);
+    color:#fff;
+    font-weight:700;
+    font-size:0.78rem;
+    padding:3px 10px;
+    border-radius:20px;
+    margin-bottom:8px;
+  }
+  .art-card p{margin:0; font-size:0.9rem; line-height:1.45;}
+  .art-card b.tag{color:var(--blue-dark);}
+
+  .grid-organi{
+    display:flex; flex-wrap:wrap;
+    gap:14px;
+  }
+  .organo-card{
+    flex:1 1 180px;
+    background:var(--blue-light);
+    border-radius:12px;
+    padding:16px;
+    text-align:center;
+  }
+  .organo-card .ic{font-size:30px; margin-bottom:6px;}
+  .organo-card h4{margin:0 0 6px; font-size:0.95rem; color:var(--blue-dark);}
+  .organo-card p{margin:0; font-size:0.8rem; line-height:1.4; color:#3c4a5c; text-align:left;}
+
+  .fonti-list{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:6px 20px;
+  }
+  .fonte-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:12px 0;
+    border-bottom:1px dashed var(--border);
+  }
+  .fonte-row:last-child{border-bottom:none;}
+  .fonte-num{
+    background:var(--blue-dark);
+    color:#fff;
+    width:28px; height:28px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:0.85rem;
+    flex-shrink:0;
+  }
+  .fonte-row div b{display:block; font-size:0.9rem; color:var(--blue-dark);}
+  .fonte-row div span{font-size:0.82rem; color:#556;}
+
+  .criteri-grid{
+    display:flex; flex-wrap:wrap;
+    gap:12px;
+  }
+  .criterio{
+    flex:1 1 200px;
+    background:var(--purple-light);
+    border-left:4px solid var(--purple);
+    border-radius:0 10px 10px 0;
+    padding:12px 14px;
+    font-size:0.85rem;
+  }
+  .criterio b{display:block; color:var(--purple); margin-bottom:3px; font-size:0.82rem;}
+
+  .titolo-v-grid{
+    display:flex; flex-wrap:wrap;
+    gap:14px;
+  }
+  .tv-card{
+    flex:1 1 220px;
+    background:var(--green-light);
+    border-radius:12px;
+    padding:16px;
+  }
+  .tv-card .ic{font-size:26px;}
+  .tv-card h4{margin:8px 0 6px; font-size:0.92rem; color:var(--green);}
+  .tv-card p{margin:0; font-size:0.82rem; line-height:1.4; color:#33463a;}
+
+  .sintesi{
+    margin-top:40px;
+    background:var(--orange-light);
+    border:2px solid #f0d3ab;
+    border-radius:14px;
+    padding:22px 26px;
+  }
+  .sintesi h3{margin:0 0 12px; color:var(--orange); font-size:1.05rem;}
+  .sintesi-grid{
+    display:flex; flex-wrap:wrap;
+    gap:12px;
+  }
+  .sintesi-item{
+    flex:1 1 180px;
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    font-size:0.85rem;
+  }
+  .sintesi-item .ic{font-size:20px;}
+
+  .prossimo-link{
+    display:block;
+    margin-top:30px;
+    text-align:center;
+    background:var(--blue-dark);
+    color:#fff !important;
+    text-decoration:none;
+    padding:14px 20px;
+    border-radius:10px;
+    font-weight:700;
+    font-size:0.95rem;
+  }
+
+  footer.fonte-doc{
+    margin-top:30px;
+    text-align:center;
+    font-size:0.72rem;
+    color:#8a93a3;
+  }
+
+  @media print{ a.torna{display:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="torna" href="index.html">← Torna alla Home</a>
+
+  <div class="banner">
+    <div class="icon">🏛️</div>
+    <div>
+      <h1>DIRITTO COSTITUZIONALE</h1>
+      <p>Infografica di riepilogo — Modulo 1 · Principi, organi, fonti del diritto, Regioni</p>
+    </div>
+  </div>
+
+  <a class="torna" href="modulo1-diritto-costituzionale.html">📖 Vai alla Dispensa completa del Modulo 1</a>
+
+  <h2 class="sez">🔑 Principi fondamentali — Artt. 1-12 e 97</h2>
+  <div class="grid-art">
+    <div class="art-card"><span class="art-badge">ART. 1</span><p>Repubblica <b class="tag">democratica</b>, fondata sul lavoro. Sovranità popolare nei limiti della Costituzione.</p></div>
+    <div class="art-card"><span class="art-badge">ART. 2</span><p>Diritti <b class="tag">inviolabili</b> dell'uomo + doveri di solidarietà.</p></div>
+    <div class="art-card"><span class="art-badge">ART. 3</span><p>Uguaglianza <b class="tag">formale</b> (c.1) e <b class="tag">sostanziale</b> (c.2, rimozione ostacoli) — cardine per l'azione della PA.</p></div>
+    <div class="art-card"><span class="art-badge">ART. 5</span><p>Repubblica <b class="tag">una e indivisibile</b>, ma promuove le autonomie locali.</p></div>
+    <div class="art-card"><span class="art-badge">ART. 9</span><p>Tutela paesaggio, patrimonio storico-artistico, ambiente e biodiversità (dal 2022).</p></div>
+    <div class="art-card"><span class="art-badge">ART. 11</span><p>Ripudio della guerra; limitazioni di sovranità per pace e giustizia — base della partecipazione UE.</p></div>
+    <div class="art-card"><span class="art-badge">ART. 97</span><p><b class="tag">Buon andamento</b> e <b class="tag">imparzialità</b> della PA — il più citato nei concorsi dirigenziali.</p></div>
+  </div>
+
+  <h2 class="sez">🏢 Gli organi costituzionali</h2>
+  <div class="grid-organi">
+    <div class="organo-card">
+      <div class="ic">🏛️</div>
+      <h4>Parlamento</h4>
+      <p>Bicameralismo paritario. Funzioni legislativa, indirizzo, controllo. Immunità art. 68.</p>
+    </div>
+    <div class="organo-card">
+      <div class="ic">🤝</div>
+      <h4>Governo</h4>
+      <p>Fiducia entro 10gg (art. 94). Decreti-legge (art. 77) e legislativi (art. 76).</p>
+    </div>
+    <div class="organo-card">
+      <div class="ic">🎖️</div>
+      <h4>Presidente Repubblica</h4>
+      <p>Capo dello Stato, garante. Nomina il PdC, promulga leggi, scioglie Camere.</p>
+    </div>
+    <div class="organo-card">
+      <div class="ic">⚖️</div>
+      <h4>Corte Costituzionale</h4>
+      <p>15 giudici. Legittimità costituzionale, conflitti di attribuzione.</p>
+    </div>
+    <div class="organo-card">
+      <div class="ic">👩‍⚖️</div>
+      <h4>Magistratura</h4>
+      <p>Indipendenza (art. 104), garantita dal CSM. Soggetta solo alla legge.</p>
+    </div>
+  </div>
+
+  <h2 class="sez">📚 Gerarchia delle fonti del diritto</h2>
+  <div class="fonti-list">
+    <div class="fonte-row"><div class="fonte-num">1</div><div><b>Costituzione e leggi costituzionali</b><span>Fonti costituzionali, al vertice del sistema</span></div></div>
+    <div class="fonte-row"><div class="fonte-num">2</div><div><b>Fonti dell'Unione Europea</b><span>Regolamenti (diretti) e direttive</span></div></div>
+    <div class="fonte-row"><div class="fonte-num">3</div><div><b>Leggi, decreti-legge, decreti legislativi</b><span>Fonti primarie, pari grado tra loro</span></div></div>
+    <div class="fonte-row"><div class="fonte-num">4</div><div><b>Regolamenti</b><span>Fonti secondarie: governativi, ministeriali, enti locali</span></div></div>
+    <div class="fonte-row"><div class="fonte-num">5</div><div><b>Usi e consuetudini</b><span>Fonti-fatto, residuali</span></div></div>
+  </div>
+
+  <h2 class="sez">⚔️ Criteri di risoluzione dei conflitti tra norme</h2>
+  <div class="criteri-grid">
+    <div class="criterio"><b>Gerarchico</b>La norma di grado superiore prevale</div>
+    <div class="criterio"><b>Cronologico</b>La norma successiva abroga la precedente (pari grado)</div>
+    <div class="criterio"><b>Competenza</b>Ogni fonte disciplina la propria materia</div>
+    <div class="criterio"><b>Specialità</b>La norma speciale prevale su quella generale</div>
+  </div>
+
+  <h2 class="sez">🗺️ Regioni ed enti locali — Titolo V</h2>
+  <div class="titolo-v-grid">
+    <div class="tv-card"><div class="ic">🏘️</div><h4>Art. 114</h4><p>Comuni, Province, Città metropolitane, Regioni e Stato: pari dignità istituzionale, nessuna gerarchia.</p></div>
+    <div class="tv-card"><div class="ic">📜</div><h4>Art. 117</h4><p>Competenza esclusiva statale / concorrente / residuale regionale — tre liste di materie.</p></div>
+    <div class="tv-card"><div class="ic">🔽</div><h4>Art. 118 — Sussidiarietà</h4><p>Funzioni amministrative ai Comuni, salvo esigenze di esercizio unitario a livelli superiori.</p></div>
+  </div>
+
+  <div class="sintesi">
+    <h3>💡 In sintesi — cosa ricordare per il concorso</h3>
+    <div class="sintesi-grid">
+      <div class="sintesi-item"><span class="ic">⚖️</span>Art. 3 c.2 e Art. 97 = i due articoli-chiave per l'azione della PA</div>
+      <div class="sintesi-item"><span class="ic">🔄</span>Forma di Stato ≠ Forma di Governo (spesso confusi nei quiz)</div>
+      <div class="sintesi-item"><span class="ic">📐</span>Fonti: gerarchia + 4 criteri di risoluzione dei conflitti</div>
+      <div class="sintesi-item"><span class="ic">🧩</span>Sussidiarietà (art. 118) = principio cardine anche in ambito amministrativo</div>
+    </div>
+  </div>
+
+  <a class="prossimo-link" href="modulo1-diritto-costituzionale.html">📖 Torna alla Dispensa completa per il ripasso approfondito</a>
+
+  <footer class="fonte-doc">Costituzione della Repubblica Italiana — Materiale didattico di sintesi, preparazione concorsi SNA/INPS Dirigenti, settembre 2026.</footer>
+
+</div>
+</body>
+</html>
