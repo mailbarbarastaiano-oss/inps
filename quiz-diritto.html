@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz — Diritto (Costituzionale, Amministrativo, UE)</title>
+<style>
+  :root{
+    --navy:#172638; --paper:#f4f5f7; --card:#ffffff; --border:#e2e5ea;
+    --accent:#3a6ea5; --accent-dark:#2c557f; --gold:#d8b34a;
+    --green:#2f8f4e; --green-l:#e9f9ee; --red:#d1495b; --red-l:#fbe9ec;
+    --ink:#1d2a3a; --ink-soft:#445166;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI", Arial, sans-serif; background:var(--paper); color:var(--ink); margin:0; padding:0;}
+  header{background:var(--navy); color:#fff; padding:34px 20px; text-align:center; border-bottom:4px solid var(--gold);}
+  header .kicker{color:#9fb3cc; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;}
+  header a{color:#cfd8e3; text-decoration:none; font-size:.85rem;}
+  header h1{font-family:Georgia, serif; font-size:1.7rem; margin:6px 0 4px;}
+  header p{color:#cfd8e3; font-size:.95rem; margin:0;}
+
+  main{max-width:680px; margin:30px auto; padding:0 18px 60px;}
+
+  .progress-wrap{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:12px 16px; margin-bottom:20px; font-size:.85rem; color:var(--ink-soft); display:flex; justify-content:space-between; align-items:center;}
+  .progress-bar{height:8px; background:#e2e5ea; border-radius:5px; overflow:hidden; margin-top:8px;}
+  .progress-fill{height:100%; background:var(--accent); transition:width .3s;}
+  .progress-wrap-inner{flex:1;}
+
+  .qcard{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:26px 24px; box-shadow:0 2px 8px rgba(20,30,50,.05);}
+  .qtag{display:inline-block; background:#eef2f7; color:var(--accent-dark); font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:3px 10px; border-radius:20px; margin-bottom:12px;}
+  .qtext{font-size:1.08rem; font-weight:600; color:var(--navy); margin-bottom:18px; line-height:1.45;}
+
+  .opt{display:block; width:100%; text-align:left; background:#fff; border:2px solid var(--border); border-radius:10px; padding:12px 16px; margin-bottom:10px; font-size:.95rem; cursor:pointer; transition:border-color .15s, background .15s;}
+  .opt:hover{border-color:var(--accent);}
+  .opt.correct{border-color:var(--green); background:var(--green-l); font-weight:600;}
+  .opt.wrong{border-color:var(--red); background:var(--red-l); font-weight:600;}
+  .opt:disabled{cursor:default;}
+
+  .explain{margin-top:16px; padding:14px 16px; border-radius:10px; font-size:.9rem; line-height:1.45; display:none;}
+  .explain.show{display:block;}
+  .explain.ok{background:var(--green-l); border-left:4px solid var(--green); color:#1e5c34;}
+  .explain.ko{background:var(--red-l); border-left:4px solid var(--red); color:#7a2634;}
+
+  .nextbtn{display:none; margin-top:18px; width:100%; padding:13px; background:var(--navy); color:#fff; border:none; border-radius:10px; font-size:.95rem; font-weight:700; cursor:pointer;}
+  .nextbtn:hover{background:var(--accent);}
+  .nextbtn.show{display:block;}
+
+  .result{text-align:center; padding:20px 10px;}
+  .result .score{font-size:3rem; font-weight:800; color:var(--navy); margin:10px 0;}
+  .result p{color:var(--ink-soft); font-size:1rem;}
+  .restart{margin-top:20px; padding:13px 26px; background:var(--accent); color:#fff; border:none; border-radius:10px; font-size:.95rem; font-weight:700; cursor:pointer;}
+  .restart:hover{background:var(--accent-dark);}
+
+  footer.note{margin-top:26px; text-align:center; font-size:.75rem; color:#8a93a3;}
+  @media print{header a{display:none;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker"><a href="index.html">← Torna alla Home</a></div>
+  <h1>Quiz — Diritto</h1>
+  <p>Costituzionale · Amministrativo · Unione Europea — Batch 1 di 10 (50 domande)</p>
+</header>
+
+<main>
+  <div class="progress-wrap">
+    <div class="progress-wrap-inner">
+      <span id="progress-text">Domanda 1 di 50</span>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:2%;"></div></div>
+    </div>
+  </div>
+
+  <div id="quiz-area"></div>
+  <div id="result-area"></div>
+</main>
+
+<footer class="note">Quiz originale di ripasso — preparazione concorsi SNA/INPS Dirigenti, settembre 2026.</footer>
+
+<script>
+const QUESTIONS = [
+  {tag:"Costituzionale", q:"Secondo l'art. 1 Cost., l'Italia è una Repubblica democratica fondata su cosa?", opts:["Sulla proprietà privata","Sul lavoro","Sulla religione","Sul suffragio censitario"], correct:1, exp:"Art. 1 Cost.: la sovranità appartiene al popolo, che la esercita nelle forme e nei limiti della Costituzione."},
+  {tag:"Costituzionale", q:"Cosa distingue l'uguaglianza 'sostanziale' (art. 3, c.2) da quella 'formale' (c.1)?", opts:["Sono sinonimi","La sostanziale riguarda solo gli stranieri","La sostanziale impone alla Repubblica di rimuovere gli ostacoli che impediscono di fatto la parità","La sostanziale riguarda solo il voto"], correct:2, exp:"Il comma 2 dell'art. 3 impone un compito attivo allo Stato, non solo un divieto di discriminare."},
+  {tag:"Costituzionale", q:"Chi giudica sui conflitti di attribuzione tra i poteri dello Stato?", opts:["La Corte di Cassazione","La Corte Costituzionale","Il Consiglio di Stato","Il Parlamento in seduta comune"], correct:1, exp:"È una delle funzioni tipiche della Corte Costituzionale, insieme al giudizio di legittimità delle leggi."},
+  {tag:"Costituzionale", q:"Quanti giudici compongono la Corte Costituzionale?", opts:["9","12","15","20"], correct:2, exp:"15 giudici: 5 eletti dal Parlamento, 5 nominati dal PdR, 5 dalle supreme magistrature."},
+  {tag:"Costituzionale", q:"Qual è la durata del mandato del Presidente della Repubblica?", opts:["5 anni","7 anni","9 anni","A vita"], correct:1, exp:"Il mandato presidenziale dura 7 anni."},
+  {tag:"Costituzionale", q:"Un decreto-legge non convertito entro 60 giorni:", opts:["Resta valido comunque","Perde efficacia solo per il futuro (ex nunc)","Perde efficacia sin dall'inizio (ex tunc)","Diventa un regolamento"], correct:2, exp:"La decadenza è retroattiva: è come se il decreto non fosse mai esistito, salvo eventuale legge di sanatoria."},
+  {tag:"Costituzionale", q:"Dal 4° scrutinio in poi, quale maggioranza serve per eleggere il Presidente della Repubblica?", opts:["Maggioranza dei 2/3","Maggioranza assoluta (50%+1)","Maggioranza semplice dei presenti","Unanimità"], correct:1, exp:"Nei primi 3 scrutini serve la maggioranza dei 2/3; dal 4° in poi basta la maggioranza assoluta degli aventi diritto."},
+  {tag:"Costituzionale", q:"Cosa si intende per 'semestre bianco'?", opts:["Gli ultimi 6 mesi di legislatura del Parlamento","Gli ultimi 6 mesi di mandato del PdR, in cui non può sciogliere le Camere","Il primo semestre di ogni legislatura","Il periodo tra due governi"], correct:1, exp:"Serve a evitare che il PdR sciolga le Camere per favorire la propria rielezione, salvo che coincida con la fine della legislatura."},
+  {tag:"Costituzionale", q:"Quanti componenti devono firmare una mozione di sfiducia al Governo?", opts:["Almeno 1/10 dei componenti della Camera","La maggioranza assoluta","Almeno 1/3 dei componenti","Almeno 50 parlamentari in ogni caso"], correct:0, exp:"Art. 94 Cost.: firmata da almeno un decimo dei componenti, e non discussa prima di 3 giorni."},
+  {tag:"Costituzionale", q:"L'art. 97 Cost. impone alla PA di garantire:", opts:["Segretezza e gerarchia","Buon andamento e imparzialità","Velocità assoluta","Discrezionalità totale"], correct:1, exp:"È l'articolo-cardine da cui discende tutto il diritto amministrativo moderno."},
+  {tag:"Costituzionale", q:"Nel conflitto tra due norme di pari grado, quale criterio si applica di regola?", opts:["Criterio gerarchico","Criterio cronologico (la successiva abroga la precedente)","Criterio geografico","Nessun criterio, decide il giudice a sua discrezione"], correct:1, exp:"È il principio 'lex posterior derogat priori', uno dei 4 criteri di risoluzione delle antinomie."},
+  {tag:"Costituzionale", q:"Il bicameralismo italiano è definito:", opts:["Imperfetto","Perfetto (paritario)","Asimmetrico","Monocamerale"], correct:1, exp:"Camera e Senato hanno le stesse identiche funzioni: è un tratto distintivo del sistema italiano."},
+  {tag:"Costituzionale", q:"Chi promulga le leggi ordinarie approvate dal Parlamento?", opts:["Il Presidente del Consiglio","Il Presidente della Repubblica","Il Presidente della Camera","La Corte Costituzionale"], correct:1, exp:"Il PdR promulga la legge entro un mese dall'approvazione, potendo chiedere un solo riesame alle Camere."},
+  {tag:"Costituzionale", q:"Qual è la durata standard della vacatio legis, salvo diversa previsione?", opts:["5 giorni","15 giorni","30 giorni","60 giorni"], correct:1, exp:"Una legge pubblicata in Gazzetta Ufficiale entra in vigore, di regola, dopo 15 giorni."},
+  {tag:"Costituzionale", q:"Il principio di sussidiarietà (art. 118 Cost.) prevede che le funzioni amministrative siano attribuite:", opts:["Sempre allo Stato centrale","Ai Comuni, salvo esigenze di esercizio unitario a livelli superiori","Sempre alle Regioni","Solo agli enti sovranazionali"], correct:1, exp:"È il principio cardine del decentramento amministrativo, applicabile anche in ambito UE."},
+  {tag:"Costituzionale", q:"L'art. 117 Cost. individua tre liste di competenze legislative. Quali?", opts:["Statale, regionale, comunale","Esclusiva statale, concorrente, residuale regionale","Esclusiva regionale, concorrente, residuale statale","Nessuna: la competenza è sempre unica"], correct:1, exp:"La competenza residuale regionale copre tutto ciò che non è espressamente riservato allo Stato."},
+  {tag:"Costituzionale", q:"Chi elegge un terzo dei giudici della Corte Costituzionale?", opts:["Il Presidente della Repubblica","Il Parlamento in seduta comune","Le supreme magistrature","Il Consiglio dei Ministri"], correct:1, exp:"Gli altri due terzi sono nominati dal PdR e dalle supreme magistrature (Cassazione, Consiglio di Stato, Corte dei Conti)."},
+  {tag:"Amministrativo", q:"Il termine generale di conclusione del procedimento amministrativo, se non diversamente previsto, è di:", opts:["15 giorni","30 giorni","60 giorni","90 giorni"], correct:1, exp:"Art. 2, L. 241/1990: termine generale 30 giorni, elevabile fino a 90 o eccezionalmente 180."},
+  {tag:"Amministrativo", q:"Quali sono i 5 principi elencati dall'art. 1 della L. 241/1990?", opts:["Legalità, sussidiarietà, proporzionalità, certezza, efficienza","Economicità, efficacia, imparzialità, pubblicità, trasparenza","Uguaglianza, solidarietà, autonomia, decentramento, sussidiarietà","Velocità, semplicità, gratuità, riservatezza, uniformità"], correct:1, exp:"Sono i 5 principi generali dell'attività amministrativa, richiamati anche i principi del diritto UE."},
+  {tag:"Amministrativo", q:"Cosa deve fare la PA, di regola, prima di rigettare un'istanza del cittadino?", opts:["Nulla, può rigettare direttamente","Inviare un preavviso di rigetto (art. 10-bis) e attendere osservazioni","Convocare una conferenza di servizi obbligatoria","Chiedere l'autorizzazione al TAR"], correct:1, exp:"L'art. 10-bis L. 241/1990 garantisce al cittadino il diritto di presentare osservazioni prima della decisione finale negativa."},
+  {tag:"Amministrativo", q:"Se un atto è emanato da un organo diverso ma dello stesso ente, si parla di:", opts:["Incompetenza assoluta, atto nullo","Incompetenza relativa, atto annullabile","Eccesso di potere, atto nullo","Violazione di legge, atto valido"], correct:1, exp:"L'incompetenza relativa (stesso ente, organo sbagliato) rende l'atto annullabile, non nullo."},
+  {tag:"Amministrativo", q:"Se un organo di un altro potere dello Stato emana un atto che non gli compete affatto, si parla di:", opts:["Incompetenza relativa","Eccesso di potere","Difetto assoluto di attribuzione, atto nullo","Violazione di legge, atto annullabile"], correct:2, exp:"È il vizio più grave: l'atto è nullo perché manca radicalmente il potere di adottarlo (es. il Sindaco che emette una sentenza penale)."},
+  {tag:"Amministrativo", q:"Quali sono i 3 vizi di legittimità dell'art. 21-octies, comma 1?", opts:["Nullità, annullabilità, inesistenza","Incompetenza, eccesso di potere, violazione di legge","Dolo, colpa grave, colpa lieve","Illegittimità, illiceità, illegalità"], correct:1, exp:"Sono i tre classici vizi che rendono un provvedimento annullabile."},
+  {tag:"Amministrativo", q:"Secondo l'art. 21-octies, comma 2, un provvedimento con vizio solo formale/procedurale:", opts:["È sempre annullabile","Non è annullabile se il contenuto, essendo vincolato, non poteva essere diverso","È sempre nullo","Deve essere rifatto da capo obbligatoriamente"], correct:1, exp:"È il correttivo che evita annullamenti 'inutili' quando l'esito sarebbe stato comunque identico."},
+  {tag:"Amministrativo", q:"Entro quanti giorni va proposto un ricorso per far valere l'annullabilità di un atto?", opts:["30 giorni","60 giorni","120 giorni","È imprescrittibile"], correct:1, exp:"Il termine di decadenza per l'annullabilità è di 60 giorni dalla notifica o piena conoscenza."},
+  {tag:"Amministrativo", q:"L'azione per far valere la nullità di un atto è, in generale:", opts:["Soggetta a termine di 30 giorni","Soggetta a termine di 60 giorni","Imprescrittibile (salvo termini per il risarcimento)","Non esperibile mai"], correct:2, exp:"A differenza dell'annullabilità, la nullità può essere fatta valere in ogni tempo da chiunque vi abbia interesse."},
+  {tag:"Amministrativo", q:"Qual è la differenza principale tra annullamento d'ufficio e revoca?", opts:["Nessuna, sono sinonimi","L'annullamento riguarda un atto illegittimo, la revoca un atto legittimo ma non più opportuno","La revoca è retroattiva, l'annullamento no","L'annullamento serve solo per gli appalti"], correct:1, exp:"Illegittimo → annullamento (ex tunc); legittimo ma superato da nuove esigenze → revoca (ex nunc, con eventuale indennizzo)."},
+  {tag:"Amministrativo", q:"Chi giudica sulla responsabilità per danno erariale?", opts:["Il TAR","Il Tribunale civile ordinario","La Corte dei Conti","Il Consiglio di Stato"], correct:2, exp:"La responsabilità amministrativo-contabile per danno alle casse pubbliche è giudicata dalla Corte dei Conti."},
+  {tag:"Amministrativo", q:"Quale elemento soggettivo è richiesto per la responsabilità erariale?", opts:["Qualsiasi tipo di colpa, anche lieve","Solo il dolo","Dolo o colpa grave","Nessun elemento soggettivo è richiesto"], correct:2, exp:"La colpa lieve non è mai punibile per i dipendenti pubblici: serve dolo o colpa grave."},
+  {tag:"Amministrativo", q:"Il giudice ordinario tutela tipicamente:", opts:["Gli interessi legittimi","I diritti soggettivi","Solo gli interessi collettivi","Nessuna delle precedenti"], correct:1, exp:"Il giudice amministrativo, invece, tutela gli interessi legittimi (salvo giurisdizione esclusiva)."},
+  {tag:"Amministrativo", q:"Cosa tutela tipicamente il giudice amministrativo?", opts:["I diritti soggettivi in ogni caso","Gli interessi legittimi","Solo i diritti di proprietà","Nessuna delle precedenti"], correct:1, exp:"L'interesse legittimo è l'aspettativa a un corretto esercizio del potere della PA, es. la corretta partecipazione a un concorso."},
+  {tag:"Amministrativo", q:"Entro quanti giorni si presenta il ricorso al TAR?", opts:["30 giorni","60 giorni","90 giorni","120 giorni"], correct:1, exp:"Il ricorso giurisdizionale al TAR ha un termine di decadenza di 60 giorni."},
+  {tag:"Amministrativo", q:"Entro quanti giorni si presenta il ricorso straordinario al Presidente della Repubblica?", opts:["30 giorni","60 giorni","90 giorni","120 giorni"], correct:3, exp:"È il termine più lungo del sistema dei ricorsi, proprio perché è un rimedio 'di ultima istanza'."},
+  {tag:"Amministrativo", q:"Cosa significa 'principio di alternatività' tra ricorso straordinario al PdR e ricorso al TAR?", opts:["Si possono fare entrambi contemporaneamente","Scelto uno dei due, non si può più usare l'altro per lo stesso atto","Sono obbligatori entrambi in sequenza","Non esiste alcuna relazione tra i due"], correct:1, exp:"È una scelta esclusiva (electa una via non datur recursus ad alteram)."},
+  {tag:"Amministrativo", q:"Quale tipo di accesso richiede un interesse diretto, concreto e attuale?", opts:["Accesso civico semplice","Accesso civico generalizzato (FOIA)","Accesso documentale (L. 241/1990)","Nessuno di questi"], correct:2, exp:"L'accesso documentale 'classico' richiede una motivazione legata a un interesse qualificato, a differenza del FOIA."},
+  {tag:"UE", q:"Quale istituzione UE è definita 'custode dei Trattati'?", opts:["Il Consiglio europeo","La Commissione Europea","Il Parlamento Europeo","La Corte dei Conti UE"], correct:1, exp:"La Commissione vigila sul rispetto dei Trattati e può avviare procedure di infrazione contro gli Stati inadempienti."},
+  {tag:"UE", q:"Qual è la differenza principale tra regolamento e direttiva UE?", opts:["Il regolamento vale solo per gli Stati, la direttiva per i cittadini","Il regolamento è direttamente applicabile, la direttiva richiede recepimento nazionale","Sono la stessa cosa","La direttiva è più vincolante del regolamento"], correct:1, exp:"Art. 288 TFUE: il regolamento non necessita di alcun atto di recepimento, la direttiva sì."},
+  {tag:"UE", q:"Come vengono eletti i membri del Parlamento Europeo?", opts:["Nominati dai governi nazionali","A suffragio universale diretto dai cittadini UE","Eletti dai parlamenti nazionali","Sorteggiati tra i cittadini"], correct:1, exp:"Il Parlamento Europeo è l'unica istituzione UE eletta direttamente dai cittadini."},
+  {tag:"UE", q:"Qual è la differenza tra Consiglio dell'UE e Consiglio europeo?", opts:["Sono la stessa istituzione con due nomi","Il Consiglio UE è formato dai ministri (funzione legislativa), il Consiglio europeo dai capi di Stato/Governo (indirizzo politico)","Il Consiglio europeo ha funzione legislativa, il Consiglio UE no","Il Consiglio europeo non esiste più dal Trattato di Lisbona"], correct:1, exp:"È uno degli errori più comuni nei quiz: attenzione a non confondere le due istituzioni."},
+  {tag:"UE", q:"Dove ha sede la Corte di Giustizia dell'Unione Europea?", opts:["Bruxelles","Strasburgo","Francoforte","Lussemburgo"], correct:3, exp:"La CGUE ha sede a Lussemburgo, distinta dalla BCE (Francoforte) e dal Parlamento (Strasburgo/Bruxelles)."},
+  {tag:"UE", q:"A cosa serve il rinvio pregiudiziale alla Corte di Giustizia UE?", opts:["A sanzionare uno Stato inadempiente","A garantire l'interpretazione uniforme del diritto UE su richiesta di un giudice nazionale","A eleggere il Presidente della Commissione","A modificare i Trattati"], correct:1, exp:"È lo strumento di dialogo tra i giudici nazionali e la Corte di Giustizia, per assicurare un'applicazione uniforme del diritto UE."},
+  {tag:"UE", q:"Perché una direttiva non attuata nei termini può comunque produrre 'effetto diretto'?", opts:["Sempre, in ogni caso","Se è chiara, precisa e incondizionata","Solo se lo Stato lo richiede espressamente","Mai, serve sempre il recepimento"], correct:1, exp:"È l'eccezione giurisprudenziale che impedisce allo Stato di trarre vantaggio dalla propria inerzia nel recepimento."},
+  {tag:"UE", q:"Quale maggioranza è tipicamente richiesta nel Consiglio dell'UE dopo Lisbona?", opts:["Unanimità sempre","Maggioranza qualificata (55% Stati, 65% popolazione)","Maggioranza semplice","Non è previsto il voto a maggioranza"], correct:1, exp:"L'unanimità resta solo per materie particolarmente sensibili (es. fiscalità, politica estera)."},
+  {tag:"UE", q:"Qual è l'obiettivo primario della BCE?", opts:["La piena occupazione","La stabilità dei prezzi (inflazione intorno al 2%)","Il finanziamento diretto dei deficit statali","La crescita del PIL a ogni costo"], correct:1, exp:"A differenza della Fed USA, la BCE ha un mandato gerarchico focalizzato sulla stabilità dei prezzi."},
+  {tag:"UE", q:"Cosa stabilisce l'art. 11 della Costituzione italiana rispetto all'Unione Europea?", opts:["Vieta la partecipazione a organizzazioni sovranazionali","Consente limitazioni di sovranità per assicurare pace e giustizia tra le Nazioni","Obbliga l'adesione all'UE","Non ha alcun collegamento con l'UE"], correct:1, exp:"È la base costituzionale che ha permesso all'Italia di cedere quote di sovranità all'ordinamento europeo."},
+  {tag:"UE", q:"Il principio di sussidiarietà a livello UE stabilisce che l'Unione interviene:", opts:["Sempre, in ogni materia","Solo se gli obiettivi non possono essere raggiunti efficacemente dagli Stati membri","Mai, decidono sempre gli Stati","Solo su richiesta della Commissione"], correct:1, exp:"È un freno all'espansione dei poteri UE nelle materie di competenza non esclusiva."},
+  {tag:"UE", q:"Quale atto UE è obbligatorio in tutti i suoi elementi ma solo per specifici destinatari?", opts:["Il regolamento","La direttiva","La decisione","La raccomandazione"], correct:2, exp:"La decisione vincola solo i destinatari a cui è indirizzata (uno Stato, un'impresa)."},
+  {tag:"UE", q:"Cosa fa la Commissione Europea se uno Stato membro viola le norme UE?", opts:["Nulla, non ha poteri sanzionatori","Può avviare una procedura di infrazione","Scioglie il governo di quello Stato","Espelle automaticamente lo Stato dall'UE"], correct:1, exp:"La procedura di infrazione è lo strumento con cui la Commissione, custode dei Trattati, richiama gli Stati inadempienti."},
+  {tag:"UE", q:"Quali sono i due Trattati fondamentali dell'Unione Europea?", opts:["TUE e TFUE","CEDU e TFUE","TUE e CEDU","Nessuno dei precedenti"], correct:0, exp:"Trattato sull'Unione Europea (TUE) e Trattato sul Funzionamento dell'UE (TFUE) costituiscono il diritto primario."},
+  {tag:"UE", q:"Dopo il Trattato di Lisbona, la Carta dei diritti fondamentali dell'UE ha:", opts:["Nessun valore giuridico","Valore inferiore alle leggi nazionali","Lo stesso valore giuridico dei Trattati","Valore solo consultivo"], correct:2, exp:"Dal 2009 la Carta ha acquisito piena forza vincolante, pari a quella dei Trattati stessi."}
+];
+
+let order = [];
+let current = 0;
+let score = 0;
+let answered = false;
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+function start(){
+  order = shuffle(QUESTIONS.map((_,i)=>i));
+  current = 0;
+  score = 0;
+  document.getElementById('result-area').innerHTML = '';
+  document.getElementById('quiz-area').style.display = 'block';
+  renderQuestion();
+}
+
+function renderQuestion(){
+  answered = false;
+  const idx = order[current];
+  const q = QUESTIONS[idx];
+  const optOrder = shuffle(q.opts.map((_,i)=>i));
+
+  document.getElementById('progress-text').textContent = `Domanda ${current+1} di ${QUESTIONS.length}`;
+  document.getElementById('progress-fill').style.width = `${((current+1)/QUESTIONS.length)*100}%`;
+
+  let html = `<div class="qcard">
+    <span class="qtag">${q.tag}</span>
+    <div class="qtext">${q.q}</div>
+    <div id="opts">`;
+  optOrder.forEach(oi=>{
+    html += `<button class="opt" onclick="selectAnswer(${idx}, ${oi})">${q.opts[oi]}</button>`;
+  });
+  html += `</div>
+    <div class="explain" id="explain"></div>
+    <button class="nextbtn" id="nextbtn" onclick="nextQuestion()">Prossima domanda →</button>
+  </div>`;
+  document.getElementById('quiz-area').innerHTML = html;
+}
+
+function selectAnswer(qIdx, chosenIdx){
+  if(answered) return;
+  answered = true;
+  const q = QUESTIONS[qIdx];
+  const buttons = document.querySelectorAll('#opts .opt');
+  buttons.forEach(b=>b.disabled = true);
+  buttons.forEach(b=>{
+    if(b.textContent === q.opts[q.correct]) b.classList.add('correct');
+  });
+  const isCorrect = chosenIdx === q.correct;
+  if(isCorrect){
+    score++;
+  } else {
+    buttons.forEach(b=>{ if(b.textContent === q.opts[chosenIdx]) b.classList.add('wrong'); });
+  }
+  const explainEl = document.getElementById('explain');
+  explainEl.textContent = (isCorrect ? '✅ Corretto! ' : '❌ Non corretto. ') + q.exp;
+  explainEl.className = 'explain show ' + (isCorrect ? 'ok' : 'ko');
+  document.getElementById('nextbtn').classList.add('show');
+}
+
+function nextQuestion(){
+  current++;
+  if(current >= QUESTIONS.length){
+    showResult();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showResult(){
+  document.getElementById('quiz-area').style.display = 'none';
+  const pct = Math.round((score/QUESTIONS.length)*100);
+  document.getElementById('result-area').innerHTML = `
+    <div class="qcard result">
+      <p>Hai risposto correttamente a</p>
+      <div class="score">${score} / ${QUESTIONS.length}</div>
+      <p>${pct}% di risposte corrette</p>
+      <button class="restart" onclick="start()">Rifai il quiz</button>
+    </div>`;
+}
+
+start();
+</script>
+
+</body>
+</html>
