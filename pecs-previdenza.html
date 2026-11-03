@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
 <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PECS — Previdenza e legislazione sociale</title>
 <link rel="stylesheet" href="pecs.css">
+<link rel="stylesheet" href="sitebar.css">
 </head>
 <body>
+<div class="sitebar"><a href="index.html">🧠 Sito Concorso Psicologi · Home</a><a href="pecs.html" class="on">🏛 Sito Concorso INPS PECS</a></div>
 
 <header class="top">
   <div class="kicker"><a href="pecs.html">← Guida alla prova PECS</a> · <a href="index.html">Home</a></div>
@@ -22,6 +26,8 @@
   <a class="on" href="pecs-previdenza.html">Previdenza</a>
   <a href="pecs-controllo-gestione.html">Controllo di gestione</a>
   <a href="pecs-inglese-informatica.html">Inglese e informatica</a>
+  <a href="pecs-novita.html">Novità 2026</a>
+  <a href="pecs-situazionali.html">Scenari</a>
   <a href="pecs-formulario.html">Formulario</a>
   <a href="pecs-simulazioni.html">Simulazioni</a>
 </nav>
@@ -176,11 +182,13 @@
 <footer class="sito">&copy; 2026 Piattaforma di Studio Concorsi.</footer>
 
 <script src="pecs-data.js" charset="utf-8"></script>
+<script src="pecs-data2.js" charset="utf-8"></script>
+<script src="pecs-data3.js" charset="utf-8"></script>
 <script src="pecs-sim.js" charset="utf-8"></script>
 <script>
 PECS.mountPractice(document.getElementById('prat'), {
-  brani: ['b_p_contrib','b_p_pens','b_p_naspi','b_p_famiglia','b_p_adi'],
-  quesiti: ['q_p_naspi68','q_p_naspi_dim','q_p_silenzio','q_p_adi','q_p_dini'],
+  brani: ['b_p_contrib','b_p_pens','b_p_naspi','b_p_famiglia','b_p_adi','b_p_contrib2','b_p_speranza','b_p_contributivi','b_p_auu','b_p_cig','b_p_inail','b_p_inl','b_p_compl'],
+  quesiti: ['q_p_naspi68','q_p_naspi_dim','q_p_silenzio','q_p_adi','q_p_dini','q_x_naspi','q_x_franchigia','q_x_sanz','q_n_compl'],
   key: 'prev'
 });
 </script>

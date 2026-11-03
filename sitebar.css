@@ -1,0 +1,5 @@
+.sitebar{position:sticky;top:0;z-index:9999;display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap;background:#14213d;padding:7px 10px;font:600 13px/1.2 system-ui,-apple-system,Segoe UI,sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.sitebar a{color:#e8ecf5;text-decoration:none;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.25)}
+.sitebar a:hover{background:rgba(255,255,255,.14)}
+.sitebar a.on{background:#fff;color:#14213d;border-color:#fff}
+@media print{.sitebar{display:none}}

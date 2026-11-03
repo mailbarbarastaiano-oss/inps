@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
 <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PECS — Pianificazione e controllo di gestione</title>
 <link rel="stylesheet" href="pecs.css">
+<link rel="stylesheet" href="sitebar.css">
 </head>
 <body>
+<div class="sitebar"><a href="index.html">🧠 Sito Concorso Psicologi · Home</a><a href="pecs.html" class="on">🏛 Sito Concorso INPS PECS</a></div>
 
 <header class="top">
   <div class="kicker"><a href="pecs.html">← Guida alla prova PECS</a> · <a href="index.html">Home</a></div>
@@ -22,6 +26,8 @@
   <a href="pecs-previdenza.html">Previdenza</a>
   <a class="on" href="pecs-controllo-gestione.html">Controllo di gestione</a>
   <a href="pecs-inglese-informatica.html">Inglese e informatica</a>
+  <a href="pecs-novita.html">Novità 2026</a>
+  <a href="pecs-situazionali.html">Scenari</a>
   <a href="pecs-formulario.html">Formulario</a>
   <a href="pecs-simulazioni.html">Simulazioni</a>
 </nav>
@@ -149,11 +155,13 @@
 <footer class="sito">&copy; 2026 Piattaforma di Studio Concorsi.</footer>
 
 <script src="pecs-data.js" charset="utf-8"></script>
+<script src="pecs-data2.js" charset="utf-8"></script>
+<script src="pecs-data3.js" charset="utf-8"></script>
 <script src="pecs-sim.js" charset="utf-8"></script>
 <script>
 PECS.mountPractice(document.getElementById('prat'), {
-  brani: ['b_c_gestione','b_c_controlli','b_c_perf'],
-  quesiti: ['q_c_relazione','q_c_mdc','q_c_bep','q_c_diff'],
+  brani: ['b_c_gestione','b_c_controlli','b_c_perf','b_c_cdg','b_c_fasi','b_c_costi','b_c_tecn','b_c_analitica'],
+  quesiti: ['q_c_relazione','q_c_mdc','q_c_bep','q_c_diff','q_x_cdg','q_x_budget','q_x_rep','q_x_costi','q_n_bi'],
   key: 'ctrl'
 });
 </script>
