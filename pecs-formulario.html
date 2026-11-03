@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PECS — Formulario</title>
+<link rel="stylesheet" href="pecs.css">
+<style>
+  .fc{background:#fff;border:2px solid var(--navy);border-radius:14px;padding:24px;min-height:150px;text-align:center;}
+  .fc .d{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);}
+  .fc .q{font-size:1.15rem;font-weight:700;color:var(--navy);margin:10px 0;}
+  .fc .a{font-size:1.1rem;color:var(--green);font-weight:700;margin-top:10px;min-height:1.4em;}
+  .fcbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px;}
+  table.rif td.n{font-weight:700;white-space:nowrap;color:var(--navy);}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="kicker"><a href="pecs.html">← Guida alla prova PECS</a> · <a href="index.html">Home</a></div>
+  <h1>Formulario della prova scritta</h1>
+  <p>Termini, importi 2026 e sigle: da ripassare ogni giorno</p>
+</header>
+
+<nav class="pecsnav">
+  <a href="pecs.html">Guida alla prova</a>
+  <a href="pecs-pa.html">PA</a>
+  <a href="pecs-lavoro.html">Lavoro</a>
+  <a href="pecs-previdenza.html">Previdenza</a>
+  <a href="pecs-controllo-gestione.html">Controllo di gestione</a>
+  <a href="pecs-inglese-informatica.html">Inglese e informatica</a>
+  <a class="on" href="pecs-formulario.html">Formulario</a>
+  <a href="pecs-simulazioni.html">Simulazioni</a>
+</nav>
+
+<main>
+
+  <div class="progresso">
+    📍 <b>Come usarlo:</b> 10 minuti al giorno. Prima le <b>schede a risposta nascosta</b>, poi le tabelle. Dove le fonti divergono vale l'Errata Corrige Smart (27/9/2026); gli importi 2026 vanno verificati sulla circolare vigente.
+  </div>
+
+  <h2 class="sezione" style="margin-top:6px">Schede di ripasso</h2>
+  <div class="fc" id="fc">
+    <div class="d" id="fcd"></div>
+    <div class="q" id="fcq"></div>
+    <div class="a" id="fca"></div>
+  </div>
+  <div class="fcbar">
+    <button class="btn" id="fcshow">Mostra la risposta</button>
+    <button class="btn sec" id="fcnext">Prossima scheda</button>
+    <span class="msg" id="fccount"></span>
+  </div>
+
+  <h2 class="sezione">1. Termini procedimentali</h2>
+  <table class="rif">
+    <tr><th>Termine</th><th>Che cosa</th></tr>
+    <tr><td class="n">30 / 90 / 180 gg</td><td>Conclusione del procedimento: generale 30; per complessità fino a 90; mai oltre 180 (salvo cittadinanza e immigrazione)</td></tr>
+    <tr><td class="n">10 gg</td><td>Osservazioni dopo il preavviso di rigetto (art. 10-bis); non per i procedimenti previdenziali a istanza di parte</td></tr>
+    <tr><td class="n">20 gg</td><td>Parere obbligatorio non vincolante (art. 16): poi la PA procede senza</td></tr>
+    <tr><td class="n">45 gg (90)</td><td>Conferenza di servizi semplificata (90 con amministrazioni di tutela)</td></tr>
+    <tr><td class="n">30 gg (90)</td><td>Silenzio-assenso tra amministrazioni, art. 17-bis (90 per le amministrazioni di tutela)</td></tr>
+    <tr><td class="n">120 gg</td><td>Silenzio-rigetto sulle prestazioni INPS; poi Comitato (ricorso entro 90 gg) e giudice del lavoro</td></tr>
+    <tr><td class="n">30 gg</td><td>Accesso documentale (poi silenzio-rigetto); accesso civico semplice e generalizzato</td></tr>
+    <tr><td class="n">60 gg</td><td>Ricorso al TAR</td></tr>
+    <tr><td class="n">120 gg</td><td>Ricorso straordinario al Presidente della Repubblica</td></tr>
+    <tr><td class="n">180 gg</td><td>Azione di nullità (art. 31, c. 4, c.p.a.)</td></tr>
+    <tr><td class="n">6 mesi</td><td>Annullamento d'ufficio di autorizzazioni e vantaggi economici (art. 21-nonies, L. 182/2025)</td></tr>
+    <tr><td class="n">5 anni (10)</td><td>Prescrizione dei contributi (10 se denunciati)</td></tr>
+    <tr><td class="n">3 anni / 1 anno</td><td>Decadenza dall'azione: pensioni / NASpI, maternità, malattia</td></tr>
+    <tr><td class="n">24 h · 72 h · 1 mese</td><td>NIS2: pre-notifica, notifica, relazione finale</td></tr>
+    <tr><td class="n">15 ott · 20 ott · 31 dic</td><td>Documento programmatico di bilancio alla Commissione UE; DDL di bilancio alle Camere; legge di bilancio (esercizio provvisorio solo per legge, massimo 4 mesi)</td></tr>
+  </table>
+
+  <h2 class="sezione">2. Lavoro e disciplina</h2>
+  <table class="rif">
+    <tr><th>Dato</th><th>Che cosa</th></tr>
+    <tr><td class="n">30 gg · 120 gg</td><td>Procedimento disciplinare pubblico: contestazione e conclusione (perentori)</td></tr>
+    <tr><td class="n">6 mesi</td><td>Sospensione disciplinare massima da CCNL (non 12)</td></tr>
+    <tr><td class="n">5 × 2.250 €</td><td>Differenziali stipendiali massimi, per anno</td></tr>
+    <tr><td class="n">28 / 32 gg</td><td>Ferie (settimana su 5 / su 6); 26/30 nei primi 3 anni fino al 31/12/2026</td></tr>
+    <tr><td class="n">12 mesi · 4 proroghe</td><td>Contratto a termine acausale; proroghe massime in 24 mesi</td></tr>
+    <tr><td class="n">&gt; 15 dip. · 5 in 120 gg</td><td>Licenziamento collettivo; esame congiunto 45 gg + fase amministrativa 30 gg</td></tr>
+    <tr><td class="n">6-36 · 2-12</td><td>Indennità per licenziamento ingiustificato / vizi formali (D.Lgs. 23/2015 dopo il Decreto Dignità)</td></tr>
+    <tr><td class="n">4 ore · 10 gg</td><td>Sanzioni conservative (Stat. lav., art. 7): rimprovero, multa fino a 4 ore, sospensione fino a 10 giorni</td></tr>
+    <tr><td class="n">150 €</td><td>Limite orientativo per i regali di modico valore (D.P.R. 62/2013)</td></tr>
+    <tr><td class="n">5.000 · 2.500 · 10.000 · 280 h</td><td>Prestazioni occasionali: prestatore totale / singolo utilizzatore / utilizzatore / ore annue</td></tr>
+  </table>
+
+  <h2 class="sezione">3. Previdenza e assistenza 2026</h2>
+  <table class="rif">
+    <tr><th>Dato</th><th>Valore</th></tr>
+    <tr><td class="n">68 gg · 13 sett. · 24 mesi</td><td>NASpI: domanda; contribuzione nei 4 anni; durata massima. Riduzione 3% dal 6° mese (8° se ≥ 55 anni)</td></tr>
+    <tr><td class="n">1.584,70 € / 1.456,72 €</td><td>NASpI: importo massimo / soglia della retribuzione di riferimento</td></tr>
+    <tr><td class="n">8.500 € · 5.500 €</td><td>NASpI e nuovo lavoro: subordinato (decade) / autonomo</td></tr>
+    <tr><td class="n">1.423,69 €</td><td>Massimale CIG lordo mensile; CIGO domanda entro 15 gg; tetto 24 mesi CIGO+CIGS</td></tr>
+    <tr><td class="n">1,70% · 2,00% · 0,90%</td><td>Contributo ordinario CIGO fino a 50 dip. / oltre; CIGS</td></tr>
+    <tr><td class="n">0,50% · 0,80%</td><td>FIS: fino a 5 dip. (13 settimane) / oltre 5 (26 settimane)</td></tr>
+    <tr><td class="n">611,85 € · 546,24 €</td><td>Trattamento minimo; assegno sociale (×13; limite di reddito 7.101,12 €, 14.202,24 € coniugati)</td></tr>
+    <tr><td class="n">1.638,72 €</td><td>3 × assegno sociale: anticipata contributiva a 64 anni (2,8× madri con 1 figlio; 2,6× con 2 o più)</td></tr>
+    <tr><td class="n">67 · 67+1 · 67+3</td><td>Età di vecchiaia: oggi; 2027; dal 2028</td></tr>
+    <tr><td class="n">122.295 € · 18.808 €</td><td>Massimale contributivo (solo contributivi puri) · minimale artigiani e commercianti</td></tr>
+    <tr><td class="n">33% · 24% · 24,48%</td><td>Aliquote FPLD / artigiani / commercianti; Gestione separata 35,03% (con DIS-COLL)</td></tr>
+    <tr><td class="n">10.140 €</td><td>ISEE per ADI e SFL; SFL 500 €/mese per 12 mesi</td></tr>
+    <tr><td class="n">203,80 € → 58,30 €</td><td>AUU per figlio minorenne (ISEE ≤ 17.468,51 € → ≥ 46.582,71 €)</td></tr>
+    <tr><td class="n">551,53 €</td><td>Accompagnamento (×12, senza limite di reddito); 340,71 € assegno e pensione di inabilità; 272,13 € comunicazione; 368,46 € pensione ciechi</td></tr>
+    <tr><td class="n">5 mesi · 10 gg · 3 mesi</td><td>Maternità; paternità obbligatoria (20 se parto plurimo); congedo parentale all'80% entro 6 anni</td></tr>
+    <tr><td class="n">3 gg/mese</td><td>Permessi L. 104 per assistito; Valutazione di Base 90 / 30 (minori) / 15 (oncologici) giorni</td></tr>
+  </table>
+
+  <h2 class="sezione">4. INPS, controllo e performance</h2>
+  <table class="rif">
+    <tr><th>Dato</th><th>Che cosa</th></tr>
+    <tr><td class="n">5 organi</td><td>Presidente, CdA, CIV, Collegio dei sindaci, Direttore generale; il CIV approva il bilancio entro 60 gg</td></tr>
+    <tr><td class="n">9 sindaci</td><td>5 Lavoro + 4 MEF, mandato quadriennale (secondo l'Errata)</td></tr>
+    <tr><td class="n">4 fasi</td><td>Spesa pubblica: impegno, liquidazione, ordinazione, pagamento</td></tr>
+    <tr><td class="n">30 giugno</td><td>Relazione sulla performance (autonoma, validata dall'OIV) e presentazione dell'assestamento</td></tr>
+    <tr><td class="n">3 dimensioni</td><td>Performance: amministrazione, unità organizzative, singoli dipendenti (D.Lgs. 150/2009, art. 3, c. 2)</td></tr>
+    <tr><td class="n">MdC-IL · MdC-IIL · MOL</td><td>Ricavi − costi diretti variabili · − costi diretti fissi · − costi indiretti</td></tr>
+  </table>
+
+  <h2 class="sezione">5. Sigle</h2>
+  <p style="font-size:.9rem">
+    <b>AGO</b> assicurazione generale obbligatoria · <b>FPLD</b> fondo pensioni lavoratori dipendenti · <b>GIAS</b> gestione interventi assistenziali · <b>IVS</b> invalidità, vecchiaia, superstiti · <b>CIV</b> Consiglio di indirizzo e vigilanza · <b>DCM</b> Direzione di coordinamento metropolitano · <b>DSU/ISEE</b> dichiarazione sostitutiva / indicatore della situazione economica · <b>ADI</b> assegno di inclusione · <b>SFL</b> supporto per la formazione e il lavoro · <b>AUU</b> assegno unico e universale · <b>NASpI</b> · <b>DIS-COLL</b> · <b>CIGO/CIGS</b> · <b>FIS</b> fondo di integrazione salariale · <b>VdB</b> valutazione di base · <b>APE sociale</b> · <b>ATP</b> accertamento tecnico preventivo · <b>DID</b> dichiarazione di immediata disponibilità · <b>DURC</b> · <b>UNIEMENS</b> flusso mensile delle denunce · <b>RPCT</b> responsabile prevenzione corruzione e trasparenza · <b>PTPCT</b> · <b>PIAO</b> piano integrato di attività e organizzazione · <b>OIV</b> · <b>UPD</b> ufficio procedimenti disciplinari · <b>CUG</b> comitato unico di garanzia · <b>CAD</b> · <b>AgID</b> · <b>SPID</b> · <b>CIE</b> · <b>CNS</b> · <b>PDND</b> · <b>SEND</b> · <b>ANPR</b> · <b>INAD</b> · <b>IPA</b> · <b>INI-PEC</b> · <b>PEC</b> · <b>GDPR</b> · <b>DPO</b> · <b>DPIA</b> · <b>FEA/FEQ</b> firma elettronica avanzata / qualificata · <b>ARAN</b> · <b>CCNL</b> · <b>RGS</b> ragioneria generale dello Stato · <b>MEF</b>
+  </p>
+
+  <div class="attenzione"><b>Fonti in conflitto (da verificare).</b> ADI: Appendice C (6.000 € annui) contro Errata e dispensa (6.500 €). Congedo parentale: Appendice D (12 anni) contro Errata (14 anni per i dipendenti dal 2026). Collegio dei sindaci: dispensa FP (8 membri) contro Errata (9).</div>
+
+  <footer class="fonti">Fonti: Appendici A-D Smart, Errata Corrige (27/9/2026), dispense FP Formazione, L. 182/2025.</footer>
+</main>
+<footer class="sito">&copy; 2026 Piattaforma di Studio Concorsi.</footer>
+
+<script>
+var CARDS = [
+ ["Procedimento","Termine generale di conclusione?","30 giorni (fino a 90 per complessità, mai oltre 180)"],
+ ["Procedimento","Giorni per le osservazioni dopo il preavviso di rigetto?","10 giorni (art. 10-bis); non per i procedimenti previdenziali a istanza di parte"],
+ ["Procedimento","Termine per il parere obbligatorio non vincolante?","20 giorni (art. 16): poi la PA procede senza"],
+ ["Atti","Termine per annullare d'ufficio un'autorizzazione illegittima?","Sei mesi (art. 21-nonies dopo la L. 182/2025)"],
+ ["Atti","Ricorso al TAR: termine?","60 giorni"],
+ ["Atti","Ricorso straordinario al PdR: termine?","120 giorni"],
+ ["Atti","Termine dell'azione di nullità?","180 giorni (art. 31, c. 4, c.p.a.)"],
+ ["Atti","Mancanza di motivazione: nullo o annullabile?","Annullabile (art. 3 + 21-octies, c. 1)"],
+ ["Accesso","Quale accesso richiede la motivazione?","Solo l'accesso documentale (interesse diretto, concreto e attuale)"],
+ ["Accesso","Il difensore civico vale contro l'INPS?","No: solo regioni ed enti locali; restano RPCT e TAR"],
+ ["INPS","Dopo quanti giorni si forma il silenzio-rigetto sulle prestazioni INPS?","120 giorni; poi Comitato entro 90 giorni, poi giudice del lavoro"],
+ ["INPS","Decadenza dall'azione per pensioni e per NASpI?","3 anni per le pensioni; 1 anno per NASpI, maternità e malattia"],
+ ["Lavoro","Procedimento disciplinare nel pubblico: termini perentori?","Contestazione entro 30 giorni; conclusione entro 120 giorni"],
+ ["Lavoro","Sospensione disciplinare massima da CCNL?","6 mesi"],
+ ["Lavoro","Differenziali stipendiali: quanti e di che importo?","Massimo 5, da 2.250 € annui"],
+ ["Lavoro","Contratto a termine senza causale: fino a quando?","12 mesi; proroghe massimo 4 in 24 mesi"],
+ ["Lavoro","Licenziamento collettivo: requisiti?","Più di 15 dipendenti; almeno 5 licenziamenti in 120 giorni"],
+ ["Lavoro","Indennità per licenziamento ingiustificato (D.Lgs. 23/2015)?","6-36 mensilità; vizi formali 2-12"],
+ ["Lavoro","Mansioni inferiori per assetti organizzativi: fino a?","Un solo livello inferiore, stessa categoria legale, scritto a pena di nullità"],
+ ["Previdenza","NASpI: giorni per presentare la domanda?","68 giorni dalla cessazione (decadenza piena)"],
+ ["Previdenza","NASpI: contribuzione richiesta e durata massima?","13 settimane nei 4 anni; durata massima 24 mesi"],
+ ["Previdenza","NASpI: riduzione?","3% al mese dal 6° mese (dall'8° se ≥ 55 anni)"],
+ ["Previdenza","NASpI 2026: importo massimo?","1.584,70 € lordi mensili (soglia 1.456,72 €)"],
+ ["Previdenza","Assegno sociale 2026?","546,24 € (×13); limite di reddito 7.101,12 € (14.202,24 € coniugati)"],
+ ["Previdenza","Pensione anticipata contributiva a 64 anni: importo minimo?","3 × assegno sociale = 1.638,72 € (2,8× madri con 1 figlio; 2,6× con 2 o più)"],
+ ["Previdenza","Età di vecchiaia nel 2027 e dal 2028?","67 anni e 1 mese; 67 anni e 3 mesi"],
+ ["Previdenza","Retributivi: chi sono e fino a quando vale il calcolo retributivo?","Almeno 18 anni di contributi al 31/12/1995; retributivo fino al 2011"],
+ ["Previdenza","ISEE per ADI e SFL?","Fino a 10.140 €"],
+ ["Previdenza","Paternità obbligatoria?","10 giorni (20 se parto plurimo), solo dipendenti, 100%"],
+ ["Previdenza","Valutazione di Base della disabilità: termini?","90 giorni; 30 minori; 15 oncologici"],
+ ["Controllo","Chi approva il bilancio INPS?","Il CIV, entro 60 giorni dalla delibera del CdA"],
+ ["Controllo","MdC-IL, MdC-IIL, MOL?","Ricavi − costi diretti variabili; − costi diretti fissi; − costi indiretti"],
+ ["Controllo","Relazione sulla performance: quando e chi la valida?","Entro il 30 giugno; validata dall'OIV; autonoma rispetto al PIAO"],
+ ["Digitale","NIS2: tempi di notifica?","Pre-notifica 24 ore, notifica 72 ore, relazione finale 1 mese"],
+ ["Digitale","Livello SPID della carta d'identità elettronica con PIN?","Livello 3 (elevato)"],
+ ["Digitale","PagoPA per i rimborsi INPS?","No: serve solo ai pagamenti verso la PA"]
+];
+var order=[],pos=0,shown=false;
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function render(){
+  var c=CARDS[order[pos]];
+  document.getElementById('fcd').textContent=c[0];
+  document.getElementById('fcq').textContent=c[1];
+  document.getElementById('fca').textContent=shown?c[2]:'';
+  document.getElementById('fcshow').textContent=shown?'Nascondi la risposta':'Mostra la risposta';
+  document.getElementById('fccount').textContent='Scheda '+(pos+1)+' di '+CARDS.length;
+}
+document.getElementById('fcshow').onclick=function(){shown=!shown;render();};
+document.getElementById('fcnext').onclick=function(){pos=(pos+1)%order.length;shown=false;render();};
+order=CARDS.map(function(_,i){return i;});order=shuffle(order);render();
+</script>
+</body>
+</html>

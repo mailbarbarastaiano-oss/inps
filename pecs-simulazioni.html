@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PECS — Simulazioni della prova scritta</title>
+<link rel="stylesheet" href="pecs.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="kicker"><a href="pecs.html">← Guida alla prova PECS</a> · <a href="index.html">Home</a></div>
+  <h1>Simulazioni della prova scritta</h1>
+  <p>Concorso INPS 1.695 Funzionari PECS · Sezione A (brani e quesiti) + Sezione B (scenari)</p>
+</header>
+
+<nav class="pecsnav">
+  <a href="pecs.html">Guida alla prova</a>
+  <a href="pecs-pa.html">PA</a>
+  <a href="pecs-lavoro.html">Lavoro</a>
+  <a href="pecs-previdenza.html">Previdenza</a>
+  <a href="pecs-controllo-gestione.html">Controllo di gestione</a>
+  <a href="pecs-inglese-informatica.html">Inglese e informatica</a>
+  <a href="pecs-formulario.html">Formulario</a>
+  <a class="on" href="pecs-simulazioni.html">Simulazioni</a>
+</nav>
+
+<main>
+  <div class="progresso">
+    📍 <b>Come funziona.</b> Ogni simulazione ha <b>tre brani</b> con spazi vuoti, <b>cinque quesiti</b> sul contenuto e <b>due scenari</b> operativi, con 3 opzioni per domanda. Le risposte, come nella prova, non si cambiano. Alla consegna vedi il punteggio in trentesimi per sezione e la correzione commentata. Il tempo è solo cronometrato per te: il bando non indica una durata.
+  </div>
+  <div id="sim"></div>
+  <footer class="fonti">
+    Basate sulle materie del bando (art. 7) e sull'avviso di convocazione. I contenuti seguono le dispense e l'Errata Corrige Smart (27/9/2026). I risultati sono salvati solo in questo browser.
+  </footer>
+</main>
+<footer class="sito">&copy; 2026 Piattaforma di Studio Concorsi.</footer>
+
+<script src="pecs-data.js" charset="utf-8"></script>
+<script src="pecs-sim.js" charset="utf-8"></script>
+<script>PECS.mountSim(document.getElementById('sim'));</script>
+</body>
+</html>
