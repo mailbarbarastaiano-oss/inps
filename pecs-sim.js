@@ -108,26 +108,28 @@
     function run(sim) {
       var items = [], h = '', started = Date.now();
       h += '<div class="simbar"><span><b>' + sim.title + '</b></span><span>Tempo: <b id="tm">00:00</b> · Risposte: <b id="cnt">0</b>/<b id="tot">0</b></span></div>';
-      h += '<h2 class="sezione" style="margin-top:6px">Sezione A · Brani tecnico-giuridici e quesiti</h2>';
-      sim.brani.forEach(function (id, bi) {
-        var b = D.brani[id];
-        h += '<div class="sc"><h3>Brano ' + (bi + 1) + (b.en ? ' (inglese)' : '') + ' · ' + b.title.replace(/^Brano \d+ · /, '') + '</h3>' + clozeHtml(b, 'A' + id) + '</div>';
-        b.gaps.forEach(function (g, gi) { items.push({ sec: 'A', key: 'A' + id + ':' + gi, c: g.c, e: g.e, lab: 'Brano ' + (bi + 1) + ', spazio ' + (gi + 1) }); });
+      h += '<div id="restop"></div><h2 class="sezione" style="margin-top:6px">Sezione A · Brani tecnico-giuridici e quesiti</h2>';
+      sim.units.forEach(function (u, bi) {
+        var b = D.brani[u.b], gid = 'g' + bi;
+        h += '<div class="sc"><h3>Brano ' + (bi + 1) + (b.en ? ' (inglese)' : '') + ' · ' + b.title.replace(/^Brano \d+ · /, '').replace(/^Brano · /, '') + '</h3>' + clozeHtml(b, 'A' + u.b);
+        b.gaps.forEach(function (g, gi) { items.push({ sec: 'A', grp: gid, key: 'A' + u.b + ':' + gi, c: g.c, e: g.e, ans: g.o[g.c], lab: 'Spazio ' + (gi + 1) }); });
+        h += '<h4 class="sotto">Quesiti sul brano ' + (bi + 1) + '</h4>';
+        u.q.forEach(function (id, qi) {
+          var q = D.quesiti[id];
+          h += qHtml(q, 'A' + u.b + '_' + id, qi + 1);
+          items.push({ sec: 'A', grp: gid, key: 'A' + u.b + '_' + id, c: q.c, e: q.e, ans: q.o[q.c], lab: 'Quesito ' + (qi + 1) });
+        });
+        h += '<div class="corr" id="corr_' + gid + '"></div></div>';
       });
-      h += '<div class="sc"><h3>Quesiti sul contenuto dei brani</h3>';
-      sim.quesiti.forEach(function (id, qi) {
-        h += qHtml(D.quesiti[id], 'A' + id, qi + 1);
-        items.push({ sec: 'A', key: 'A' + id, c: D.quesiti[id].c, e: D.quesiti[id].e, lab: 'Quesito ' + (qi + 1) });
-      });
-      h += '</div><h2 class="sezione">Sezione B · Scenari operativi</h2>';
+      h += '<h2 class="sezione">Sezione B · Scenari operativi</h2>';
       sim.scenari.forEach(function (id, si) {
-        var s = D.scenari[id];
+        var s = D.scenari[id], gid = 'sc' + si;
         h += '<div class="sc"><h3>Scenario ' + (si + 1) + ' · ' + s.title + '</h3><div class="scen">' + s.text + '</div>';
         s.qs.forEach(function (q, qi) {
           h += qHtml(q, 'B' + id + '_' + qi, (qi + 1));
-          items.push({ sec: 'B', key: 'B' + id + '_' + qi, c: q.c, e: q.e, lab: 'Scenario ' + (si + 1) + ', quesito ' + (qi + 1) });
+          items.push({ sec: 'B', grp: gid, key: 'B' + id + '_' + qi, c: q.c, e: q.e, ans: q.o[q.c], lab: 'Quesito ' + (qi + 1) });
         });
-        h += '</div>';
+        h += '<div class="corr" id="corr_' + gid + '"></div></div>';
       });
       h += '<div id="sub"><button class="btn" data-act="deliver">Consegna la prova</button> <button class="btn sec" data-act="home">Esci senza consegnare</button><div class="msg" id="smsg"></div></div><div id="out"></div>';
       el.innerHTML = h;
@@ -163,11 +165,17 @@
 
       function finish() {
         done = true; if (timer) { clearInterval(timer); timer = null; }
-        var ca = 0, na = 0, cb = 0, nb = 0, rev = '';
+        var ca = 0, na = 0, cb = 0, nb = 0, groups = {};
         items.forEach(function (it) {
           var ok = answers[it.key] === it.c;
           if (it.sec === 'A') { na++; if (ok) ca++; } else { nb++; if (ok) cb++; }
-          rev += '<div class="rev ' + (ok ? 'ok' : 'ko') + '"><b>' + it.lab + '</b>: ' + (ok ? 'corretto' : (answers[it.key] === undefined ? 'non risposto' : 'errato')) + ' — ' + it.e + '</div>';
+          var g = groups[it.grp] || (groups[it.grp] = { h: '', ok: 0, n: 0 });
+          g.n++; if (ok) g.ok++;
+          g.h += '<div class="rev ' + (ok ? 'ok' : 'ko') + '"><b>' + it.lab + '</b>: ' + (ok ? 'corretto' : (answers[it.key] === undefined ? 'non risposto' : 'errato')) + ' · risposta corretta: <b>' + it.ans + '</b><br>' + it.e + '</div>';
+        });
+        Object.keys(groups).forEach(function (k) {
+          var box = el.querySelector('#corr_' + k);
+          if (box) box.innerHTML = '<h4 class="sotto">✅ Correzione commentata · ' + groups[k].ok + ' su ' + groups[k].n + ' corrette</h4>' + groups[k].h;
         });
         var sa = Math.round(ca / na * 300) / 10, sb = Math.round(cb / nb * 300) / 10, pass = sa >= 21 && sb >= 21;
         var secs = Math.round((Date.now() - started) / 1000);
@@ -178,10 +186,11 @@
           '<div class="box ' + (sa >= 21 ? 'pass' : 'fail') + '"><div class="n">' + sa + '/30</div><small>Sezione A (' + ca + ' su ' + na + ' corrette)</small></div>' +
           '<div class="box ' + (sb >= 21 ? 'pass' : 'fail') + '"><div class="n">' + sb + '/30</div><small>Sezione B (' + cb + ' su ' + nb + ' corrette)</small></div>' +
           '<div class="box ' + (pass ? 'pass' : 'fail') + '"><div class="n">' + (pass ? 'Superata' : 'Non superata') + '</div><small>Servono 21/30 in entrambe le sezioni · tempo ' + fmt(secs) + '</small></div></div>' +
-          '<h3 class="sotto">Correzione commentata</h3>' + rev +
+          '<p class="nota">La correzione di ogni brano e di ogni scenario si trova <b>subito sotto di esso</b>: scorri la pagina e leggi le spiegazioni.</p>' +
           '<p><button class="btn" data-act="home">Torna alle simulazioni</button></p>';
-        el.querySelector('#out').innerHTML = o;
-        el.querySelector('#out').scrollIntoView({ behavior: 'smooth' });
+        el.querySelector('#restop').innerHTML = o;
+        el.querySelector('#out').innerHTML = '<p><button class="btn" data-act="home">Torna alle simulazioni</button></p>';
+        window.scrollTo(0, 0);
       }
     }
 

@@ -125,3 +125,5 @@ h2.sez .ic{width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;a
 .rev.ok{border-left:4px solid var(--green);}
 .rev.ko{border-left:4px solid var(--red);}
 @media print{header.top a,nav.pecsnav{display:none;}}
+
+.corr{margin-top:14px;border-top:2px dashed #b6bfcc;padding-top:10px}.corr:empty{display:none}.sc h4.sotto{font-size:.92rem;margin:14px 0 8px;color:var(--navy)}
